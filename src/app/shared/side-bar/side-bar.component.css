@@ -1,0 +1,72 @@
+:host {
+  background: #373a3c;
+  color: #fff;
+  position: fixed;
+  right: auto;
+  top: 55px;
+  left: -20%;
+  bottom: 0;
+  width: 20%;
+  min-width: 250px;
+  z-index: 9999;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+ul {
+  font-size: 18px;
+  line-height: 4%;
+  font-weight: 400;
+  padding-top: 3%;
+  list-style: none;
+}
+
+/*----------*/
+li,ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#navigation {
+  background: #0e1a35;
+  padding: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin-right: 2%;
+  margin-top: -1.4%;
+}
+
+.navi a {
+  border-bottom: 1px solid #0d172e;
+  border-top: 1px solid #0d172e;
+  color: #ffffff;
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 28px 20px;
+  text-decoration: none;
+}
+
+.navi i {
+  margin-right: 15px;
+  color: #5584ff;
+}
+
+.navi .active a {
+  background: #122143;
+  border-left: 5px solid #5584ff;
+  padding-left: 15px;
+}
+
+.navi a:hover {
+  background: #122143 none repeat scroll 0 0;
+  border-left: 5px solid #5584ff;
+  display: block;
+  padding-left: 15px;
+}
+
+
+
