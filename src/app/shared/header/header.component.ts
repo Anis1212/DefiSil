@@ -7,10 +7,12 @@ import {Component, trigger, state, style, transition, animate } from '@angular/c
   animations: [
     trigger('slideInOut', [
       state('in', style({
-        transform: 'translate3d(100%, 0, 0)'
+        width: '21%',
+        overflow:'hidden'
       })),
       state('out', style({
-        transform: 'translate3d(0, 0, 0)'
+        width: '3.5%',
+        overflow:'hidden'
       })),
       transition('in => out', animate('400ms ease-in-out')),
       transition('out => in', animate('400ms ease-in-out'))
