@@ -1,4 +1,4 @@
-import {Component, trigger, state, style, transition, animate } from '@angular/core';
+import {Component, trigger, state, style, transition, animate, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -20,14 +20,17 @@ import {Component, trigger, state, style, transition, animate } from '@angular/c
   ]
 })
 export class HeaderComponent {
-  menuState:string = 'out';
+  @Output() clicked = new EventEmitter<string>();
+  menuState:string = 'toggled';
 
   //Cette méthode s'occupe de l'affichage ou non du menu lattéral
   toggleMenu() {
-    if (this.menuState === 'out'){
-      this.menuState = 'in';
+    if (this.menuState === 'toggled'){
+      this.clicked.emit('');
+      this.menuState = '';
     }else{
-      this.menuState = 'out';
+      this.clicked.emit('toggle');
+      this.menuState = 'toggled';
     }
   }
 }
