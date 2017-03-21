@@ -1,0 +1,87 @@
+<div id="cardContainer">
+   <!--<div id="card1-Contanainer">
+      <md-tab-group>
+         <md-tab label="Dimanche">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Lundi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Mardi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Mercredi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Jeudi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+      </md-tab-group>
+   </div>-->
+   <!--<div id="card2-Contanainer">
+
+     <div class="Ccontenu">Plugin de méteo </div>
+   </div>-->
+   <div id="card1-Contanainer">
+       <span class="icon-container"><img src="src\img\notes-icon.png"/></span>
+       <span class="Ccontenu">Gestion des notes</span>
+   </div>
+   <div id="card2-Contanainer">
+      <span class="icon-container"><img src="src\img\rsv-salle.png"/></span>
+      <span class="Ccontenu">Réservation des salles</span>
+      
+   </div>
+   <div id="card3-Contanainer">
+      <span class="icon-container"><img src="src\img\abs-icon.png"/></span>
+      <span class="Ccontenu"> Gestion des absences </span>
+   
+   </div>
+   <div id="card4-Contanainer">
+      <span class="icon-container"><img src="src\img\rdv-icon.png"/></span>
+      <span class="Ccontenu"> Gestion des rendez-vous </span>
+      
+   </div>
+
+      <div id="card5-Contanainer">
+      <h1> Emploi du temps </h1>
+       <hr/>
+      <div class="temps-container">
+        <md-tab-group>
+          
+         <md-tab label="Dimanche">
+           
+         </md-tab>
+         <md-tab label="Lundi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Mardi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Mercredi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+         <md-tab label="Jeudi">
+            <h1>Some more tab content</h1>
+         </md-tab>
+      </md-tab-group>
+        
+        
+     </div>
+      
+   </div>
+
+     <div id="card6-Contanainer">
+      <h1> Demandes de RDV </h1>
+      <hr/>
+      <md-list>
+        <md-list-item *ngFor="let note of notes">
+          <md-icon md-list-avatar>person_pin</md-icon>
+          <h3 md-line>{{note.name}}</h3>
+          <p md-line> {{note.updated | date}} </p>
+        </md-list-item>
+      </md-list>
+      
+   </div>
+
+
+</div>

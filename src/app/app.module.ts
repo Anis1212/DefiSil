@@ -2,31 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@angular/material';
+
+import {AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
+
+
 
 import { AppComponent } from './app.component';
 import { EnseignantAppComponent } from './enseignant-app/enseignant-app.component';
 import { EtudiantAppComponent } from './etudiant-app/etudiant-app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { SideBarComponent } from './shared/side-bar/side-bar.component';
-import { routes } from './app.routes';
+
+import  { EnseignantAppModule } from './enseignant-app/enseignant-app.module';
+
+import {routes} from './app.routes'
 
 @NgModule({
   declarations: [
     AppComponent,
-    EnseignantAppComponent,
     EtudiantAppComponent,
-    HeaderComponent,
-    SideBarComponent
+
   ],
   imports: [
+    MaterialModule,
+    MaterialModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule,
-    routes
+    routes,
+    EnseignantAppModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
+  bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
