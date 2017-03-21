@@ -12,10 +12,11 @@
 
 #sidebar-wrapper {
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   left: 250px;
   width: 3.5%;
   top: 55px;
+  bottom:0;
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
@@ -37,6 +38,8 @@
   width: 100%;
   position: absolute;
   padding-left: 4%;
+  overflow: scroll;
+  height: 593px;
 }
 
 #wrapper.toggled #page-content-wrapper {
