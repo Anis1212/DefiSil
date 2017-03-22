@@ -1,14 +1,23 @@
+*{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 .navbar{
-  background-color: #2980b9;
+  background-color: #e74c3c;
   border-radius: 0;
   border: none;
   top: 0;
+  height: 55px;
+  margin-bottom: 0;
+  z-index: 9999;
 }
-.navbar-header a:first-child{
-  color: white;
+.navbar-header a{
+  color: white !important;
 }
 .navbar-nav li a:hover{
   color: white !important;
+}
+.nav a{
+  color: white;
 }
 .hamburger {
   display: block;
