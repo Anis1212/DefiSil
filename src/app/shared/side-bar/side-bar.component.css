@@ -11,12 +11,14 @@
   /*white-space: nowrap;*/
 /*}*/
 
+
 ul {
   font-size: 18px;
   line-height: 4%;
   font-weight: 400;
   padding-top: 3%;
   list-style: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 /*----------*/
@@ -24,6 +26,23 @@ li,ul{
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+li{
+  color: #999999;
+}
+
+ul li:first-child{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ul li:first-child img{
+  border-radius: 50%;
+  margin-left: 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  width: 60px;
+  max-width: 85%;
 }
 
 #navigation {
@@ -50,7 +69,7 @@ li,ul{
 .navi a {
   border-bottom: 1px solid #0d172e;
   border-top: 1px solid #0d172e;
-  color: #ffffff;
+  color: #7f8c8d;
   display: block;
   font-size: 17px;
   font-weight: 500;
@@ -60,50 +79,23 @@ li,ul{
 
 .navi i {
   margin-right: 15px;
-  color: #5584ff;
 }
 
 .navi .active a {
-  background: #122143;
+  background: #e74c3c;
+  color : white;
   /*border-left: 5px solid #5584ff;*/
   padding-left: 15px;
 }
 
 .navi a:hover {
-  background: #122143 none repeat scroll 0 0;
+  background: #e74c3c;
+  color: white;
   /*border-left: 5px solid #5584ff;*/
   display: block;
   padding-left: 15px;
 }
 
-
-#wrapper {
-  padding-left: 0;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-  padding-left: 250px;
-}
-
-
-#wrapper.toggled #sidebar-wrapper {
-  width: 250px;
-}
-
-#page-content-wrapper {
-  width: 100%;
-  position: absolute;
-  padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-  position: absolute;
-  margin-right: -250px;
-}
 
 /* Sidebar Styles */
 

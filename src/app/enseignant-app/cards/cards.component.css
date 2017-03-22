@@ -14,9 +14,9 @@
     background-color: white;
     position: absolute;
     margin-left: 25px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
     display: flex;
     border-radius: 5px;
 
@@ -26,10 +26,10 @@
 {
     background-color: white;
     position: absolute;
-    margin-left: 325px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
+    margin-left: 293px;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
     display: flex;
     border-radius: 5px;
 
@@ -39,10 +39,10 @@
     background-color: white;
 
     position: absolute;
-    margin-left: 625px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
+    margin-left: 560px;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
     display: flex;
     border-radius: 5px;
 
@@ -54,10 +54,10 @@
     /*background-color: rgba(48, 52, 60,0.8);*/
     background-color: white;
     position: absolute;
-    margin-left: 925px;;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
+    margin-left: 830px;;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
     display: flex;
     border-radius: 5px;
 }
@@ -68,14 +68,18 @@
     background: white;
     position: absolute;
     margin-left: 25px;
-    margin-top: 220px;
-    width: 800px;
+    margin-top: 195px;
+    width: 720px;
     height: 400px;
     text-align: center;
-    /*display: flex;*/
+    display: flex;
     display: block;
     border-radius: 5px;
 
+}
+
+.md-tab{
+  min-width: 148px;
 }
 
 #card6-Contanainer
@@ -83,17 +87,18 @@
 
     background: white;
     position: absolute;
-    margin-left: 850px;
-    margin-top: 220px;
-    width: 350px;
+    margin-left: 780px;
+    margin-top: 195px;
+    
+    width: 296px;
     height: 400px;
-
-    /*display: flex;*/
+    display: flex;
     display: block;
     border-radius: 5px;
 
 }
-#card6-Contanainer h1{
+
+#card6-Contanainer h4{
     text-align: center;
 }
 
@@ -120,8 +125,8 @@ margin: 15%;
 
 
     margin: auto;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     margin-top: 35px;
     margin-left: 20px;
     position: absolute;
@@ -135,19 +140,19 @@ margin: 15%;
     margin: auto;
     width: 135px;
     height: 70px;
-    margin-top: 50px;
-    margin-left: 120px;
+    margin-top: 32px;
+    margin-left: 77px;
     position: absolute;
     color: #797979;
     font-weight: bold;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
-h1
+h4
 {
-        font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-        color:rgb(204, 0, 0);
-
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    color:rgb(204, 0, 0);
 }
 #card1-Contanainer span.icon-container
 {
@@ -175,7 +180,7 @@ h1
 {
     margin-bottom: 0;
 }
-#card5-Contanainer h1
+#card5-Contanainer h4
 {
     color: #29AAEB;
 }
