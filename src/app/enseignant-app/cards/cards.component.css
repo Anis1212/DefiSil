@@ -2,8 +2,8 @@
 {
    /*background-color: rgba(255,254,204,0.5);*/
     position: absolute;
-    margin-left: 18%;
-    margin-top: 0%;
+    /*margin-left: 18%;*/
+    margin-top: 0;
     width: 1225px;
     height: 670px;
 
@@ -14,10 +14,10 @@
     background-color: white;
     position: absolute;
     margin-left: 25px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
-    display: flex; 
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
+    display: flex;
     border-radius: 5px;
 
 }
@@ -26,11 +26,11 @@
 {
     background-color: white;
     position: absolute;
-    margin-left: 325px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
-    display: flex; 
+    margin-left: 293px;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
+    display: flex;
     border-radius: 5px;
 
 }
@@ -39,61 +39,66 @@
     background-color: white;
 
     position: absolute;
-    margin-left: 625px;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
-    display: flex; 
+    margin-left: 560px;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
+    display: flex;
     border-radius: 5px;
 
 }
 
 #card4-Contanainer
 {
-   
+
     /*background-color: rgba(48, 52, 60,0.8);*/
     background-color: white;
     position: absolute;
-    margin-left: 925px;;
-    margin-top: 25px;
-    width: 275px;
-    height: 150px;
-    display: flex; 
+    margin-left: 830px;;
+    margin-top: 20px;
+    width: 225px;
+    height: 120px;
+    display: flex;
     border-radius: 5px;
 }
 
 #card5-Contanainer
 {
-   
+
     background: white;
     position: absolute;
     margin-left: 25px;
-    margin-top: 220px;
-    width: 800px;
+    margin-top: 195px;
+    width: 720px;
     height: 400px;
     text-align: center;
-    display: flex; 
+    display: flex;
     display: block;
     border-radius: 5px;
-    
+
+}
+
+.md-tab{
+  min-width: 148px;
 }
 
 #card6-Contanainer
 {
-   
+
     background: white;
     position: absolute;
-    margin-left: 850px;
-    margin-top: 220px;
-    width: 350px;
-    height: 400px;
+    margin-left: 780px;
+    margin-top: 195px;
     
-    display: flex; 
+    width: 296px;
+    height: 400px;
+    display: flex;
     display: block;
     border-radius: 5px;
-    
+
 }
-#card6-Contanainer h1{
+
+#card6-Contanainer h4{
     text-align: center;
 }
 
@@ -104,9 +109,9 @@
     font-size: 20px;
     z-index: 10;
     text-align: center;
- 
+
 }
-img { 
+img {
 
 position: absolute;
 width: 70%;
@@ -120,13 +125,13 @@ margin: 15%;
 
 
     margin: auto;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     margin-top: 35px;
     margin-left: 20px;
     position: absolute;
     border-radius: 50%;
- 
+
 }
 
 #cardContainer div span.Ccontenu{
@@ -135,47 +140,47 @@ margin: 15%;
     margin: auto;
     width: 135px;
     height: 70px;
-    margin-top: 50px;
-    margin-left: 120px;
+    margin-top: 32px;
+    margin-left: 77px;
     position: absolute;
     color: #797979;
     font-weight: bold;
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif; 
- 
-}
-h1
-{
-        font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif; 
-        color:rgb(204, 0, 0);
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
-#card1-Contanainer span.icon-container 
+h4
+{
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    color:rgb(204, 0, 0);
+}
+#card1-Contanainer span.icon-container
 {
     background-color: rgba(204, 0, 0,1);
     border: solid 1px rgb(204, 0, 0);
 }
 
-#card2-Contanainer span.icon-container 
+#card2-Contanainer span.icon-container
 {
     background-color: rgba(48, 52, 60,1);
     border: solid 1px rgb(48, 52, 60);
 }
-#card3-Contanainer span.icon-container 
+#card3-Contanainer span.icon-container
 {
-   background-color: rgba(129, 200, 104, 1);    
-   border: solid 1px rgba(129, 200, 104, 1); 
+   background-color: rgba(129, 200, 104, 1);
+   border: solid 1px rgba(129, 200, 104, 1);
 }
-#card4-Contanainer span.icon-container 
+#card4-Contanainer span.icon-container
 {
     background-color: rgba(125, 174, 240, 1);
     border: solid 1px rgb(125, 174, 240);
 }
 
-#card5-Contanainer hr 
+#card5-Contanainer hr
 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
-#card5-Contanainer h1
+#card5-Contanainer h4
 {
     color: #29AAEB;
 }
