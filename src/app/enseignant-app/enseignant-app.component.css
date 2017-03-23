@@ -41,6 +41,7 @@
   padding-left: 4%;
   overflow: scroll;
   height: 593px;
+  min-height: 44em;
 }
 
 #wrapper.toggled #page-content-wrapper {
