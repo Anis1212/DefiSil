@@ -29,12 +29,14 @@ li,ul{
 }
 
 li{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   color: #999999;
 }
 
 ul li:first-child{
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #000;
 }
 ul li:first-child img{
   border-radius: 50%;
@@ -67,14 +69,15 @@ ul li:first-child img{
 /*}*/
 
 .navi a {
-  border-bottom: 1px solid #0d172e;
-  border-top: 1px solid #0d172e;
+  /*border-bottom: 1px solid #0d172e;*/
+  /*border-top: 1px solid #0d172e;*/
   color: #7f8c8d;
   display: block;
   font-size: 17px;
   font-weight: 500;
-  padding: 28px 20px;
+  padding: 10px 20px;
   text-decoration: none;
+  height: 50px;
 }
 
 .navi i {
