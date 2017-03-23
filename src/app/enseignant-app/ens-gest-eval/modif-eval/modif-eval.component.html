@@ -2,25 +2,32 @@
 
 
 <md-dialog-content>
-    <md-toolbar md-dialog-title>Ajouter une évaluation </md-toolbar>
+    <md-toolbar md-dialog-title>Supprimer une évaluation </md-toolbar>
       <md-toolbar-row>
              <form class="example-form">
 
                 <table class="example-full-width" cellspacing="0">
                 
                  <tr>
-                    <strong>Evaluation</strong> 
-                   <md-input-container class="example-full-width">
-                        <input mdInput type="text">
-                    </md-input-container>
+                    <strong id="StrE" >Evaluations </strong> 
+                    <strong id="StrP" >Poids</strong>
+                     <strong id="edit">Editer</strong> 
+                    <md-list >
+                            <md-list-item> <span class="spanE" > CC</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
+                              <md-divider></md-divider>
+                            <md-list-item> <span class="spanE" > TP1</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
+                              <md-divider></md-divider>
+                            <md-list-item> <span class="spanE" > TP2</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span> </md-list-item>
+                              <md-divider></md-divider>
+                            <md-list-item> <span class="spanE" > CI</span> <span class="spanP" >2</span> <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
+                              <md-divider></md-divider>
+                            <md-list-item> <span class="spanE" > CF</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span> </md-list-item>
+                        <md-divider></md-divider>
+                
+                   </md-list>
+                
                 </tr>
-    
-                 <tr>
-                    <strong>coefficient</strong>
-                    <md-input-container class="example-full-width">
-                        <input mdInput type="number">
-                    </md-input-container>
-                </tr>
+
                 <tr>
                     <button md-fab><md-icon>check</md-icon></button>
                 </tr>
@@ -28,6 +35,7 @@
                 </table>
             </form>
       </md-toolbar-row>
+      
     
 
 
