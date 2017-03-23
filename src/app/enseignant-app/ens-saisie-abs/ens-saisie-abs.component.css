@@ -1,0 +1,177 @@
+#mainContainer
+{
+   /*background-color: rgba(154,123,176,.5);*/
+    position: absolute;
+    left: 18%;
+    top: 12%;
+    width: 80%;
+    height: 82%;
+
+}
+
+#barreFiltres
+{
+    /*background-color: rgba(154,23,2,.5);*/
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+}
+
+#filtreContenaire
+{
+    background-color: white;
+    position: relative;
+    margin:auto;
+    width: 96%;
+    text-align: center;
+}
+
+
+#tableContainer
+{
+    /*background-color: rgba(100,223,2,.5);*/
+    position: absolute;
+    left: 0%;
+    top: 30%;
+    width: 100%;
+    z-index: 10;
+}
+
+md-select
+{
+ margin:auto;
+}
+md2-datepicker
+{
+     margin:auto;
+     margin-top: -1px;
+}
+md-toolbar 
+{
+    padding-bottom: 4px;
+}
+.spacer 
+ {
+      flex: 4 auto;
+ }
+
+/* Tableau */
+#table-title
+{
+     background-color:rgb(204, 0, 0);
+     color:azure;
+     width: 99%;
+     margin-left: .5%;
+     top: -20px;
+     position: relative;
+}
+
+.datagrid #table-title
+{
+     
+     width: 96%;
+     margin-left: 2%;
+     
+}
+#table-title span
+{
+     font-size: 22px;
+}
+
+.datagrid table {
+    border-collapse: collapse;
+    width: 96%;
+    margin: auto;
+    
+}
+
+.datagrid table td,
+.datagrid table th {
+    padding: 10px 0px;
+}
+
+
+
+.datagrid table thead th {
+    background:white;
+    background-color: #FFFFFF;
+    color: #ED1C24;
+    font-size: 18px;
+    font-weight: normal;
+    
+}
+.datagrid table thead 
+{
+    border-bottom: solid 1px black;
+}
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+
+.datagrid table tbody td {
+    color: #30343C;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc9c9;
+    font-weight: normal;
+}
+/*
+.datagrid table tbody tr td {
+    padding-left: 10px;
+}*/
+.datagrid table tbody .alt td {
+    background: #FFFFFF;
+    color: rgb(48, 52, 60);
+}
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.datagrid
+{
+
+    font: normal 22px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    height: 100%;
+    margin:auto;
+    width: 96%;
+    padding-top: 0%;
+     padding-bottom: 10px;
+    
+ 
+}
+
+.alt:hover
+{
+  background-color: red;
+  
+}
+.datagrid div 
+{
+    text-align: center;
+}
+.datagrid div a 
+{
+   float: right;
+   margin-right: 20px;
+   background: #ffd740;
+}
+
+.datagrid div span
+{
+    margin: auto;
+}
+
+.datagrid div span button
+{
+    margin-right: 15px; 
+    background-color: rgb(204, 0, 0);
+    color: white;
+}
+   
