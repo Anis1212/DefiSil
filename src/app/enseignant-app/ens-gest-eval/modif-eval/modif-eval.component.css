@@ -9,7 +9,7 @@ md-toolbar
 md-dialog-content
 {
     padding: 0px;
-  
+    width: 450px;
     margin-top:-25px;
     height: 100%;
 }
@@ -29,5 +29,45 @@ table button
  {
      float: right;
    margin-right: 10px;
+   margin-top: 10px;
    margin-bottom: 7px;
  }
+
+ md-list
+ {
+     height: 210px;
+     overflow-x: hidden;
+ }
+ #edit
+ {
+     margin-right: 50px;
+     float: right;
+
+ }
+ 
+
+.spanE,.spanP
+{
+   width:150px;
+}
+#StrE
+{
+    margin-right:40px;
+}
+md-list button
+{
+    width: 35px;
+    background: white;
+    color: azure;
+    display: flex;
+    height: 35px;
+    padding: 0;
+}
+md-list button img
+{
+    width: 35px;
+    left:0;
+    top: 0;
+    height: 35px;
+    background: rgba(48, 52, 60,0.2);
+}
