@@ -11,6 +11,7 @@ import { EnsSaisieNotesComponent } from './ens-saisie-notes/ens-saisie-notes.com
 import { AddEvalComponent } from './ens-gest-eval/add-eval/add-eval.component';
 import { DelEvalComponent } from './ens-gest-eval/del-eval/del-eval.component';
 import { ModifEvalComponent } from './ens-gest-eval/modif-eval/modif-eval.component';
+import { EnsEmpTempsComponent } from './ens-emp-temps/ens-emp-temps.component';
 
 
 
@@ -31,7 +32,8 @@ import { ModifEvalComponent } from './ens-gest-eval/modif-eval/modif-eval.compon
     EnsSaisieNotesComponent,
     AddEvalComponent,
     DelEvalComponent,
-    ModifEvalComponent
+    ModifEvalComponent,
+    EnsEmpTempsComponent
 
   ]
 })
