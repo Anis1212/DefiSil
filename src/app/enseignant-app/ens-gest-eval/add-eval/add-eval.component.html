@@ -1,22 +1,23 @@
-
-
-
 <md-dialog-content>
     <md-toolbar md-dialog-title>Ajouter une évaluation </md-toolbar>
       <md-toolbar-row>
              <form class="example-form">
 
                 <table class="example-full-width" cellspacing="0">
-                
+
                  <tr>
-                    <strong>Evaluation</strong> 
-                    <input mdInput type="text">
+                    <strong>Evaluation</strong>
+                   <md-input-container class="example-full-width">
+                        <input mdInput type="text">
+                    </md-input-container>
                 </tr>
-    
+
                  <tr>
                     <strong>Poids</strong>
                    <br>
-                    <input mdInput type="number">
+                    <md-input-container class="example-full-width">
+                        <input mdInput type="number">
+                    </md-input-container>
                 </tr>
                 <tr>
                     <button md-fab><md-icon>add</md-icon></button>
@@ -25,7 +26,4 @@
                 </table>
             </form>
       </md-toolbar-row>
-    
-
-
 </md-dialog-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-del-eval',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DelEvalComponent implements OnInit {
 
-  constructor() { }
+  private evalList = [];
+
+  constructor(public dialogRef : MdDialogRef<DelEvalComponent>) {
+    console.log('data', this.dialogRef.config.data);
+    this.evalList = this.dialogRef.config.data.evalList;
+  }
 
   ngOnInit() {
   }
