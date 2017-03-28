@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { AngularFireModule } from 'angularfire2';
 import { Md2Module } from 'md2';
 
 
@@ -18,6 +19,15 @@ import { DelEvalComponent } from './enseignant-app/ens-gest-eval/del-eval/del-ev
 import { ModifEvalComponent } from './enseignant-app/ens-gest-eval/modif-eval/modif-eval.component';
 
 import {routes} from './app.routes'
+import {EnsServiceService} from "./services/ens-service.service";
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyAjWKEYmrI06Du6ErO5tDSo6WLtzMka-IU',
+  authDomain: 'prj2cssil.firebaseapp.com',
+  databaseURL: 'https://prj2cssil.firebaseio.com',
+  storageBucket: 'prj2cssil.appspot.com',
+  messagingSenderId: '152656725479'
+};
 
 @NgModule({
   declarations: [
@@ -33,12 +43,13 @@ import {routes} from './app.routes'
     HttpModule,
     routes,
     EnseignantAppModule,
-    Md2Module
+    Md2Module,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [ AddEvalComponent,DelEvalComponent,ModifEvalComponent],
- 
-  providers: [],
+
+  providers: [EnsServiceService],
   bootstrap: [AppComponent]
-  
+
 })
 export class AppModule { }
