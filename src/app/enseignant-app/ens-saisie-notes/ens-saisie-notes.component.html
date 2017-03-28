@@ -1,6 +1,6 @@
 <div id="mainContainer">
 
-  
+
    <div id="barreFiltres">
       <div id="filtreContenaire">
          <md-toolbar style="background-color: white;">
@@ -8,41 +8,41 @@
                 <span>Sélectionner </span>
             </md-toolbar >
             <md-toolbar-row>
-               <md-select placeholder="Année" >
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+               <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
+                  <md-option *ngFor="let annee of annees" [value]="annee.value" >
                   {{ annee.viewValue }}
                   </md-option>
                </md-select>
 
-                 <md-select placeholder="Spécialité">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
+                 <md-select placeholder="Spécialité" (change)="onChangeSpecialite($event)">
+                  <md-option *ngFor="let specialite of specialites" [value]="specialite">
+                  {{ specialite }}
                   </md-option>
                </md-select>
 
-                <md-select placeholder="Groupe">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-            
-                <md-select placeholder="Module">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
+                <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
+                  <md-option *ngFor="let groupe of groupes" [value]="groupe.numero">
+                  {{ groupe.numero }}
                   </md-option>
                </md-select>
 
-              <md-select placeholder="Evaluation">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
+                <md-select placeholder="Module" (change)="onChangeModule($event)">
+                  <md-option *ngFor="let module of modules" [value]="module.code">
+                  {{ module.code }}
+                  </md-option>
+               </md-select>
+
+              <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
+                  <md-option *ngFor="let evaluation of evaluations" [value]="evaluation.type">
+                  {{ evaluation.type }}
                   </md-option>
               </md-select>
 
-              <button  md-fab >
+              <button  md-fab (click)="getNotesEtudiants()">
                   <md-icon>check</md-icon>
                </button>
             </md-toolbar-row>
-           
+
          </md-toolbar>
       </div>
    </div>
@@ -54,11 +54,11 @@
                 <span>Gestion des évaluations</span>
             </md-toolbar >
             <md-toolbar-row>
-               <button md-fab (click)="openDialog1()" ><md-icon>add</md-icon></button>
-               <button md-fab (click)="openDialog2()" ><md-icon>delete</md-icon></button>
-               <button md-fab (click)="openDialog3()" ><md-icon>edit</md-icon></button>
+               <button md-fab (click)="openAddEval()" ><md-icon>add</md-icon></button>
+               <button md-fab (click)="openDelEval()" ><md-icon>delete</md-icon></button>
+               <button md-fab (click)="openModifEval()" ><md-icon>edit</md-icon></button>
             </md-toolbar-row>
-           
+
          </md-toolbar>
       </div>
    </div>
@@ -82,43 +82,16 @@
                   <th style="width: 15%;">Editer</th>
                </tr>
             </thead>
-           
+
             <tbody>
-               <tr class="alt">
+               <tr class="alt" *ngFor="let ligne of notesEtudiants">
                   <td>1</td>
                   <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>    
-                  <td>1</td>   
-                  <td><button><img src="src\img\c-edit.png"/></button> </td> 
-                    
+                  <td>{{ ligne.nom }}</td>
+                  <td>{{ ligne.prenom }}</td>
+                  <td>{{ ligne.valeur }}</td>
+                  <td><button><img src="src\img\c-edit.png"/></button> </td>
                </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td>1</td>    
-                  <td><button><img src="src\img\c-edit.png"/></button> </td>      
-               </tr>
-         
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>       
-                  <td>1</td>  
-                  <td><button><img src="src\img\c-edit.png"/></button> </td>    
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td>1</td>    
-                  <td><button><img src="src\img\c-edit.png"/></button> </td>          
-               </tr>
-              
             </tbody>
          </table>
          <div>
