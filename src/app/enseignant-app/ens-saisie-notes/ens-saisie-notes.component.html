@@ -9,8 +9,8 @@
             </md-toolbar >
             <md-toolbar-row>
                <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value" >
-                  {{ annee.viewValue }}
+                  <md-option *ngFor="let annee of annees" [value]="annee?.value" >
+                  {{ annee?.viewValue }}
                   </md-option>
                </md-select>
 
@@ -21,20 +21,20 @@
                </md-select>
 
                 <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
-                  <md-option *ngFor="let groupe of groupes" [value]="groupe.numero">
-                  {{ groupe.numero }}
+                  <md-option *ngFor="let groupe of groupes" [value]="groupe?.numero">
+                  {{ groupe?.numero }}
                   </md-option>
                </md-select>
 
                 <md-select placeholder="Module" (change)="onChangeModule($event)">
-                  <md-option *ngFor="let module of modules" [value]="module.code">
-                  {{ module.code }}
+                  <md-option *ngFor="let module of modules" [value]="module?.code">
+                  {{ module?.code }}
                   </md-option>
                </md-select>
 
               <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
-                  <md-option *ngFor="let evaluation of evaluations" [value]="evaluation.type">
-                  {{ evaluation.type }}
+                  <md-option *ngFor="let evaluation of evaluations" [value]="evaluation?.type">
+                  {{ evaluation?.type }}
                   </md-option>
               </md-select>
 
@@ -87,9 +87,9 @@
                <tr class="alt" *ngFor="let ligne of notesEtudiants">
                   <td>1</td>
                   <td>13/165</td>
-                  <td>{{ ligne.nom }}</td>
-                  <td>{{ ligne.prenom }}</td>
-                  <td>{{ ligne.valeur }}</td>
+                  <td>{{ ligne?.nom }}</td>
+                  <td>{{ ligne?.prenom }}</td>
+                  <td>{{ ligne?.valeur }}</td>
                   <td><button><img src="src\img\c-edit.png"/></button> </td>
                </tr>
             </tbody>
