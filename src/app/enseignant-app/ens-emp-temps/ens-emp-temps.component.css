@@ -1,0 +1,208 @@
+#mainContainer
+{
+   /*background-color: rgba(154,123,176,.5);*/
+  position: absolute;
+  left: 2%;
+  top: 55px;
+  width: 96%;
+  height: 680px;
+  text-align: center;
+
+}
+
+#tableContainer
+{
+    /*background-color: rgba(100,223,2,.5);*/
+  position: absolute;
+  left: 0;
+  top: 10px;
+  height: 90%;
+  width: 99%;
+  z-index: 10;
+}
+
+md-select
+{
+ margin:auto;
+}
+#EvaluationContenaire button
+{
+    margin:auto;
+    background: #e74c3c;
+    color: azure;
+}
+
+md-toolbar
+{
+    padding-bottom: 4px;
+}
+.spacer
+ {
+      flex: 4 auto;
+ }
+
+/* Tableau */
+#table-title
+{
+  background-color:rgb(48, 52, 60);
+  color:azure;
+  width: 99%;
+  margin-left: .5%;
+  top: -20px;
+  position: relative;
+  border-radius: 5px;
+}
+#EvaluationContenaire #table-title
+{
+    background-color:#e74c3c;
+}
+
+.datagrid #table-title
+{
+
+     width: 96%;
+     margin-left: 2%;
+
+}
+#table-title span
+{
+     font-size: 22px;
+}
+
+.datagrid table {
+    border-collapse: collapse;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.datagrid table td,
+.datagrid table th {
+
+    padding: 1px 5px;
+    width: 18%;
+    text-align: center;
+    height: 40px;
+    background: (123,231,217,0.3);
+}
+.datagrid table td:first-child,
+.datagrid table th:first-child
+{
+  width: 10%;
+}
+
+
+.datagrid table thead th {
+    background-color: #FFFFFF;
+    color: #e74c3c;
+    font-size: 18px;
+    font-weight: normal;
+
+}
+.datagrid table thead
+{
+    border-bottom: solid 1px white;
+}
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+
+.datagrid table tbody td {
+    color: #30343C;
+    font-size: 18px;
+
+    font-weight: normal;
+}
+/*
+.datagrid table tbody tr td {
+    padding-left: 10px;
+}*/
+.datagrid table tbody .alt td {
+    background: #FFFFFF;
+    color: rgb(48, 52, 60);
+}
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.datagrid
+{
+
+    font: normal 22px/150% Arial, Helvetica, sans-serif;
+    background: white;
+    height:100%;
+    margin:auto;
+    width: 96%;
+    padding-top: 0;
+    padding-bottom: 10px;
+
+
+}
+
+.alt:hover
+{
+  background-color: #e74c3c;
+
+}
+.datagrid div
+{
+    text-align: center;
+    padding-top: 10px;
+}
+.datagrid div a
+{
+   float: right;
+   margin-right: 11%;
+   background: #ffd740;
+;
+}
+
+.datagrid div span
+{
+    margin-left:4%;
+}
+
+.datagrid div span button
+{
+    margin-right: 15px;
+    background-color: rgb(48, 52, 60);
+    color: white;
+}
+
+#table-title span:first-child
+{
+    padding-top: 5px;
+    padding-right: 20px;
+}
+#table-title span:first-child md-icon
+{
+    font-size: 38px;
+
+}
+
+md-card{
+    height: 67px;
+    background-color: rgba(48, 52, 60,.1);
+    padding-bottom: 3px;
+}
+
+.datagrid table tbody tr td:nth-child(1)
+{
+    color: #e74c3c;
+}
+
+md-card
+{
+    padding: 0px;
+}
+md-card-content
+{
+    height: 18px;
+    margin-bottom: 0px;
+}
+
