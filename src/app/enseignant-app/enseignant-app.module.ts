@@ -12,6 +12,7 @@ import { AddEvalComponent } from './ens-gest-eval/add-eval/add-eval.component';
 import { DelEvalComponent } from './ens-gest-eval/del-eval/del-eval.component';
 import { ModifEvalComponent } from './ens-gest-eval/modif-eval/modif-eval.component';
 import {EnsServiceService} from "../services/ens-service.service";
+import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {EnsServiceService} from "../services/ens-service.service";
     EnsSaisieNotesComponent,
     AddEvalComponent,
     DelEvalComponent,
-    ModifEvalComponent
+    ModifEvalComponent,
+    ModifNoteComponent
 
   ],
   providers:[EnsServiceService]

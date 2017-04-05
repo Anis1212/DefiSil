@@ -35,7 +35,7 @@
     /*background-color: rgba(100,223,2,.5);*/
     position: absolute;
     left: 0;
-    top: 30%;
+    top: 180px;
     width: 100%;
     z-index: 10;
 }
@@ -61,12 +61,13 @@ md-toolbar
 /* Tableau */
 #table-title
 {
-     background-color:#e74c3c;
-     color:azure;
-     width: 99%;
-     margin-left: .5%;
-     top: -20px;
-     position: relative;
+  background-color:rgb(48, 52, 60);
+  color:azure;
+  width: 99%;
+  margin-left: .5%;
+  top: -20px;
+  position: relative;
+  border-radius: 5px;
 }
 
 .datagrid #table-title

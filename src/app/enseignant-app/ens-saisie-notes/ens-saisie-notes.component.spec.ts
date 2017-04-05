@@ -19,7 +19,12 @@ describe('EnsSaisieNotesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it("and so is a spec", function() {
+  //   a = this.component.onChangeEvaluation("EMD");
+  //   b = "EMD";
+  //
+  //   expect(a).toEqual(b);
+  //   });
+
 });
+
