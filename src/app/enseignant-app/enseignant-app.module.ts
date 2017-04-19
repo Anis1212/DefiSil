@@ -16,6 +16,7 @@ import {EnsServiceService} from "../services/ens-service.service";
 import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,12 +24,8 @@ import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.com
      Md2Module
   ],
   declarations: [
-    SideBarComponent,
-    HeaderComponent,
     EnseignantAppComponent,
     CardsComponent,
-    EnsSaisieAbsComponent,
-    EnsSaisieNotesComponent,
     AddEvalComponent,
     DelEvalComponent,
     ModifEvalComponent,
