@@ -158,7 +158,7 @@ export class EnsSaisieNotesComponent implements OnInit {
   onChangeEvaluation(evaluation){
     this.evaluationSlct = evaluation['value'];
   }
-
+  
   getNotesEtudiants(){
     this.ens_service.getNotesEtudiants(this.anneeSlct, '1', this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
       .subscribe(
@@ -177,6 +177,11 @@ export class EnsSaisieNotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   *
+   * @param json
+   * @returns {Array}
+   */
   json2array(json){
     var result = [];
     var keys = Object.keys(json);
