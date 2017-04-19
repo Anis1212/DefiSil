@@ -7,6 +7,8 @@ import { AngularFireModule } from 'angularfire2';
 import { Md2Module } from 'md2';
 
 
+import { EnsSaisieNotesComponent } from './enseignant-app/ens-saisie-notes/ens-saisie-notes.component';
+import { EnsSaisieAbsComponent } from './enseignant-app/ens-saisie-abs/ens-saisie-abs.component';
 import {AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 import { AppComponent } from './app.component';
 import { EnseignantAppComponent } from './enseignant-app/enseignant-app.component';
@@ -18,6 +20,8 @@ import { AddEvalComponent } from './enseignant-app/ens-gest-eval/add-eval/add-ev
 import { DelEvalComponent } from './enseignant-app/ens-gest-eval/del-eval/del-eval.component';
 import { ModifEvalComponent } from './enseignant-app/ens-gest-eval/modif-eval/modif-eval.component';
 
+import {HeaderComponent}from './shared/header/header.component';
+import {SideBarComponent} from './shared/side-bar/side-bar.component';
 import {routes} from './app.routes'
 import {EnsServiceService} from "./services/ens-service.service";
 
@@ -33,6 +37,10 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     EtudiantAppComponent,
+    HeaderComponent,
+    SideBarComponent,
+    EnsSaisieAbsComponent,
+    EnsSaisieNotesComponent
 
   ],
   imports: [
