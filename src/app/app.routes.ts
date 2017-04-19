@@ -6,7 +6,7 @@ import { EnseignantAppComponent  } from './enseignant-app/enseignant-app.compone
 export const router: Routes = [
 
     { path: '', redirectTo: 'app-enseignant', pathMatch: 'full' },
-    { path: 'app-enseignant', component: EnseignantAppComponent   },
+    { path: 'app-enseignant', component: EnseignantAppComponent   }
 
 ]
 

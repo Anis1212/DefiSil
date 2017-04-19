@@ -38,7 +38,9 @@ export class EnsServiceService {
     return this.http.get('https://prj2cssil.firebaseio.com/evaluation/'+annee+'/S'+semestre+'/'+specialite+'/'+moduleCode+'/'+evaluation+'/ligne_note.json');
   }
 
-
+  getListEtudiants(annee : string, specialite : string){
+    return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/listeEtudiant?annee='+annee+'&specialite='+specialite);
+  }
 
 
 }

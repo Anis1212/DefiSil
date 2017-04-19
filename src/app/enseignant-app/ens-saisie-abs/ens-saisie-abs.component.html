@@ -1,6 +1,6 @@
 <div id="mainContainer">
 
-  
+
    <div id="barreFiltres">
       <div id="filtreContenaire">
          <md-toolbar style="background-color: white;">
@@ -8,41 +8,42 @@
                 <span>Filtrer </span>
             </md-toolbar >
             <md-toolbar-row>
-               <md-select placeholder="Année" >
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
+              <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
+                <md-option *ngFor="let annee of annees" [value]="annee?.value" >
+                  {{ annee?.viewValue }}
+                </md-option>
+              </md-select>
 
-                 <md-select placeholder="Spécialité">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
+              <md-select placeholder="Spécialité" (change)="onChangeSpecialite($event)">
+                <md-option *ngFor="let specialite of specialites" [value]="specialite">
+                  {{ specialite }}
+                </md-option>
+              </md-select>
 
-                <md-select placeholder="Groupe">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-                <md2-datepicker></md2-datepicker>
-                <md-select placeholder="Module">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
+              <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
+                <md-option *ngFor="let groupe of groupes" [value]="groupe?.numero">
+                  {{ groupe?.numero }}
+                </md-option>
+              </md-select>
+              <md2-datepicker></md2-datepicker>
+
+              <md-select placeholder="Module" (change)="onChangeModule($event)">
+                <md-option *ngFor="let module of modules" [value]="module?.code">
+                  {{ module?.code }}
+                </md-option>
+              </md-select>
 
               <md-select placeholder="Type de séance">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
+                  <md-option *ngFor="let seance of seances" [value]="seance">
+                  {{ seance }}
                   </md-option>
               </md-select>
 
-              <button  md-fab >
+              <button  md-fab (click)="getListeEtudiants()">
                   <md-icon>check</md-icon>
                </button>
             </md-toolbar-row>
-           
+
          </md-toolbar>
       </div>
    </div>
@@ -63,50 +64,16 @@
                   <th style="width: 15%;">Nombre d'absences</th>
                </tr>
             </thead>
-           
+
             <tbody>
-               <tr class="alt">
+               <tr class="alt"  *ngFor="let ligne of listeEtudiants">
                   <td>1</td>
                   <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>      
-                  <td>1</td>        
-               </tr>
-               <tr class="alt">
+                  <td>{{ ligne.nom }}</td>
+                  <td>{{ ligne.prenom }}</td>
+                  <td><md-checkbox class="example-margin"></md-checkbox></td>
                   <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>     
-                  <td>1</td>         
                </tr>
-         
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>          
-                  <td>1</td>    
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>  
-                  <td>1</td>            
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td> 
-                  <td>1</td>             
-               </tr>
-              
             </tbody>
          </table>
          <div>
