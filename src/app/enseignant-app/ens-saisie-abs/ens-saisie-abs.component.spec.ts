@@ -19,7 +19,4 @@ describe('EnsSaisieAbsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

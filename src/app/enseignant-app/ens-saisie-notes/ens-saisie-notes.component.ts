@@ -6,6 +6,7 @@ import {EnsServiceService} from "../../services/ens-service.service";
 import { AddEvalComponent } from '../ens-gest-eval/add-eval/add-eval.component';
 import { DelEvalComponent } from '../ens-gest-eval/del-eval/del-eval.component';
 import { ModifEvalComponent } from '../ens-gest-eval/modif-eval/modif-eval.component';
+import {ModifNoteComponent} from "./modif-note/modif-note.component";
 
 @Component({
   selector: 'app-ens-saisie-notes',
@@ -46,8 +47,22 @@ export class EnsSaisieNotesComponent implements OnInit {
     });
   }
   openModifEval() {
-    this.dialog.open(ModifEvalComponent )
+    this.dialog.open(ModifEvalComponent, {
+      data: {
+        evalList: this.evaluations
+      }
+    });
   }
+
+  openModifNote(email : string, valeur : number) {
+    this.dialog.open(ModifNoteComponent, {
+      data: {
+        email: email,
+        valeur : valeur
+      }
+    });
+  }
+
   onChangeAnnee(annee) {
     this.specialites = [];
     this.groupes =[];
@@ -148,8 +163,13 @@ export class EnsSaisieNotesComponent implements OnInit {
     this.ens_service.getNotesEtudiants(this.anneeSlct, '1', this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
       .subscribe(
         (data : Response) => {
-          console.log(this.json2array(data.json()));
-          this.notesEtudiants = this.json2array(data.json());
+          if (data.json() != null) {
+            console.log("success", this.json2array(data.json()));
+            this.notesEtudiants = this.json2array(data.json());
+          } else {
+            console.log("error");
+            this.notesEtudiants=[];
+          }
         }
       )
   }

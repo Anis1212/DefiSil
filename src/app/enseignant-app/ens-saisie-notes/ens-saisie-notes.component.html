@@ -5,7 +5,7 @@
       <div id="filtreContenaire">
          <md-toolbar style="background-color: white;">
              <md-toolbar id="table-title">
-                <span>Sélectionner </span>
+                <span>Filtres </span>
             </md-toolbar >
             <md-toolbar-row>
                <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
@@ -90,7 +90,7 @@
                   <td>{{ ligne?.nom }}</td>
                   <td>{{ ligne?.prenom }}</td>
                   <td>{{ ligne?.valeur }}</td>
-                  <td><button><img src="src\img\c-edit.png"/></button> </td>
+                  <td><button (click)="openModifNote(ligne?.email, ligne?.valeur)"><img src="src\img\c-edit.png"/></button> </td>
                </tr>
             </tbody>
          </table>

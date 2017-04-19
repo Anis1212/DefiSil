@@ -2,30 +2,25 @@
 
 
 <md-dialog-content>
-    <md-toolbar md-dialog-title>Supprimer une évaluation </md-toolbar>
+    <md-toolbar md-dialog-title>Modifier une évaluation </md-toolbar>
       <md-toolbar-row>
              <form class="example-form">
 
                 <table class="example-full-width" cellspacing="0">
-                
+
                  <tr>
-                    <strong id="StrE" >Evaluations </strong> 
+                    <strong id="StrE" >Evaluations </strong>
                     <strong id="StrP" >Poids</strong>
-                     <strong id="edit">Editer</strong> 
+                     <strong id="edit">Editer</strong>
                     <md-list >
-                            <md-list-item> <span class="spanE" > CC</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
-                              <md-divider></md-divider>
-                            <md-list-item> <span class="spanE" > TP1</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
-                              <md-divider></md-divider>
-                            <md-list-item> <span class="spanE" > TP2</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span> </md-list-item>
-                              <md-divider></md-divider>
-                            <md-list-item> <span class="spanE" > CI</span> <span class="spanP" >2</span> <span><button> <img src="src\img\c-edit.png"/></button> </span></md-list-item>
-                              <md-divider></md-divider>
-                            <md-list-item> <span class="spanE" > CF</span> <span class="spanP" >2</span>  <span><button> <img src="src\img\c-edit.png"/></button> </span> </md-list-item>
-                        <md-divider></md-divider>
-                
-                   </md-list>
-                
+                      <md-list-item *ngFor="let evaluation of evalList">
+                        <span class="spanE" >{{ evaluation.type }}</span>
+                        <span class="spanP" >{{ evaluation.coeff }}</span>
+                        <span><button> <img src="src\img\c-edit.png"/></button> </span>
+                      </md-list-item>
+                      <md-divider></md-divider>
+                     </md-list>
+
                 </tr>
 
                 <tr>
@@ -35,8 +30,8 @@
                 </table>
             </form>
       </md-toolbar-row>
-      
-    
+
+
 
 
 </md-dialog-content>
