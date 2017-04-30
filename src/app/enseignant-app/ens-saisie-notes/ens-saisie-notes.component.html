@@ -1,106 +1,105 @@
-<div id="mainContainer">
 
 
-   <div id="barreFiltres">
-      <div id="filtreContenaire">
-         <md-toolbar style="background-color: white;">
-             <md-toolbar id="table-title">
-                <span>Filtres </span>
-            </md-toolbar >
-            <md-toolbar-row>
-               <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
-                  <md-option *ngFor="let annee of annees" [value]="annee?.value" >
-                  {{ annee?.viewValue }}
-                  </md-option>
-               </md-select>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-4">
 
-                 <md-select placeholder="Spécialité" (change)="onChangeSpecialite($event)">
-                  <md-option *ngFor="let specialite of specialites" [value]="specialite">
-                  {{ specialite }}
-                  </md-option>
-               </md-select>
+                 <div class="col-md-12">
 
-                <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
-                  <md-option *ngFor="let groupe of groupes" [value]="groupe?.numero">
-                  {{ groupe?.numero }}
-                  </md-option>
-               </md-select>
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Sélectionner</h4>
+                    </div>
+                    <br/>
+                    <div class="card-content table-responsive" id="filtresConteneur">
 
-                <md-select placeholder="Module" (change)="onChangeModule($event)">
-                  <md-option *ngFor="let module of modules" [value]="module?.code">
-                  {{ module?.code }}
-                  </md-option>
-               </md-select>
+                         <md-select placeholder="Groupe">
+                                <md-option *ngFor="let annee of annees" [value]="annee.value">
+                                {{ annee.viewValue }}
+                                </md-option>
+                        </md-select>
 
-              <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
-                  <md-option *ngFor="let evaluation of evaluations" [value]="evaluation?.type">
-                  {{ evaluation?.type }}
-                  </md-option>
-              </md-select>
+                        <md-select placeholder="Module">
+                                <md-option *ngFor="let annee of annees" [value]="annee.value">
+                                {{ annee.viewValue }}
+                                </md-option>
+                        </md-select>
 
-              <button  md-fab (click)="getNotesEtudiants()">
-                  <md-icon>check</md-icon>
-               </button>
-            </md-toolbar-row>
+                            <md-select placeholder="Evaluation">
+                                <md-option *ngFor="let annee of annees" [value]="annee.value">
+                                {{ annee.viewValue }}
+                                </md-option>
+                            </md-select>
 
-         </md-toolbar>
-      </div>
-   </div>
+                            <button  md-mini-fab id="validerFiltre" >
+                                <md-icon>check</md-icon>
+                            </button>
+                    </div>
+                </div>
 
-<div id="barreEvaluations">
-      <div id="EvaluationContenaire">
-         <md-toolbar style="background-color: white;">
-             <md-toolbar id="table-title">
-                <span>Gestion des évaluations</span>
-            </md-toolbar >
-            <md-toolbar-row>
-               <button md-fab (click)="openAddEval()" ><md-icon>add</md-icon></button>
-               <button md-fab (click)="openDelEval()" ><md-icon>delete</md-icon></button>
-               <button md-fab (click)="openModifEval()" ><md-icon>edit</md-icon></button>
-            </md-toolbar-row>
+                </div>
 
-         </md-toolbar>
-      </div>
-   </div>
+                 <div class="col-md-12">
+
+                <div class="card" id ="gestionConteneur">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Gestion des évaluations</h4>
+                    </div>
+                    <div class="card-content table-responsive" >
+                           <div class="btn-group btn-group-justified">
+                                <a [routerLink]="['ens-add-eval']" class="btn btn-default">Ajouter</a>
+                                <a [routerLink]="['ens-modif-eval']" class="btn btn-default">Modifier</a>
+                                <a [routerLink]="['ens-delete-eval']" class="btn btn-default">Supprimer</a>
+
+                            </div>
+                            <div class=" panel panel-default .vert-offset-bottom-10">
+                                    <div class="panel-body">
+                                        <router-outlet></router-outlet>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+
+             <div class="col-md-8">
+
+                <div class="card" id="etudiantsListe">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Liste des étudiants</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                         <table class="table">
+                            <thead class="text-black">
+                                <tr>
+                                    <th>Num</th>
+                                    <th>Matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Note</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Num</th>
+                                    <th>Matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Note</th>
+                                </tr>
+                            </tbody>
+                        </table>
 
 
-   <div id="tableContainer">
-      <div class="datagrid">
-         <md-toolbar id="table-title">
-           <span><md-icon>list</md-icon></span>
-            <span>Liste des étudiants </span>
-         </md-toolbar >
 
-         <table>
-            <thead>
-               <tr>
-                  <th style="width: 6%;">Num</th>
-                  <th style="width: 14%;">Matricule</th>
-                  <th style="width: 20%;">Nom</th>
-                  <th style="width: 30%;">Prénom</th>
-                  <th style="width: 15%;">Note</th>
-                  <th style="width: 15%;">Editer</th>
-               </tr>
-            </thead>
+                    </div>
+                </div>
+            </div>
 
-            <tbody>
-               <tr class="alt" *ngFor="let ligne of notesEtudiants">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>{{ ligne?.nom }}</td>
-                  <td>{{ ligne?.prenom }}</td>
-                  <td>{{ ligne?.valeur }}</td>
-                  <td><button (click)="openModifNote(ligne?.email, ligne?.valeur)"><img src="src\img\c-edit.png"/></button> </td>
-               </tr>
-            </tbody>
-         </table>
-         <div>
-            <span>
-              <button md-mini-fab><md-icon>arrow_back</md-icon></button>
-              <button md-mini-fab><md-icon>arrow_forward</md-icon></button>
-            </span>
-              <a md-raised-button routerLink=".">Valider</a>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </div>

@@ -40,27 +40,27 @@ export class EnsSaisieNotesComponent implements OnInit {
     this.dialog.open(AddEvalComponent)
   }
   openDelEval() {
-    this.dialog.open(DelEvalComponent, {
-      data: {
-        evalList: this.evaluations
-      }
-    });
+    // this.dialog.open(DelEvalComponent, {
+    //   data: {
+    //     evalList: this.evaluations
+    //   }
+    // });
   }
   openModifEval() {
-    this.dialog.open(ModifEvalComponent, {
-      data: {
-        evalList: this.evaluations
-      }
-    });
+    // this.dialog.open(ModifEvalComponent, {
+    //   data: {
+    //     evalList: this.evaluations
+    //   }
+    // });
   }
 
   openModifNote(email : string, valeur : number) {
-    this.dialog.open(ModifNoteComponent, {
-      data: {
-        email: email,
-        valeur : valeur
-      }
-    });
+    // this.dialog.open(ModifNoteComponent, {
+    //   data: {
+    //     email: email,
+    //     valeur : valeur
+    //   }
+    // });
   }
 
   onChangeAnnee(annee) {
@@ -134,13 +134,13 @@ export class EnsSaisieNotesComponent implements OnInit {
   onChangeGroupe(groupe){
     this.modules = [];
     this.evaluations = [];
-    this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
-      .subscribe(
-        (data : Response) => {
-          console.log(data.json());
-          this.modules = data.json();
-        }
-      );
+    // this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
+    //   .subscribe(
+    //     (data : Response) => {
+    //       console.log(data.json());
+    //       this.modules = data.json();
+    //     }
+    //   );
   }
 
   onChangeModule(moduleCode){
@@ -158,7 +158,7 @@ export class EnsSaisieNotesComponent implements OnInit {
   onChangeEvaluation(evaluation){
     this.evaluationSlct = evaluation['value'];
   }
-  
+
   getNotesEtudiants(){
     this.ens_service.getNotesEtudiants(this.anneeSlct, '1', this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
       .subscribe(

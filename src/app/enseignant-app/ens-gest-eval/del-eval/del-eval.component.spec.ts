@@ -19,4 +19,7 @@ describe('DelEvalComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

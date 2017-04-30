@@ -19,4 +19,7 @@ describe('AddEvalComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -27,12 +27,12 @@ export class AppComponent implements OnInit{
 
   jQuery: any;
   ngAfterViewInit(){
-           jQuery(document).ready(function(){
+    //        jQuery(document).ready(function(){
     //            jQuery('#betterweather').betterWeather({
     //     apiKey    : '...',
     //     location  : '51.5171,-0.1062'
     // });
-           });
+    //        });
      }
 }
 

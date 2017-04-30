@@ -14,6 +14,7 @@ import { ModifEvalComponent } from './ens-gest-eval/modif-eval/modif-eval.compon
 import { EnsEmpTempsComponent } from './ens-emp-temps/ens-emp-temps.component';
 import {EnsServiceService} from "../services/ens-service.service";
 import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.component';
+import {EnsConfirmResComponent} from "./ens-confirm-res/ens-confirm-res.component";
 
 
 
@@ -21,7 +22,7 @@ import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.com
   imports: [
     CommonModule,
      MaterialModule,
-     Md2Module
+     Md2Module,
   ],
   declarations: [
     EnseignantAppComponent,
@@ -30,7 +31,9 @@ import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.com
     DelEvalComponent,
     ModifEvalComponent,
     EnsEmpTempsComponent,
-    ModifNoteComponent
+    ModifNoteComponent,
+    EnsConfirmResComponent
+
 
   ],
   providers:[EnsServiceService]

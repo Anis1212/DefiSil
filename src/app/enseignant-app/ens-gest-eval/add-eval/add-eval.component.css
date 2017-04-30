@@ -1,18 +1,4 @@
-md-toolbar
-{
-    width: 100%;
-    margin: 0px;
-    background: #ffd740;
-    font-size: 22px;
-   color: rgb(48, 52, 60);
-}
-md-dialog-content
-{
-    padding: 0px;
-  
-    margin-top:-25px;
-    height: 100%;
-}
+
 table 
 {
     width:90%;
@@ -27,7 +13,5 @@ table tr{
 }
 table button 
  {
-     float: right;
-   margin-right: 10px;
-   margin-bottom: 7px;
+   float: right;
  }

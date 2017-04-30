@@ -13,7 +13,7 @@ md-dialog-content
     margin-top:-25px;
     height: 100%;
 }
-table
+table 
 {
     width:90%;
     margin: auto;
@@ -25,7 +25,7 @@ table tr{
     height: 40px;
     font-size: 18px;
 }
-table button
+table button 
  {
      float: right;
    margin-right: 10px;
@@ -33,18 +33,14 @@ table button
    margin-bottom: 7px;
  }
 
- md-list
- {
-     height: 210px;
-     overflow-x: hidden;
- }
+
  #edit
  {
      margin-right: 50px;
      float: right;
 
  }
-
+ 
 
 .spanE,.spanP
 {
@@ -70,12 +66,4 @@ md-list button img
     top: 0;
     height: 35px;
     background: rgba(48, 52, 60,0.2);
-}
-
-.md-list-item{
-  cursor: pointer;
-}
-
-.md-list-item:hover{
-  background: #e74c3c;
 }

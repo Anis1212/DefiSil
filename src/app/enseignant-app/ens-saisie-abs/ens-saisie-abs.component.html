@@ -1,4 +1,4 @@
-<div id="mainContainer">
+<!--<div id="mainContainer">
 
 
    <div id="barreFiltres">
@@ -8,38 +8,37 @@
                 <span>Filtrer </span>
             </md-toolbar >
             <md-toolbar-row>
-              <md-select id="anneeSlct" placeholder="Année" (change)="onChangeAnnee($event)">
-                <md-option *ngFor="let annee of annees" [value]="annee?.value" >
-                  {{ annee?.viewValue }}
-                </md-option>
-              </md-select>
+               <md-select placeholder="Année" >
+                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+                  {{ annee.viewValue }}
+                  </md-option>
+               </md-select>
 
-              <md-select placeholder="Spécialité" (change)="onChangeSpecialite($event)">
-                <md-option *ngFor="let specialite of specialites" [value]="specialite">
-                  {{ specialite }}
-                </md-option>
-              </md-select>
+                 <md-select placeholder="Spécialité">
+                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+                  {{ annee.viewValue }}
+                  </md-option>
+               </md-select>
 
-              <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
-                <md-option *ngFor="let groupe of groupes" [value]="groupe?.numero">
-                  {{ groupe?.numero }}
-                </md-option>
-              </md-select>
-              <md2-datepicker></md2-datepicker>
-
-              <md-select placeholder="Module" (change)="onChangeModule($event)">
-                <md-option *ngFor="let module of modules" [value]="module?.code">
-                  {{ module?.code }}
-                </md-option>
-              </md-select>
+                <md-select placeholder="Groupe">
+                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+                  {{ annee.viewValue }}
+                  </md-option>
+               </md-select>
+                <md2-datepicker></md2-datepicker>
+                <md-select placeholder="Module">
+                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+                  {{ annee.viewValue }}
+                  </md-option>
+               </md-select>
 
               <md-select placeholder="Type de séance">
-                  <md-option *ngFor="let seance of seances" [value]="seance">
-                  {{ seance }}
+                  <md-option *ngFor="let annee of annees" [value]="annee.value">
+                  {{ annee.viewValue }}
                   </md-option>
               </md-select>
 
-              <button  md-fab (click)="getListeEtudiants()">
+              <button  md-fab >
                   <md-icon>check</md-icon>
                </button>
             </md-toolbar-row>
@@ -66,14 +65,48 @@
             </thead>
 
             <tbody>
-               <tr class="alt"  *ngFor="let ligne of listeEtudiants">
+               <tr class="alt">
                   <td>1</td>
                   <td>13/165</td>
-                  <td>{{ ligne.nom }}</td>
-                  <td>{{ ligne.prenom }}</td>
+                  <td>TATA</td>
+                  <td>Fella</td>
                   <td><md-checkbox class="example-margin"></md-checkbox></td>
                   <td>1</td>
                </tr>
+               <tr class="alt">
+                  <td>1</td>
+                  <td>13/165</td>
+                  <td>TATA</td>
+                  <td>Fella</td>
+                  <td><md-checkbox class="example-margin"></md-checkbox></td>
+                  <td>1</td>
+               </tr>
+
+               <tr class="alt">
+                  <td>1</td>
+                  <td>13/165</td>
+                  <td>TATA</td>
+                  <td>Fella</td>
+                  <td><md-checkbox class="example-margin"></md-checkbox></td>
+                  <td>1</td>
+               </tr>
+               <tr class="alt">
+                  <td>1</td>
+                  <td>13/165</td>
+                  <td>TATA</td>
+                  <td>Fella</td>
+                  <td><md-checkbox class="example-margin"></md-checkbox></td>
+                  <td>1</td>
+               </tr>
+               <tr class="alt">
+                  <td>1</td>
+                  <td>13/165</td>
+                  <td>TATA</td>
+                  <td>Fella</td>
+                  <td><md-checkbox class="example-margin"></md-checkbox></td>
+                  <td>1</td>
+               </tr>
+
             </tbody>
          </table>
          <div>
@@ -85,4 +118,92 @@
          </div>
       </div>
    </div>
+</div>-->
+
+
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Sélectionner</h4>
+                    </div>
+                    <br/>
+                    <div class="card-content table-responsive " id="filtresConteneur">
+                        <div class="col-md-11">
+                            <div class="col-md-4" id="datePicker">
+                                <md2-datepicker (change)="onChangeDate($event)"></md2-datepicker>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="col-md-4">
+                                    <md-select placeholder="Module" (change)="onChangeModule($event)">
+                                        <md-option *ngFor="let module of modules" [value]="module">
+                                            {{ module }}
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-4">
+                                    <md-select placeholder="Type de séance" (change)="onChangeSeance($event)">
+                                        <md-option *ngFor="let seance of seances" [value]="seance.id">
+                                            {{ seance.type }}
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-4" >
+                                    <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
+                                        <md-option *ngFor="let groupe of groupes" [value]="groupe">
+                                            {{ groupe }}
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button md-fab (click)="getListeEtudiants()" >
+                                <md-icon>check</md-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card" id="etudiantsListe">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Liste des étudiants</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                         <table class="table">
+                              <thead class="text-black">
+                                  <tr>
+                                      <th>#</th>
+                                      <th>Matricule</th>
+                                      <th>Nom</th>
+                                      <th>Prénom</th>
+                                      <th>Absent(e)</th>
+                                      <th>Nombre d'absences</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let etudiant of listeEtudiants; let i = index">
+                                      <td>#</td>
+                                      <td>Matricule</td>
+                                      <td>{{ listeEtudiants[i]?.nom }}</td>
+                                      <td>{{ etudiant?.prenom }}</td>
+                                      <td><md-checkbox class="example-margin" [(ngModel)]=etudiant.checked (click)="aff()"></md-checkbox></td>
+                                      <td>Nombre d'absences</td>
+                                  </tr>
+                              </tbody>
+                         </table>
+                         <div align="right">
+                            <a class="btn btn-default" style="right: 0" (click)="validerListeAbs()">Ajouter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

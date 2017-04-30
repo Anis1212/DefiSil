@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Response} from "@angular/http";
+
+import {EnsServiceService} from "../../services/ens-service.service"
 
 @Component({
   selector: 'app-ens-emp-temps',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnsEmpTempsComponent implements OnInit {
 
-  constructor() { }
+  private seances = [];
+
+  constructor(private ens_service : EnsServiceService) {
+    this.ens_service.getSeancesEMP("m_mostefai").subscribe(
+      (data : Response) => {this.seances = data.json();}
+    );
+  }
 
   ngOnInit() {
+
+
   }
 
 }

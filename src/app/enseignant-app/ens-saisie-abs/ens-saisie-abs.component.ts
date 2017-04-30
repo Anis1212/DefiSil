@@ -14,9 +14,22 @@ export class EnsSaisieAbsComponent implements OnInit {
   private specialiteSlct;
   private moduleSlct;
   private seanceSlct;
+  private groupeSlct;
   private evaluationSlct;
+  private jour;
+  private date;
+  private ens_email = 'k_chebieb@esi.dz';
   value;
 
+  private jours = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi"
+  ];
   private annees = [
     {value: 'a1', viewValue: '1CPI'},
     {value: 'a2', viewValue: '2CPI'},
@@ -24,114 +37,180 @@ export class EnsSaisieAbsComponent implements OnInit {
     {value: 'a4', viewValue: '2CS'},
     {value: 'a5', viewValue: '3CS'}
   ];
-  private seances = ["Cours","TD","TP"];
+  private seances = [];
   private specialites = [];
   private groupes = [];
   private modules = [];
   private listeEtudiants = [];
+  private listeEtudiantsAbs = [];
 
-  constructor(private ens_service : EnsServiceService) {}
+  constructor(private ens_service : EnsServiceService) {
 
-
-  onChangeAnnee(annee) {
-    this.specialites = [];
-    this.groupes =[];
-    this.modules = [];
-    this.ens_service.getSpecialites(annee['value'])
-      .subscribe(
-        (data : Response) => {
-          this.ens_service.getSpecialites(annee['value'])
-            .subscribe(
-              (data : Response) => {this.anneeSlct = data.json().code;}
-            );
-          if (Array.isArray(data.json().specialite)){
-            this.specialites = this.json2array(data.json().specialite);
-          }else{
-            this.specialites = [];
-            this.specialites.push(data.json().specialite);
-          }
-        }
-      );
   }
 
-  onChangeSpecialite(specialite){
-    this.groupes =[];
-    this.modules = [];
-    this.specialiteSlct = specialite['value'];
-    this.ens_service.getGroupes(this.anneeSlct, specialite['value'])
-      .subscribe(
-        (data : Response) => {
-          this.groupes=[];
-          for (let _i = 0; _i < data.json().length; _i++){
-            if(data.json()[_i].specialite == specialite['value']){
-              this.groupes.push(data.json()[_i]);
-            }
-          }
-        }
-      );
-    //   .subscribe(queriedItems => {
-    //     console.log(queriedItems);
-    //     this.groupes=[];
-    //     for (let _i = 0; _i < queriedItems.length; _i++){
-    //       console.log("ana",queriedItems[_i]);
-    //       console.log("spec", specialite);
-    //       if(queriedItems[_i].specialite == specialite['value']){
-    //         this.groupes.push(queriedItems[_i]);
-    //         console.log("hiiglhii",this.groupes);
-    //       }
-    //     }
-    //     console.log("Group",this.groupes);
-    // });
-
-    // .subscribe(
-    //   (data : Response) => {
-    //     console.log(data.json().specialite);
-    //     if (Array.isArray(data.json().specialite)){
-    //       console.log('array');
-    //       this.specialites=this.json2array(data.json().specialite);
-    //     }else{
-    //       console.log('not array');
-    //       this.specialites=[];
-    //       this.specialites.push(data.json().specialite);
-    //     }
-    //     console.log("anis",this.specialites)
-    //   }
-    // );
+  ngOnInit() {
+    this.ens_service.getModules(this.ens_email).subscribe(
+      (data : any) => {
+        data[0].modules.splice(0,1);
+        this.modules = data[0].modules;
+        console.log(this.modules);
+      }
+    );
   }
 
-  onChangeGroupe(groupe){
-    this.modules = [];
-    this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
-      .subscribe(
-        (data : Response) => {
-          console.log(data.json());
-          this.modules = data.json();
-        }
-      );
+  onChangeDate(date){
+    console.log(date);
+    this.jour = this.jours[date.value.getUTCDay()];
+    this.date = date.value.getDate()+'/'+date.value.getMonth()+'/'+date.value.getFullYear();
+    console.log(this.jour);
+    console.log(this.date);
   }
 
   onChangeModule(moduleCode){
     this.moduleSlct = moduleCode['value'];
-    this.ens_service.getEval(this.anneeSlct, '1', this.specialiteSlct, moduleCode['value'])
+    this.ens_service.getSeances(this.moduleSlct ,this.ens_email)
       .subscribe(
         (data : Response) => {
           console.log(this.json2array(data.json()));
+          this.seances = data.json();
         }
-      )
+      );
+  }
+
+  onChangeSeance(seance){
+    this.seanceSlct = seance['value'];
+    console.log(this.seanceSlct);
+    this.ens_service.getGroupesSeance(this.seanceSlct)
+      .subscribe(
+        (data : Response) => {
+          console.log(data.json());
+          this.groupes = data.json();
+        }
+      );
+
+  }
+
+  onChangeGroupe(groupe){
+    this.groupeSlct = groupe['value'];
+  }
+
+  aff(){
+    console.log(this.listeEtudiants);
   }
 
   getListeEtudiants(){
-    this.ens_service.getListEtudiants(this.anneeSlct,this.specialiteSlct)
+    this.ens_service.getListEtudiants(this.groupeSlct)
       .subscribe(
         (data : Response) => {
-          console.log(this.json2array(data.json()));
-          this.listeEtudiants = this.json2array(data.json());
+          console.log(data.json());
+          this.listeEtudiants = data.json();
+          this.listeEtudiants.forEach(etudiant => {etudiant.checked=false});
+          console.log(this.listeEtudiants);
         }
-      )
+      );
   }
 
-  ngOnInit() {
+  validerListeAbs(){
+    this.listeEtudiantsAbs = this.listeEtudiants.filter(etudiant => etudiant.checked==true);
+    console.log(this.listeEtudiantsAbs);
+    //console.log('hi', this.seanceSlct, "etudiant", this.date, this.moduleSlct);
+    this.listeEtudiantsAbs.forEach(etudiant => {this.ens_service.setAbs(this.seanceSlct, etudiant.email, this.date, this.moduleSlct)
+      .subscribe(
+        (date : Response) => {
+          console.log(date);
+        }
+      )});
   }
+
+  // onChangeAnnee(annee) {
+  //   this.specialites = [];
+  //   this.groupes =[];
+  //   this.modules = [];
+  //   this.ens_service.getSpecialites(annee['value'])
+  //     .subscribe(
+  //       (data : Response) => {
+  //         this.ens_service.getSpecialites(annee['value'])
+  //           .subscribe(
+  //             (data : Response) => {this.anneeSlct = data.json().code;}
+  //           );
+  //         if (Array.isArray(data.json().specialite)){
+  //           this.specialites = this.json2array(data.json().specialite);
+  //         }else{
+  //           this.specialites = [];
+  //           this.specialites.push(data.json().specialite);
+  //         }
+  //       }
+  //     );
+  // }
+
+
+  // onChangeSpecialite(specialite){
+  //   this.groupes =[];
+  //   this.modules = [];
+  //   this.specialiteSlct = specialite['value'];
+  //   this.ens_service.getGroupes(this.anneeSlct, specialite['value'])
+  //     .subscribe(
+  //       (data : Response) => {
+  //         this.groupes=[];
+  //         for (let _i = 0; _i < data.json().length; _i++){
+  //           if(data.json()[_i].specialite == specialite['value']){
+  //             this.groupes.push(data.json()[_i]);
+  //           }
+  //         }
+  //       }
+  //     );
+  //   //   .subscribe(queriedItems => {
+  //   //     console.log(queriedItems);
+  //   //     this.groupes=[];
+  //   //     for (let _i = 0; _i < queriedItems.length; _i++){
+  //   //       console.log("ana",queriedItems[_i]);
+  //   //       console.log("spec", specialite);
+  //   //       if(queriedItems[_i].specialite == specialite['value']){
+  //   //         this.groupes.push(queriedItems[_i]);
+  //   //         console.log("hiiglhii",this.groupes);
+  //   //       }
+  //   //     }
+  //   //     console.log("Group",this.groupes);
+  //   // });
+  //
+  //   // .subscribe(
+  //   //   (data : Response) => {
+  //   //     console.log(data.json().specialite);
+  //   //     if (Array.isArray(data.json().specialite)){
+  //   //       console.log('array');
+  //   //       this.specialites=this.json2array(data.json().specialite);
+  //   //     }else{
+  //   //       console.log('not array');
+  //   //       this.specialites=[];
+  //   //       this.specialites.push(data.json().specialite);
+  //   //     }
+  //   //     console.log("anis",this.specialites)
+  //   //   }
+  //   // );
+  // }
+
+  // onChangeGroupe(groupe){
+  //   this.modules = [];
+  //   this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
+  //     .subscribe(
+  //       (data : Response) => {
+  //         console.log(data.json());
+  //         this.modules = data.json();
+  //       }
+  //     );
+  // }
+
+  // getListeEtudiants(){
+  //   this.ens_service.getListEtudiants(this.anneeSlct,this.specialiteSlct)
+  //     .subscribe(
+  //       (data : Response) => {
+  //         console.log(this.json2array(data.json()));
+  //         this.listeEtudiants = this.json2array(data.json());
+  //       }
+  //     )
+  // }
+
+
 
   json2array(json){
     var result = [];

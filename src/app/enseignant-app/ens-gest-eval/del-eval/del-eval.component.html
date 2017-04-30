@@ -1,32 +1,33 @@
-<md-dialog-content>
-    <md-toolbar md-dialog-title>Supprimer une évaluation </md-toolbar>
-      <md-toolbar-row>
-             <form class="example-form">
+
+                                        <h6>Supprimer une  évaluation</h6>
+
+
+
 
                 <table class="example-full-width" cellspacing="0">
-
+                
                  <tr>
-                    <strong>Evaluations </strong>
-                    <strong id ="coef">Poids</strong>
+                    <strong>Evaluations </strong> 
+                    <strong id ="coef">Poids</strong> 
                     <md-list >
-                      <md-list-item *ngFor="let evaluation of evalList">
-                        <span class="spanE" >{{ evaluation.type }}</span>
-                        <span>{{ evaluation.coeff }}</span>
-                        <hr>
-                      </md-list-item>
+                      <md-list-item> <span class="spanE" > CC</span> <span>2</span> </md-list-item>
+                        <md-divider></md-divider>
+                      <md-list-item> <span class="spanE" > TP1</span> <span>2</span> </md-list-item>
+                        <md-divider></md-divider>
+                      <md-list-item> <span class="spanE" > TP2</span> <span>2</span>  </md-list-item>
+                        <md-divider></md-divider>
+                      <md-list-item> <span class="spanE" > CI</span> <span>2</span> </md-list-item>
+                        <md-divider></md-divider>
+                      <md-list-item> <span class="spanE" > CF</span> <span>2</span>  </md-list-item>
+                        <md-divider></md-divider>
+                
                    </md-list>
-
+                
                 </tr>
 
                 <tr>
-                    <button md-fab><md-icon>delete</md-icon></button>
+                    <button md-mini-fab><md-icon>delete</md-icon></button>
                 </tr>
 
                 </table>
-            </form>
-      </md-toolbar-row>
 
-
-
-
-</md-dialog-content>
