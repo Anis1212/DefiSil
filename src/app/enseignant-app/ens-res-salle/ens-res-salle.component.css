@@ -1,0 +1,71 @@
+
+
+ table td,table th {
+
+    padding: 5px 3px;
+    width: 12%;
+    text-align: center;
+    /*background: (123,231,217,0.3);*/
+
+ }
+ table thead th {
+    background-color: #FFFFFF;
+    color: #e74c3c;
+    font-size: 18px;
+    font-weight: normal;
+
+ }
+
+.borderless td, .borderless th {
+    border: none;
+    vertical-align: middle;
+}
+
+md-card{
+
+    background-color: rgba(48, 52, 60,.1);
+    padding-bottom: 3px;
+    height: 100px;
+}
+
+table tbody tr td:nth-child(1)
+{
+    color: #e74c3c;
+     /* poussé de la moitié de hauteur du référent */
+
+}
+
+
+
+
+
+
+#datePicker
+{
+    margin-top: -18px;
+}
+
+#validerFiltre
+{
+    float: right;
+    margin-top: 5px;
+}
+
+#sallesListe
+{
+    min-height: 700px;
+}
+
+#gestionConteneur
+{
+    min-height: 490px;
+}
+
+.col16-md-2 {
+    width: 12.5%;
+    position: relative;
+    min-height: 1px;
+    text-align: center;
+    padding-right: 8px;
+    padding-left: 8px; }
+

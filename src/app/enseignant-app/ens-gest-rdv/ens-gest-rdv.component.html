@@ -1,0 +1,74 @@
+<!--<div id="mainContainer">
+
+
+  <span id="rdvContainer">
+      <div id="rdvContenu">
+         <md-toolbar style="background-color: white;">
+             <md-toolbar id="table-title">
+                <span>Rendez-vous</span>
+            </md-toolbar >
+           
+         </md-toolbar>
+      </div>
+   </span>
+
+   <span id="tableContainer">
+      <div id="datagrid">
+         <md-toolbar style="background-color: white;">
+             <md-toolbar id="table-title">
+                <span>Agenda</span>
+            </md-toolbar >
+         </md-toolbar>
+
+          <div id="divTest">
+
+        <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+      </div>
+      </div>
+
+     
+   </span>
+   
+   
+</div>-->
+
+
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-7">
+
+                 <div class="col-md-12">
+
+                <div class="card" id="rdvContainer"y>
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Agenda</h4>
+                    </div>
+                    <br/>
+                    <div class="card-content table-responsive" id="divTest">
+                        <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+
+                    </div>
+                </div>
+                
+                </div>
+
+            </div>
+             <div class="col-md-5">
+
+                <div class="card" id="details">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Détails du rendez-vous</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                           Contenu Du rendez-vous
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

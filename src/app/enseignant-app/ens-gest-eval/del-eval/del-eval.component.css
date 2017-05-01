@@ -3,20 +3,17 @@ table
 {
     width:90%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
+        border: solid 1px black;
+
 }
 
-table tr{
-    padding:30px;
-    height: 40px;
-    font-size: 18px;
-}
-table button 
+
+button 
  {
    float: right;
    margin-right: 10px;
    margin-top: 10px;
-   margin-bottom: 7px;
  }
 
 
@@ -25,9 +22,4 @@ table button
      margin-right: 40px;
      float: right;
 
- }
- 
-.spanE
- {
-     width: 220px;
  }
