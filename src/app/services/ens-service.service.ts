@@ -69,5 +69,9 @@ export class EnsServiceService {
     return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/addAbsence?idSeance='+idSeance+'&etudiant='+etd_email+'&date='+date+'&module='+module);
   }
 
+  getNbrAbsenceEtudiant(email : String, module : String){
+    return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/AbsencesDUnEtudiant?etudiant='+email+'&module='+module);
+  }
+
 
 }

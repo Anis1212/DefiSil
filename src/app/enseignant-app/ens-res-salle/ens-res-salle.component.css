@@ -69,3 +69,7 @@ table tbody tr td:nth-child(1)
     padding-right: 8px;
     padding-left: 8px; }
 
+ .md2-datepicker-input{
+   min-width: 100% !important;
+ }
+

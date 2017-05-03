@@ -1,5 +1,5 @@
 
-table 
+table
 {
     width:90%;
     margin: auto;
@@ -8,11 +8,7 @@ table
     border: solid 1px black;
 }
 
-table tr{
-    padding:30px;
-    height: 40px;
-    font-size: 18px;
-}
+
 #btnModif
  {
    float: right;
@@ -21,7 +17,7 @@ table tr{
  }
 
 
- 
+
 tr button
 {
     width: 35px;

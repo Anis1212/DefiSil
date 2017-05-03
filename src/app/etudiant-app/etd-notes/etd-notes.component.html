@@ -1,56 +1,56 @@
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header" data-background-color="orange">
-            <h4 class="title">{{name}}</h4>
-            <p class="category">Séléctioner le module </p>
-          </div>
-          <div class="card-content">
-            <form>
-              <div class="form-group form-black label-floating is-empty">
-                <select type="text" class="form-control" #t (change)="selectModule(t.value)">
-                  <option *ngFor="let module of modules;let i = index" [value]="module.name" >{{module.name}}</option>
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <label class="btn btn-danger">{{selectedModule}}</label>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header" data-background-color="red">
-            <h4 class="title">Mes Notes</h4>
-            <p class="category"></p>
-          </div>
-          <div class="card-content table-responsive">
-            <table class="table">
-              <thead class="text-danger">
-              <tr>
-                <th>Type d'evaluation</th>
-                <th>Note</th>
-                <th>Remarque</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let res of result; let i=index">
-                <td>{{res.type}}</td>
-                <td class="text-primary">{{res.note}}</td>
-                <td></td>
-              </tr>
-              </tbody>
-            </table>
+<!--<div class="main-content">-->
+  <!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-4">-->
+        <!--<div class="card">-->
+          <!--<div class="card-header" data-background-color="orange">-->
+            <!--<h4 class="title">{{name}}</h4>-->
+            <!--<p class="category">Séléctioner le module </p>-->
+          <!--</div>-->
+          <!--<div class="card-content">-->
+            <!--<form>-->
+              <!--<div class="form-group form-black label-floating is-empty">-->
+                <!--<select type="text" class="form-control" #t (change)="selectModule(t.value)">-->
+                  <!--<option *ngFor="let module of modules;let i = index" [value]="module.name" >{{module.name}}</option>-->
+                <!--</select>-->
+              <!--</div>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-8">-->
+          <!--<label class="btn btn-danger">{{selectedModule}}</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<div class="card">-->
+          <!--<div class="card-header" data-background-color="red">-->
+            <!--<h4 class="title">Mes Notes</h4>-->
+            <!--<p class="category"></p>-->
+          <!--</div>-->
+          <!--<div class="card-content table-responsive">-->
+            <!--<table class="table">-->
+              <!--<thead class="text-danger">-->
+              <!--<tr>-->
+                <!--<th>Type d'evaluation</th>-->
+                <!--<th>Note</th>-->
+                <!--<th>Remarque</th>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+              <!--<tr *ngFor="let res of result; let i=index">-->
+                <!--<td>{{res.type}}</td>-->
+                <!--<td class="text-primary">{{res.note}}</td>-->
+                <!--<td></td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
 
-          </div>
-        </div>
-      </div>
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
 
-    </div>
-  </div>
-</div>
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

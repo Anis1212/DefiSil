@@ -10,12 +10,9 @@ import {EnsServiceService} from "../../services/ens-service.service";
 })
 export class EnsSaisieAbsComponent implements OnInit {
 
-  private anneeSlct;
-  private specialiteSlct;
   private moduleSlct;
   private seanceSlct;
   private groupeSlct;
-  private evaluationSlct;
   private jour;
   private date;
   private ens_email = 'k_chebieb@esi.dz';
@@ -30,15 +27,7 @@ export class EnsSaisieAbsComponent implements OnInit {
     "Vendredi",
     "Samedi"
   ];
-  private annees = [
-    {value: 'a1', viewValue: '1CPI'},
-    {value: 'a2', viewValue: '2CPI'},
-    {value: 'a3', viewValue: '1CS'},
-    {value: 'a4', viewValue: '2CS'},
-    {value: 'a5', viewValue: '3CS'}
-  ];
   private seances = [];
-  private specialites = [];
   private groupes = [];
   private modules = [];
   private listeEtudiants = [];
@@ -61,7 +50,7 @@ export class EnsSaisieAbsComponent implements OnInit {
   onChangeDate(date){
     console.log(date);
     this.jour = this.jours[date.value.getUTCDay()];
-    this.date = date.value.getDate()+'/'+date.value.getMonth()+'/'+date.value.getFullYear();
+    this.date = date.value.getDate()+'/'+(date.value.getMonth()+1)+'/'+date.value.getFullYear();
     console.log(this.jour);
     console.log(this.date);
   }
@@ -102,9 +91,15 @@ export class EnsSaisieAbsComponent implements OnInit {
     this.ens_service.getListEtudiants(this.groupeSlct)
       .subscribe(
         (data : Response) => {
-          console.log(data.json());
+          // console.log(data.json());
           this.listeEtudiants = data.json();
-          this.listeEtudiants.forEach(etudiant => {etudiant.checked=false});
+          this.listeEtudiants.forEach(etudiant => {etudiant.checked=false; console.log(etudiant)});
+          this.listeEtudiants.forEach(etudiant => {this.ens_service.getNbrAbsenceEtudiant(etudiant.email, this.moduleSlct)
+            .subscribe(
+              (data : Response) => {
+                etudiant.nbrAbs=data.json().length;
+              })
+          });
           console.log(this.listeEtudiants);
         }
       );
@@ -118,8 +113,14 @@ export class EnsSaisieAbsComponent implements OnInit {
       .subscribe(
         (date : Response) => {
           console.log(date);
+          this.getListeEtudiants();
         }
       )});
+  }
+
+  refresh(){
+    this.getListeEtudiants();
+    this.ngOnInit();
   }
 
   // onChangeAnnee(annee) {
