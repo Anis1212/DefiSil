@@ -1,134 +1,9 @@
-<!--<div id="mainContainer">
-
-
-   <div id="barreFiltres">
-      <div id="filtreContenaire">
-         <md-toolbar style="background-color: white;">
-             <md-toolbar id="table-title">
-                <span>Filtrer </span>
-            </md-toolbar >
-            <md-toolbar-row>
-               <md-select placeholder="Année" >
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-
-                 <md-select placeholder="Spécialité">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-
-                <md-select placeholder="Groupe">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-                <md2-datepicker></md2-datepicker>
-                <md-select placeholder="Module">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-               </md-select>
-
-              <md-select placeholder="Type de séance">
-                  <md-option *ngFor="let annee of annees" [value]="annee.value">
-                  {{ annee.viewValue }}
-                  </md-option>
-              </md-select>
-
-              <button  md-fab >
-                  <md-icon>check</md-icon>
-               </button>
-            </md-toolbar-row>
-
-         </md-toolbar>
-      </div>
-   </div>
-   <div id="tableContainer">
-      <div class="datagrid">
-         <md-toolbar id="table-title">
-            <span>Liste des étudiants </span>
-         </md-toolbar >
-
-         <table>
-            <thead>
-               <tr>
-                  <th style="width: 6%;">Num</th>
-                  <th style="width: 14%;">Matricule</th>
-                  <th style="width: 20%;">Nom</th>
-                  <th style="width: 30%;">Prénom</th>
-                  <th style="width: 15%;">Présent(e)</th>
-                  <th style="width: 15%;">Nombre d'absences</th>
-               </tr>
-            </thead>
-
-            <tbody>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>
-                  <td>1</td>
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>
-                  <td>1</td>
-               </tr>
-
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>
-                  <td>1</td>
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>
-                  <td>1</td>
-               </tr>
-               <tr class="alt">
-                  <td>1</td>
-                  <td>13/165</td>
-                  <td>TATA</td>
-                  <td>Fella</td>
-                  <td><md-checkbox class="example-margin"></md-checkbox></td>
-                  <td>1</td>
-               </tr>
-
-            </tbody>
-         </table>
-         <div>
-            <span>
-              <button md-mini-fab><md-icon>arrow_back</md-icon></button>
-              <button md-mini-fab><md-icon>arrow_forward</md-icon></button>
-            </span>
-              <a md-raised-button routerLink=".">Valider</a>
-         </div>
-      </div>
-   </div>
-</div>-->
-
-
-
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header" data-background-color="black">
+                    <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Sélectionner</h4>
                     </div>
                     <br/>
@@ -172,7 +47,7 @@
             </div>
             <div class="col-md-12">
                 <div class="card" id="etudiantsListe">
-                    <div class="card-header" data-background-color="black">
+                    <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Liste des étudiants</h4>
                     </div>
                     <div class="card-content table-responsive">

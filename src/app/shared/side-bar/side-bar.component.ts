@@ -1,4 +1,5 @@
-import {Component, OnInit, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ElementRef, ViewChild, Inject} from '@angular/core';
+import {DOCUMENT} from "@angular/platform-browser";
 declare var $:JQueryStatic;
 
 
@@ -8,28 +9,24 @@ declare var $:JQueryStatic;
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  private currentUrl;
   // @ViewChild('.nav li') el:ElementRef;
 
+  constructor(@Inject(DOCUMENT) private document: any) {
+    this.currentUrl = this.document.location.href.split("/");
+    console.log(this.currentUrl);
+    this.currentUrl = this.currentUrl[this.currentUrl.length-1];
+  }
+
   ngOnInit() {
+    $(document).ready(function(){
+      $('#side-bar li').click(function () {
+        $('#side-bar li').removeClass("active");
+        $(this).addClass("active");
+      })
+    });
+
 
   }
-
-  ngAfterViewInit() {
-    // $(this.el.nativeElement).chosen().
-    //   on('click', (e, args) => {
-    //
-    //   });
-    console.log($('.nav li'));
-  }
-
-  clique(a : any){
-    $('.nav li').removeClass("active");
-    // console.log(a.path[2]);
-    // console.log(a.path[1]);
-    // console.log(a.path);
-    // console.log(a);
-  }
-
-
 
 }

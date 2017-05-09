@@ -15,6 +15,7 @@ import { EnsEmpTempsComponent } from './ens-emp-temps/ens-emp-temps.component';
 import {EnsServiceService} from "../services/ens-service.service";
 import { ModifNoteComponent } from './ens-saisie-notes/modif-note/modif-note.component';
 import {EnsConfirmResComponent} from "./ens-confirm-res/ens-confirm-res.component";
+import { PickListComponent } from './pick-list/pick-list.component';
 
 
 
@@ -32,7 +33,8 @@ import {EnsConfirmResComponent} from "./ens-confirm-res/ens-confirm-res.componen
     ModifEvalComponent,
     EnsEmpTempsComponent,
     ModifNoteComponent,
-    EnsConfirmResComponent
+    EnsConfirmResComponent,
+    PickListComponent
 
 
   ],

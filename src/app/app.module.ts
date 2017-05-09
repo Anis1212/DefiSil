@@ -10,23 +10,17 @@ import {EnsResSalleComponent} from "./enseignant-app/ens-res-salle/ens-res-salle
 import {EnsGestRdvComponent} from "./enseignant-app/ens-gest-rdv/ens-gest-rdv.component";
 import { EnsSaisieNotesComponent } from './enseignant-app/ens-saisie-notes/ens-saisie-notes.component';
 import { EnsSaisieAbsComponent } from './enseignant-app/ens-saisie-abs/ens-saisie-abs.component';
-import {AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 import { AppComponent } from './app.component';
-import { EnseignantAppComponent } from './enseignant-app/enseignant-app.component';
 import { EtudiantAppComponent } from './etudiant-app/etudiant-app.component';
-
 import  { EnseignantAppModule } from './enseignant-app/enseignant-app.module';
-
 import { AddEvalComponent } from './enseignant-app/ens-gest-eval/add-eval/add-eval.component';
 import { DelEvalComponent } from './enseignant-app/ens-gest-eval/del-eval/del-eval.component';
 import { ModifEvalComponent } from './enseignant-app/ens-gest-eval/modif-eval/modif-eval.component';
-
 import {HeaderComponent}from './shared/header/header.component';
 import {SideBarComponent} from './shared/side-bar/side-bar.component';
 import {routes} from './app.routes'
 import {EnsServiceService} from "./services/ens-service.service";
 import { EtdNotesComponent } from './etudiant-app/etd-notes/etd-notes.component';
-
 import {CalendarComponent} from "angular2-fullcalendar/src/calendar/calendar";
 import { RouterModule } from '@angular/router';
 
@@ -51,7 +45,6 @@ export const firebaseConfig = {
     EnsResSalleComponent,
     EnsGestRdvComponent,
     CalendarComponent
-
   ],
   imports: [
     MaterialModule,

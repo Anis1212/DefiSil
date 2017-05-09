@@ -1,5 +1,4 @@
-
-table 
+table
 {
     width:90%;
     margin: auto;
@@ -12,7 +11,7 @@ table tr{
     height: 40px;
     font-size: 18px;
 }
-table button 
+table button
  {
    float: right;
  }

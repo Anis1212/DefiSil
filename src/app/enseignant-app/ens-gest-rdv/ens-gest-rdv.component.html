@@ -1,40 +1,3 @@
-<!--<div id="mainContainer">
-
-
-  <span id="rdvContainer">
-      <div id="rdvContenu">
-         <md-toolbar style="background-color: white;">
-             <md-toolbar id="table-title">
-                <span>Rendez-vous</span>
-            </md-toolbar >
-           
-         </md-toolbar>
-      </div>
-   </span>
-
-   <span id="tableContainer">
-      <div id="datagrid">
-         <md-toolbar style="background-color: white;">
-             <md-toolbar id="table-title">
-                <span>Agenda</span>
-            </md-toolbar >
-         </md-toolbar>
-
-          <div id="divTest">
-
-        <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
-      </div>
-      </div>
-
-     
-   </span>
-   
-   
-</div>-->
-
-
-
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row ">
@@ -43,7 +6,7 @@
                  <div class="col-md-12">
 
                 <div class="card" id="rdvContainer"y>
-                    <div class="card-header" data-background-color="red">
+                    <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Agenda</h4>
                     </div>
                     <br/>
@@ -52,18 +15,59 @@
 
                     </div>
                 </div>
-                
+
                 </div>
 
             </div>
              <div class="col-md-5">
 
                 <div class="card" id="details">
-                    <div class="card-header" data-background-color="red">
+                    <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Détails du rendez-vous</h4>
                     </div>
                     <div class="card-content table-responsive">
-                           Contenu Du rendez-vous
+                   <div class="col-md-12" id="DemandeRdv" >
+                    <div class="media">
+                                <div class="media-left">
+                                    <img src="src\img\fella.jpg" class="media-object" style="width:60px">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading" id="NomEmmeteur">TATA Fella <small><i>Envoyé le 24-06-2017,08:30h</i></small></h4>
+
+                                    <p>df_tata@esi.dz</p>
+                                </div>
+                     </div>
+                    <div id="MessageContainer">
+                        Motif de rendez-vous
+                    </div>
+                   </div>
+
+                         <hr>
+                     <div class="col-md-12">
+
+                     <h1> Réponse </h1>
+                               <md-radio-group>
+                                    <md-radio-button value="1"  id="Rb" cheked="true">Accepter</md-radio-button>
+                                    <md-radio-button value="2">Refuser</md-radio-button>
+                                </md-radio-group>
+
+                       <div class="col-md-4">
+                         <md2-datepicker style="min-width: 100% !important;"></md2-datepicker>
+                       </div>
+                       <div class="col-md-2"></div>
+                       <div class="col-md-6">
+                         <input mdInput placeholder="Lieu du rendez-vous" id="inputLieuRdv" >
+                       </div>
+                    <div class="form-group">
+                    <label for="comment">Motif:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+
+                    <button md-mini-fab>
+                     <md-icon>check</md-icon>
+                    </button>
+                   </div>
+
 
                     </div>
                 </div>

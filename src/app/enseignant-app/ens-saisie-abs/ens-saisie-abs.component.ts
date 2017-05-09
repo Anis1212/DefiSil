@@ -91,7 +91,6 @@ export class EnsSaisieAbsComponent implements OnInit {
     this.ens_service.getListEtudiants(this.groupeSlct)
       .subscribe(
         (data : Response) => {
-          // console.log(data.json());
           this.listeEtudiants = data.json();
           this.listeEtudiants.forEach(etudiant => {etudiant.checked=false; console.log(etudiant)});
           this.listeEtudiants.forEach(etudiant => {this.ens_service.getNbrAbsenceEtudiant(etudiant.email, this.moduleSlct)
@@ -108,7 +107,6 @@ export class EnsSaisieAbsComponent implements OnInit {
   validerListeAbs(){
     this.listeEtudiantsAbs = this.listeEtudiants.filter(etudiant => etudiant.checked==true);
     console.log(this.listeEtudiantsAbs);
-    //console.log('hi', this.seanceSlct, "etudiant", this.date, this.moduleSlct);
     this.listeEtudiantsAbs.forEach(etudiant => {this.ens_service.setAbs(this.seanceSlct, etudiant.email, this.date, this.moduleSlct)
       .subscribe(
         (date : Response) => {
@@ -120,98 +118,7 @@ export class EnsSaisieAbsComponent implements OnInit {
 
   refresh(){
     this.getListeEtudiants();
-    this.ngOnInit();
   }
-
-  // onChangeAnnee(annee) {
-  //   this.specialites = [];
-  //   this.groupes =[];
-  //   this.modules = [];
-  //   this.ens_service.getSpecialites(annee['value'])
-  //     .subscribe(
-  //       (data : Response) => {
-  //         this.ens_service.getSpecialites(annee['value'])
-  //           .subscribe(
-  //             (data : Response) => {this.anneeSlct = data.json().code;}
-  //           );
-  //         if (Array.isArray(data.json().specialite)){
-  //           this.specialites = this.json2array(data.json().specialite);
-  //         }else{
-  //           this.specialites = [];
-  //           this.specialites.push(data.json().specialite);
-  //         }
-  //       }
-  //     );
-  // }
-
-
-  // onChangeSpecialite(specialite){
-  //   this.groupes =[];
-  //   this.modules = [];
-  //   this.specialiteSlct = specialite['value'];
-  //   this.ens_service.getGroupes(this.anneeSlct, specialite['value'])
-  //     .subscribe(
-  //       (data : Response) => {
-  //         this.groupes=[];
-  //         for (let _i = 0; _i < data.json().length; _i++){
-  //           if(data.json()[_i].specialite == specialite['value']){
-  //             this.groupes.push(data.json()[_i]);
-  //           }
-  //         }
-  //       }
-  //     );
-  //   //   .subscribe(queriedItems => {
-  //   //     console.log(queriedItems);
-  //   //     this.groupes=[];
-  //   //     for (let _i = 0; _i < queriedItems.length; _i++){
-  //   //       console.log("ana",queriedItems[_i]);
-  //   //       console.log("spec", specialite);
-  //   //       if(queriedItems[_i].specialite == specialite['value']){
-  //   //         this.groupes.push(queriedItems[_i]);
-  //   //         console.log("hiiglhii",this.groupes);
-  //   //       }
-  //   //     }
-  //   //     console.log("Group",this.groupes);
-  //   // });
-  //
-  //   // .subscribe(
-  //   //   (data : Response) => {
-  //   //     console.log(data.json().specialite);
-  //   //     if (Array.isArray(data.json().specialite)){
-  //   //       console.log('array');
-  //   //       this.specialites=this.json2array(data.json().specialite);
-  //   //     }else{
-  //   //       console.log('not array');
-  //   //       this.specialites=[];
-  //   //       this.specialites.push(data.json().specialite);
-  //   //     }
-  //   //     console.log("anis",this.specialites)
-  //   //   }
-  //   // );
-  // }
-
-  // onChangeGroupe(groupe){
-  //   this.modules = [];
-  //   this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
-  //     .subscribe(
-  //       (data : Response) => {
-  //         console.log(data.json());
-  //         this.modules = data.json();
-  //       }
-  //     );
-  // }
-
-  // getListeEtudiants(){
-  //   this.ens_service.getListEtudiants(this.anneeSlct,this.specialiteSlct)
-  //     .subscribe(
-  //       (data : Response) => {
-  //         console.log(this.json2array(data.json()));
-  //         this.listeEtudiants = this.json2array(data.json());
-  //       }
-  //     )
-  // }
-
-
 
   json2array(json){
     var result = [];

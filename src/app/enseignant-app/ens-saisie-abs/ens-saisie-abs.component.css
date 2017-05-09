@@ -178,3 +178,8 @@ md-toolbar
 {
     margin-top: -18px;
 }
+
+.mat-fab{
+  background: linear-gradient(67deg, #f15f79, #b24592);
+  color: white;
+}

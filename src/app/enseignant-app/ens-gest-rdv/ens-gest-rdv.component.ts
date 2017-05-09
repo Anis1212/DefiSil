@@ -1,4 +1,3 @@
-//import { first } from '@angular/router/src/utils/collection';
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 
@@ -42,17 +41,17 @@ export class EnsGestRdvComponent implements OnInit {
         events: [
           {
             title: 'All Day Event',
-            start: '2017-04-01'
+            start: '2017-05-01'
           },
           {
             title: 'Long Event',
-            start: '2017-04-07',
-            end: '2017-04-10'
+            start: '2017-05-03',
+            end: '2017-05-10'
           },
           {
             id: 999,
             title: 'Repeating Event',
-            start: '2017-04-09T16:00:00'
+            start: '2017-05-09T16:00:00'
           },
           {
             id: 999,
@@ -62,48 +61,42 @@ export class EnsGestRdvComponent implements OnInit {
           {
             title: 'Conference',
             start: '2017-04-11',
-            end: '2017-04-13'
+            end: '2017-05-13'
           },
           {
             title: 'Meeting',
-            start: '2017-04-12T10:30:00',
-            end: '2017-04-12T12:30:00'
+            start: '2017-05-12T10:30:00',
+            end: '2017-05-12T12:30:00'
           },
           {
             title: 'Lunch',
-            start: '2017-04-12T12:00:00'
+            start: '2017-05-12T12:00:00'
           },
           {
             title: 'Meeting',
-            start: '2017-04-12T14:30:00'
+            start: '2017-05-12T14:30:00'
           },
           {
             title: 'Happy Hour',
-            start: '2017-04-12T17:30:00'
+            start: '2017-05-12T17:30:00'
           },
           {
             title: 'Dinner',
-            start: '2017-04-12T20:00:00'
+            start: '2017-05-12T20:00:00'
           },
           {
             title: 'Birthday Party',
-            start: '2017-04-13T07:00:00'
+            start: '2017-05-13T07:00:00'
           },
           {
             title: 'Click for Google',
             url: 'http://google.com/',
-            start: '2017-04-28'
+            start: '2017-05-28'
           }
         ],
            eventClick: function(calEvent, jsEvent, view) {
 
         alert('Event: ' + calEvent.title);
-      //  alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-       // alert('View: ' + view.name);
-
-        // change the border color just for fun
-        //$(this).css('border-color', 'red');
-
     }
 
      }
