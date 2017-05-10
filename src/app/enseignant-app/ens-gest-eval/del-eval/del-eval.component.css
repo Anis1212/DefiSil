@@ -1,51 +1,25 @@
-md-toolbar
-{
-    width: 100%;
-    margin: 0px;
-    background: #ffd740;
-    font-size: 22px;
-   color: rgb(48, 52, 60);
-}
-md-dialog-content
-{
-    padding: 0px;
-    width: 350px;
-    margin-top:-25px;
-    height: 100%;
-}
+
 table 
 {
     width:90%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
+        border: solid 1px black;
+
 }
 
-table tr{
-    padding:30px;
-    height: 40px;
-    font-size: 18px;
-}
-table button 
+
+button 
  {
-     float: right;
+   float: right;
    margin-right: 10px;
    margin-top: 10px;
-   margin-bottom: 7px;
  }
 
- md-list
- {
-     height: 200px;
-     overflow-x: hidden;
- }
+
  #coef
  {
      margin-right: 40px;
      float: right;
 
- }
- 
-.spanE
- {
-     width: 220px;
  }

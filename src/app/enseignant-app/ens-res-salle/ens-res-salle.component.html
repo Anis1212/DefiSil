@@ -1,0 +1,146 @@
+<style>
+
+</style>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-4">
+
+                 <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header" data-background-color="bleu">
+                        <h4 class="title">Sélectionner</h4>
+                    </div>
+                    <br/>
+                    <div class="card-content table-responsive" id="filtresConteneur">
+
+                      <div class="container-fluid">
+                        <div class="row ">
+                      <div class="col-md-5">
+                          <md-select placeholder="Type salle" style="max-width: 10%">
+                                <md-option *ngFor="let annee of annees" [value]="annee.value">
+                                  {{ annee.viewValue }}
+                                </md-option>
+                           </md-select>
+                        </div>
+                        <div class="col-md-6" id="datePicker">
+                          <md2-datepicker style="min-width: 100% !important;"></md2-datepicker>
+
+                        </div>
+                        <div class="col-md-2" id="validerFiltre">
+                           <button  md-mini-fab  >
+                                <md-icon>check</md-icon>
+                            </button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                </div>
+
+                 <div class="col-md-12">
+
+                <div class="card" id ="gestionConteneur">
+                    <div class="card-header" data-background-color="bleu">
+                        <h4 class="title">Salles que j'ai réservées</h4>
+                    </div>
+                    <div class="card-content table-responsive" >
+
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+
+             <div class="col-md-8">
+
+                <div class="card" id="sallesListe">
+                    <div class="card-header" data-background-color="bleu">
+                        <h4 class="title">Liste des salles</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                         <table class="table borderless">
+                                  <thead>
+                                    <tr>
+                                        <th class="col16-md-2" ><md-icon>access_time</md-icon></th>
+                                        <th class="col16-md-2" >8:30-9:30</th>
+                                        <th class="col16-md-2" >9:30-9:30</th>
+                                        <th class="col16-md-2" >10:30-11:30</th>
+                                        <th class="col16-md-2" >13:00-14:00</th>
+                                        <th class="col16-md-2" >14:00-15:00</th>
+                                        <th class="col16-md-2" >15:00-16:00</th>
+                                        <th class="col16-md-2" >16:00-17:00</th>
+                                    </tr>
+                                  </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                      <td>CP 1</td>
+                                      <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card (click)="openDialog1()" ><md-card-content>click sur moi->exemple</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                    </tr>
+                                    <tr>
+                                      <td>CP 2 </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Amphi 1</td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Amphi 2</td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                    </tr>
+
+                                     <tr>
+                                      <td>M5</td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
+                                    </tr>
+
+
+                                  </tbody>
+
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
