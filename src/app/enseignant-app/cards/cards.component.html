@@ -61,37 +61,26 @@
                <div class="card-content table-responsive" >
                   <md-tab-group style="padding-top: 20px;">
                      <md-tab label="Dimanche" >
-                        <div class="card col-md-12">
+                        <div class="card col-md-12" *ngFor="let emp of emploieJour['Lundi']">
                            <div class="card-content table-responsive" >
-                              <h5 class="col-md-1">08:30h</h5>
-                              <h5 class="col-md-2">10:30h</h5>
-                              <h6 class="col-md-3">Cours IHM</h6>
-                              <h5 class="col-md-2">AP1</h5>
-                              <h6 class="col-md-4">SIL,SIQ1,SIQ2</h6>
+                              <h5 class="col-md-1">{{ emp?.debut }}</h5>
+                              <h5 class="col-md-2">{{ emp?.fin }}</h5>
+                              <h6 class="col-md-3">{{ emp?.type }} {{ emp?.module }}</h6>
+                              <h5 class="col-md-2">{{ emp?.salle }}</h5>
+                              <h6 class="col-md-4">{{ emp?.groupes }}</h6>
                            </div>
                         </div>
-                          <div class="card col-md-12" >
-                           <div class="card-content table-responsive" >
-                              <h5 class="col-md-1">10:30h</h5>
-                              <h5 class="col-md-2">11:30h</h5>
-                              <h6 class="col-md-3">TD IHM</h6>
-                              <h5 class="col-md-2">S17</h5>
-                              <h6 class="col-md-4">SIL</h6>
-                           </div>
-                        </div>
-                          <div class="card col-md-12" >
-                           <div class="card-content table-responsive" >
-                              <h5 class="col-md-1">14:00h</h5>
-                              <h5 class="col-md-2">15:00h</h5>
-                              <h6 class="col-md-3">TD IHM</h6>
-                              <h5 class="col-md-2">S10</h5>
-                              <h6 class="col-md-4">SIQ1</h6>
-                           </div>
-                        </div>
-
                      </md-tab>
                      <md-tab label="Lundi">
-                        <h1>Some more tab content</h1>
+                       <div class="card col-md-12" *ngFor="let emp of emploieJour['Lundi']">
+                         <div class="card-content table-responsive" >
+                           <h5 class="col-md-1">{{ emp?.debut }}</h5>
+                           <h5 class="col-md-2">{{ emp?.fin }}</h5>
+                           <h6 class="col-md-3">{{ emp?.type }} {{ emp?.module }}</h6>
+                           <h5 class="col-md-2">{{ emp?.salle }}</h5>
+                           <h6 class="col-md-4">SIL,SIQ1,SIQ2</h6>
+                         </div>
+                       </div>
                      </md-tab>
                      <md-tab label="Mardi">
                         <h1>Some more tab content</h1>

@@ -26,25 +26,30 @@ md-icon
 }
 
 md-card{
-    height: 67px;
-    background-color: rgba(48, 52, 60,.1);
-    padding-bottom: 3px;
+  height: 67px;
+  width: 207px;
+  background-color: rgba(48, 52, 60,.1);
+  padding-bottom: 3px;
+  margin-bottom: 4%;
 }
 
-table tbody tr td:nth-child(1)
+table tbody td:nth-child(1) tr
 {
     color: #e74c3c;
 }
 
 md-card
 {
-    padding: 0px;
+    /*padding: 0px;*/
 }
 md-card-content
 {
     height: 18px;
     margin-bottom: 0px;
 }
-.borderless td, .borderless th {
+.borderless tr, .borderless th {
     border: none;
+}
+.mat-card{
+  padding: 0;
 }
