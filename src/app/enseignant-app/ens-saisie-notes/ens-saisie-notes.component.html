@@ -1,44 +1,38 @@
-
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row ">
             <div class="col-md-4">
-
-                 <div class="col-md-12">
-
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Sélectionner</h4>
                     </div>
                     <br/>
                     <div class="card-content table-responsive" id="filtresConteneur">
+                      <md-select placeholder="Module" (change)="onChangeModule($event)">
+                        <md-option *ngFor="let module of modules" [value]="module">
+                          {{ module }}
+                        </md-option>
+                      </md-select>
 
-                         <md-select placeholder="Groupe">
-                                <md-option *ngFor="let annee of annees" [value]="annee.value">
-                                {{ annee.viewValue }}
-                                </md-option>
-                        </md-select>
+                       <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
+                          <md-option *ngFor="let groupe of groupes" [value]="groupe?.specialite">
+                          {{ groupe?.specialite }}
+                          </md-option>
+                      </md-select>
 
-                        <md-select placeholder="Module">
-                                <md-option *ngFor="let annee of annees" [value]="annee.value">
-                                {{ annee.viewValue }}
-                                </md-option>
-                        </md-select>
+                      <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
+                          <md-option *ngFor="let evaluation of evaluations" [value]="evaluation">
+                          {{ evaluation }}
+                          </md-option>
+                      </md-select>
 
-                            <md-select placeholder="Evaluation">
-                                <md-option *ngFor="let annee of annees" [value]="annee.value">
-                                {{ annee.viewValue }}
-                                </md-option>
-                            </md-select>
-
-                            <button  md-mini-fab id="validerFiltre" >
-                                <md-icon>check</md-icon>
-                            </button>
+                      <button  md-mini-fab id="validerFiltre" (click)="getListeEtudiants()">
+                          <md-icon>check</md-icon>
+                      </button>
                     </div>
                 </div>
-
-                </div>
+            </div>
 
                  <div class="col-md-12">
 
@@ -84,12 +78,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Num</th>
-                                    <th>Matricule</th>
-                                    <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Note</th>
+                                <tr *ngFor="let etudiant of listeEtudiants; let i = index" (click)="modifierNote(etudiant?.email)">
+                                  <td>{{ i+1 }}</td>
+                                  <td>{{ etudiant?.matricule }}</td>
+                                  <td>{{ listeEtudiants[i]?.nom }}</td>
+                                  <td>{{ etudiant?.prenom }}</td>
+                                  <td> </td>
                                 </tr>
                             </tbody>
                         </table>

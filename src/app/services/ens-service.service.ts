@@ -25,8 +25,8 @@ export class EnsServiceService {
    * @param specialite
    * @returns {Observable<Response>}
    */
-  getGroupes(annee : string, specialite : string){
-    return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/listeGroupes?annee='+annee+'&specialite='+specialite+'');
+  getGroupes(module : String){
+    return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/getGroupesModule?module='+module);
   }
 
   /**
@@ -125,6 +125,10 @@ export class EnsServiceService {
    */
   getNbrAbsenceEtudiant(email : String, module : String){
     return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/AbsencesDUnEtudiant?etudiant='+email+'&module='+module);
+  }
+
+  getEnsEmploieTemps(email : String, jour : String ){
+    return this.http.get('https://us-central1-prj2cssil.cloudfunctions.net/getEmploiTemps?enseignant='+email+'&jour='+jour);
   }
 
 

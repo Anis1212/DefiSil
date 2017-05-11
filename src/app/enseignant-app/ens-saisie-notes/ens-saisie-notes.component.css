@@ -1,4 +1,3 @@
-
 #validerFiltre
 {
     float: right;
@@ -24,5 +23,9 @@ md-select
 #gestionConteneur
 {
     min-height: 490px;
+}
+
+tbody tr{
+  cursor: pointer;
 }
 
