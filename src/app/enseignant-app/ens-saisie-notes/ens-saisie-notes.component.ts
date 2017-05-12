@@ -18,7 +18,6 @@ export class EnsSaisieNotesComponent implements OnInit {
   private evaluationSlct;
   private groupeSlct;
   private etdSlct;
-  value;
 
   private annees = [
     {value: 'a1', viewValue: '1CPI'},
@@ -49,7 +48,7 @@ export class EnsSaisieNotesComponent implements OnInit {
               (data : Response) => {this.anneeSlct = data.json().code;}
           );
           if (Array.isArray(data.json().specialite)){
-            this.specialites = this.json2array(data.json().specialite);
+            this.specialites = this.ens_service.json2array(data.json().specialite);
           }else{
             this.specialites = [];
             this.specialites.push(data.json().specialite);
@@ -57,24 +56,6 @@ export class EnsSaisieNotesComponent implements OnInit {
         }
     );
   }
-
-  // onChangeSpecialite(specialite){
-  //   this.groupes =[];
-  //   this.modules = [];
-  //   this.evaluations = [];
-  //   this.specialiteSlct = specialite['value'];
-  //   this.ens_service.getGroupes(this.anneeSlct, specialite['value'])
-  //     .subscribe(
-  //       (data : Response) => {
-  //         this.groupes=[];
-  //         for (let _i = 0; _i < data.json().length; _i++){
-  //           if(data.json()[_i].specialite == specialite['value']){
-  //             this.groupes.push(data.json()[_i]);
-  //           }
-  //         }
-  //       }
-  //     );
-  // }
 
   onChangeGroupe(groupe){
     this.groupeSlct = groupe['value'];
@@ -89,16 +70,6 @@ export class EnsSaisieNotesComponent implements OnInit {
           console.log(data.json());
         }
       );
-    /**********************************************/
-    // this.evaluations = [];
-    // this.moduleSlct = moduleCode['value'];
-    // this.ens_service.getEval(this.anneeSlct, '1', this.specialiteSlct, moduleCode['value'])
-    //   .subscribe(
-    //     (data : Response) => {
-    //       console.log(this.json2array(data.json()));
-    //       this.evaluations = this.json2array(data.json());
-    //     }
-    //   )
   }
 
   onChangeEvaluation(evaluation){
@@ -107,7 +78,7 @@ export class EnsSaisieNotesComponent implements OnInit {
 
   getListeEtudiants(){
     console.log(this.groupeSlct);
-    this.ens_service.getListEtudiants(this.groupeSlct)
+    this.ens_service.getListeEtudiants(this.groupeSlct)
       .subscribe(
         (data : Response) => {
           this.listeEtudiants = data.json();
@@ -121,8 +92,8 @@ export class EnsSaisieNotesComponent implements OnInit {
       .subscribe(
         (data : Response) => {
           if (data.json() != null) {
-            console.log("success", this.json2array(data.json()));
-            this.notesEtudiants = this.json2array(data.json());
+            console.log("success", this.ens_service.json2array(data.json()));
+            this.notesEtudiants = this.ens_service.json2array(data.json());
           } else {
             console.log("error");
             this.notesEtudiants=[];
@@ -144,20 +115,6 @@ export class EnsSaisieNotesComponent implements OnInit {
   modifierNote(email : any){
     this.etdSlct = email;
     console.log(email);
-  }
-
-  /**
-   *
-   * @param json
-   * @returns {Array}
-   */
-  json2array(json){
-    var result = [];
-    var keys = Object.keys(json);
-    keys.forEach(function(key){
-      result.push(json[key]);
-    });
-    return result;
   }
 
 }

@@ -1,0 +1,125 @@
+#card1
+{
+  background: linear-gradient(229deg, #fd9a77, #fb827a);
+  min-height: 100px;
+}
+
+#card2
+{
+  background: linear-gradient(229deg, #8edead, #43c6ac);
+  min-height: 100px;
+
+}
+
+#card3
+{
+  background: linear-gradient(248deg, #348ac7, #7474bf);
+  min-height: 100px;
+
+}
+
+#card4
+{
+  background: linear-gradient(67deg, #f15f79, #b24592);
+  min-height: 100px;
+
+}
+
+img
+{
+  width:70px;
+  height: auto;
+}
+
+
+#card2 img
+{
+  width:100px;
+  margin-left: -10px;
+  margin-top: 10px;
+
+}
+
+#iconListAbs{
+  position: absolute;
+}
+
+#iconABs{
+  width: 30px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+h3,h4,h5,h6
+{
+  text-align: center;
+
+}
+h4
+{
+  font-family: "Roboto";
+  color: azure;
+}
+
+
+td,th
+{
+  text-align: center;
+}
+
+hr {
+  height: 1px;
+  margin: -0.5em 0;
+  padding: 0;
+  color: black;
+  background-color:#919394;
+  border: 0;
+}
+.card.col-md-12
+
+{
+  background-color:  #eff1f4;
+  margin-bottom: 0px;
+}
+
+#TempsContainer,#RdvContainer
+{
+  min-height: 500px;
+}
+
+.media-body
+{
+  padding: 10px;
+}
+
+.card-header
+{
+  background: linear-gradient(248deg, #348ac7, #7474bf);
+  box-shadow: 4px 4px 6px #555;
+}
+
+.media-body p
+{
+  color: #999999;
+}
+
+.media:hover
+{
+  background: rgba(153,153,153,0.3);
+}
+
+#dateRdv
+{
+  right: 30px;
+  position: absolute;
+  margin-top: -22px;
+}
+
+.title{
+  text-align: left;
+}
+
+.media-heading{
+  text-align: left;
+  color: #000;
+}

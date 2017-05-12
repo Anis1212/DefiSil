@@ -1,15 +1,185 @@
-<div id="cardContainer">
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="col-md-3" >
+          <div class="card" >
+            <div class="card-content table-responsive" id="card1">
+              <div class="col-md-4" >
+                <img src="src\img\notes-nv.png"/>
+              </div>
+              <div class="col-md-8" >
+                <h4>Gestion des notes</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" >
+          <div class="card" >
+            <div class="card-content table-responsive" id="card2">
+              <div class="col-md-4" >
+                <img src="src\img\rsv-nv.png"/>
+              </div>
+              <div class="col-md-8" >
+                <h4>Réservation des salles</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" >
+          <div class="card" >
+            <div class="card-content table-responsive" id="card3">
+              <div class="col-md-4" >
+                <img src="src\img\abs-nv.png" id="iconListAbs"/>
+                <img src="src\img\abs-img.png" id="iconABs"/>
+              </div>
+              <div class="col-md-8" >
+                <h4>Gestion des absences </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" >
+          <div class="card" >
+            <div class="card-content table-responsive" id="card4">
+              <div class="col-md-4" >
+                <img src="src\img\rdv-nv.png"/>
+              </div>
+              <div class="col-md-8" >
+                <h4>Gestion des rendez-vous</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card" id="TempsContainer" >
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Emploi du temps </h4>
+          </div>
+          <br/>
+          <div class="card-content table-responsive" >
+            <md-tab-group style="padding-top: 20px;">
+              <md-tab label="Dimanche" >
+                <div class="card col-md-12" *ngFor="let emp of emploieJour['Lundi']">
+                  <div class="card-content table-responsive" >
+                    <h5 class="col-md-1">{{ emp?.debut }}</h5>
+                    <h5 class="col-md-2">{{ emp?.fin }}</h5>
+                    <h6 class="col-md-3">{{ emp?.type }} {{ emp?.module }}</h6>
+                    <h5 class="col-md-2">{{ emp?.salle }}</h5>
+                    <h6 class="col-md-4">{{ emp?.groupes }}</h6>
+                  </div>
+                </div>
+              </md-tab>
+              <md-tab label="Lundi">
+                <div class="card col-md-12" *ngFor="let emp of emploieJour['Lundi']">
+                  <div class="card-content table-responsive" >
+                    <h5 class="col-md-1">{{ emp?.debut }}</h5>
+                    <h5 class="col-md-2">{{ emp?.fin }}</h5>
+                    <h6 class="col-md-3">{{ emp?.type }} {{ emp?.module }}</h6>
+                    <h5 class="col-md-2">{{ emp?.salle }}</h5>
+                    <h6 class="col-md-4">SIL,SIQ1,SIQ2</h6>
+                  </div>
+                </div>
+              </md-tab>
+              <md-tab label="Mardi">
+                <h1>Some more tab content</h1>
+              </md-tab>
+              <md-tab label="Mercredi">
+                <h1>Some more tab content</h1>
+              </md-tab>
+              <md-tab label="Jeudi">
+                <h1>Some more tab content</h1>
+              </md-tab>
+            </md-tab-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" id="RdvContainer">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Rendez-vous</h4>
+          </div>
+          <div class="card-content table-responsive" >
 
-    <div id="card">
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="src\img\fella.jpg" alt="...">
+                  </a>
+                </div>
+
+                <div class="media-body">
+                  <h4 class="media-heading" >df_tata@esi.dz </h4>
+                  <p id="dateRdv" > 22-04-2017 09:00h </p>
+                  <p> Suite à ....</p>
+                </div>
+              </li>
+
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="src\img\fella.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">df_tata@esi.dz </h4>
+                  <p id="dateRdv" > 22-04-2017 09:00h </p>
+
+                  <p> Suite à ....</p>
+                </div>
+              </li>
+
+
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="src\img\photo.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">da_fekih@esi.dz </h4>
+                  <p id="dateRdv" > 22-04-2017 09:00h </p>
+
+                  <p>Suite à ....</p>
+                </div>
+              </li>
+
+
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="src\img\photo.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading" >da_fekih@esi.dz </h4>
+                  <p id="dateRdv" > 22-04-2017 09:00h </p>
+
+                  <p> Suite à ....</p>
+                </div>
+              </li>
+
+
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" src="src\img\fella.jpg" alt="...">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">df_tata@esi.dz </h4>
+                  <p id="dateRdv" > 22-04-2017 09:00h </p>
+
+                  <p>Suite à ....</p>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div id="card2">
-    </div>
-
-    <div id="card3">
-    </div>
-
-    <div id="card4">
-    </div>
-
+  </div>
 </div>

@@ -16,7 +16,6 @@ export class EnsSaisieAbsComponent implements OnInit {
   private jour;
   private date;
   private ens_email = 'k_chebieb@esi.dz';
-  value;
 
   private jours = [
     "Dimanche",
@@ -42,53 +41,57 @@ export class EnsSaisieAbsComponent implements OnInit {
       (data : any) => {
         data[0].modules.splice(0,1);
         this.modules = data[0].modules;
-        console.log(this.modules);
       }
     );
   }
 
   onChangeDate(date){
-    console.log(date);
     this.jour = this.jours[date.value.getUTCDay()];
     this.date = date.value.getDate()+'/'+(date.value.getMonth()+1)+'/'+date.value.getFullYear();
-    console.log(this.jour);
-    console.log(this.date);
   }
 
+  /**
+   * Récupère les séances d'un enseignant pour un module selectionné
+   * @param moduleCode
+   */
   onChangeModule(moduleCode){
     this.moduleSlct = moduleCode['value'];
     this.ens_service.getSeances(this.moduleSlct ,this.ens_email)
       .subscribe(
         (data : Response) => {
-          console.log(this.json2array(data.json()));
           this.seances = data.json();
         }
       );
   }
 
+  /**
+   * Récupère les groupes d'une séances donnée
+   * @param seance
+   */
   onChangeSeance(seance){
     this.seanceSlct = seance['value'];
-    console.log(this.seanceSlct);
     this.ens_service.getGroupesSeance(this.seanceSlct)
       .subscribe(
         (data : Response) => {
-          console.log(data.json());
           this.groupes = data.json();
         }
       );
 
   }
 
+  /**
+   *
+   * @param groupe
+   */
   onChangeGroupe(groupe){
     this.groupeSlct = groupe['value'];
   }
 
-  aff(){
-    console.log(this.listeEtudiants);
-  }
-
+  /**
+   * Donne la liste des étudiants d'un groupe
+   */
   getListeEtudiants(){
-    this.ens_service.getListEtudiants(this.groupeSlct)
+    this.ens_service.getListeEtudiants(this.groupeSlct)
       .subscribe(
         (data : Response) => {
           this.listeEtudiants = data.json();
@@ -99,14 +102,15 @@ export class EnsSaisieAbsComponent implements OnInit {
                 etudiant.nbrAbs=data.json().length;
               })
           });
-          console.log(this.listeEtudiants);
         }
       );
   }
 
+  /**
+   * Envoie à la base de données les étudiants marqués absents
+   */
   validerListeAbs(){
     this.listeEtudiantsAbs = this.listeEtudiants.filter(etudiant => etudiant.checked==true);
-    console.log(this.listeEtudiantsAbs);
     this.listeEtudiantsAbs.forEach(etudiant => {this.ens_service.setAbs(this.seanceSlct, etudiant.email, this.date, this.moduleSlct)
       .subscribe(
         (date : Response) => {
@@ -115,18 +119,4 @@ export class EnsSaisieAbsComponent implements OnInit {
         }
       )});
   }
-
-  refresh(){
-    this.getListeEtudiants();
-  }
-
-  json2array(json){
-    var result = [];
-    var keys = Object.keys(json);
-    keys.forEach(function(key){
-      result.push(json[key]);
-    });
-    return result;
-  }
-
 }
