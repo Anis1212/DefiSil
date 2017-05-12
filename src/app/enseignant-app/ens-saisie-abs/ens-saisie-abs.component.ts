@@ -31,12 +31,16 @@ export class EnsSaisieAbsComponent implements OnInit {
   private modules = [];
   private listeEtudiants = [];
   private listeEtudiantsAbs = [];
+  private currentDate;
 
   constructor(private ens_service : EnsServiceService) {
 
   }
 
   ngOnInit() {
+    //Récuperer la date d'aujourd'hui
+    this.currentDate = this.ens_service.getCurrentDate();
+
     this.ens_service.getModules(this.ens_email).subscribe(
       (data : any) => {
         data[0].modules.splice(0,1);
@@ -115,6 +119,8 @@ export class EnsSaisieAbsComponent implements OnInit {
       .subscribe(
         (date : Response) => {
           console.log(date);
+          etudiant.nbrAbs = etudiant.nbrAbs + 1;
+          console.log(etudiant);
           this.getListeEtudiants();
         }
       )});

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { Http, Headers } from "@angular/http";
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class EnsServiceService {
@@ -9,9 +9,20 @@ export class EnsServiceService {
   private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net/';
   private urlBDD = 'https://prj2cssil.firebaseio.com';
 
-
   constructor( private http : Http, private fire : AngularFire) {}
 
+  /**
+   * Renvoie la date courrante
+   * @returns {string}
+   */
+  getCurrentDate(){
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+    return (day<10 ? '0' : '') + day + '/' +
+      (month<10 ? '0' : '') + month + '/'
+      + d.getFullYear();
+  }
   /**
    * Récupère les spécialité d'une année
    * @param annee
@@ -116,7 +127,11 @@ export class EnsServiceService {
    * @returns {Observable<Response>}
    */
   setAbs(idSeance : String, etd_email :String, date : String, module : String){
-    return this.http.get(this.urlServeur+'/addAbsence?idSeance='+idSeance+'&etudiant='+etd_email+'&date='+date+'&module='+module);
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(this.urlServeur+'/addAbsence?idSeance='+idSeance+'&etudiant='+etd_email+'&date='+date+'&module='+module, {
+      headers : header
+    });
   }
 
   /**
