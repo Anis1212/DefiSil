@@ -1,189 +1,126 @@
-#cardContainer
+
+#card1
 {
-   /*background-color: rgba(255,254,204,0.5);*/
-    position: absolute;
-    /*margin-left: 18%;*/
-    margin-top: 0;
-    width: 1225px;
-    height: 670px;
-
+    background: linear-gradient(229deg, #fd9a77, #fb827a);
+    min-height: 100px;
 }
 
-#card1-Contanainer
+#card2
 {
-    background-color: white;
-    position: absolute;
-    margin-left: 25px;
-    margin-top: 20px;
-    width: 225px;
-    height: 120px;
-    display: flex;
-    border-radius: 5px;
+    background: linear-gradient(229deg, #8edead, #43c6ac);
+    min-height: 100px;
 
 }
 
-#card2-Contanainer
+#card3
 {
-    background-color: white;
-    position: absolute;
-    margin-left: 293px;
-    margin-top: 20px;
-    width: 225px;
-    height: 120px;
-    display: flex;
-    border-radius: 5px;
+    background: linear-gradient(248deg, #348ac7, #7474bf);
+    min-height: 100px;
 
 }
-#card3-Contanainer
+
+#card4
 {
-    background-color: white;
-
-    position: absolute;
-    margin-left: 560px;
-    margin-top: 20px;
-    width: 225px;
-    height: 120px;
-    display: flex;
-    border-radius: 5px;
+    background: linear-gradient(67deg, #f15f79, #b24592);
+    min-height: 100px;
 
 }
 
-#card4-Contanainer
+img
 {
-
-    /*background-color: rgba(48, 52, 60,0.8);*/
-    background-color: white;
-    position: absolute;
-    margin-left: 830px;;
-    margin-top: 20px;
-    width: 225px;
-    height: 120px;
-    display: flex;
-    border-radius: 5px;
+    width:70px;
+    height: auto;
 }
 
-#card5-Contanainer
+
+#card2 img
 {
+    width:100px;
+    margin-left: -10px;
+    margin-top: 10px;
 
-    background: white;
+}
+
+#iconListAbs{
     position: absolute;
-    margin-left: 25px;
-    margin-top: 195px;
-    width: 720px;
-    height: 400px;
-    text-align: center;
-    display: flex;
-    display: block;
-    border-radius: 5px;
-
 }
 
-.md-tab{
-  min-width: 148px;
-}
-
-#card6-Contanainer
-{
-
-    background: white;
-    position: absolute;
-    margin-left: 759px;
-    margin-top: 195px;
-
-    width: 296px;
-    height: 400px;
-    display: flex;
-    display: block;
-    border-radius: 5px;
-
-}
-
-#card6-Contanainer h4{
-    text-align: center;
-}
-
-
-
-.Ccontenu{
-    margin: auto;
-    font-size: 20px;
-    z-index: 10;
-    text-align: center;
-
-}
-img {
-
-position: absolute;
-width: 70%;
-height: 70%;
-margin: 15%;
-
-
-}
-
-#cardContainer div span.icon-container {
-
-
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    margin-top: 35px;
+#iconABs{
+  width: 30px;
+     margin-top: 25px;
     margin-left: 20px;
-    position: absolute;
-    border-radius: 50%;
-
 }
 
-#cardContainer div span.Ccontenu{
-
-    background-color: white;
-    margin: auto;
-    width: 135px;
-    height: 70px;
-    margin-top: 32px;
-    margin-left: 77px;
-    position: absolute;
-    color: #797979;
-    font-weight: bold;
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+h3,h4,h5,h6
+{
+    text-align: center;
 
 }
 h4
 {
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 2em;
-    color:rgb(204, 0, 0);
-}
-#card1-Contanainer span.icon-container
-{
-    background-color: rgba(204, 0, 0,1);
-    border: solid 1px rgb(204, 0, 0);
-}
-
-#card2-Contanainer span.icon-container
-{
-    background-color: rgba(48, 52, 60,1);
-    border: solid 1px rgb(48, 52, 60);
-}
-#card3-Contanainer span.icon-container
-{
-   background-color: rgba(129, 200, 104, 1);
-   border: solid 1px rgba(129, 200, 104, 1);
-}
-#card4-Contanainer span.icon-container
-{
-    background-color: rgba(125, 174, 240, 1);
-    border: solid 1px rgb(125, 174, 240);
-}
-
-#card5-Contanainer hr
-{
-    margin-bottom: 0;
-}
-#card5-Contanainer h4
-{
-    color: #29AAEB;
+  font-family: "Roboto";
+     color: azure;
 }
 
 
+td,th
+{
+    text-align: center;
+}
 
+hr {
+  height: 1px;
+  margin: -0.5em 0;
+  padding: 0;
+  color: black;
+  background-color:#919394;
+  border: 0;
+}
+.card.col-md-12
+
+{
+    background-color:  #eff1f4;
+   margin-bottom: 0px;
+}
+
+#TempsContainer,#RdvContainer
+{
+    min-height: 500px;
+}
+
+.media-body
+{
+    padding: 10px;
+}
+
+.card-header
+{
+background: linear-gradient(248deg, #348ac7, #7474bf);
+box-shadow: 4px 4px 6px #555;
+}
+
+.media-body p
+{
+  color: #999999;
+}
+
+.media:hover
+{
+    background: rgba(153,153,153,0.3);
+}
+
+#dateRdv
+{
+    right: 30px;
+    position: absolute;
+    margin-top: -22px;
+}
+
+.title{
+  text-align: left;
+}
+
+.media-heading{
+  text-align: left;
+  color: #000;
+}

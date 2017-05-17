@@ -1,11 +1,58 @@
-<div class="navi" style="overflow: hidden">
-  <ul>
-    <li><img class="responsive-img" src="/src/img/photo.png"/> Enseigant</li>
-    <li><a href="app-enseignant-accueil"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Accueil</span></a></li>
-    <li><a href="app-enseignant-no"><i class="material-icons" aria-hidden="true">mode_edit</i><span class="hidden-xs hidden-sm">Saisie des notes</span></a></li>
-    <li><a href="app-enseignant-ep"><i class="material-icons" aria-hidden="true">date_range</i><span class="hidden-xs hidden-sm">Emploi du temps</span></a></li>
-    <li><a href="app-enseignant-sa"><i class="material-icons" aria-hidden="true">spellcheck</i><span class="hidden-xs hidden-sm">Saisie des absences</span></a></li>
-    <li><a ><i class="material-icons" aria-hidden="true">event</i><span class="hidden-xs hidden-sm">Rendez-vous</span></a></li>
-    <li><a ><i class="glyphicon glyphicon-home" aria-hidden="true">bookmark</i><span class="hidden-xs hidden-sm">Réservation de salles</span></a></li>
+<!--<div class="navi" style="overflow: hidden">-->
+  <!--<ul>-->
+    <!--<li><img class="responsive-img" src="/src/img/photo.png"/> Enseigant</li>-->
+    <!--<li><a href="app-enseignant-accueil"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Accueil</span></a></li>-->
+    <!--<li><a [routerLink]="['app-enseignant-no']"><i class="material-icons" aria-hidden="true">mode_edit</i><span class="hidden-xs hidden-sm">Saisie des notes</span></a></li>-->
+    <!--<li><a href="app-enseignant-ep"><i class="material-icons" aria-hidden="true">date_range</i><span class="hidden-xs hidden-sm">Emploi du temps</span></a></li>-->
+    <!--<li><a href="app-enseignant-sa"><i class="material-icons" aria-hidden="true">spellcheck</i><span class="hidden-xs hidden-sm">Saisie des absences</span></a></li>-->
+    <!--<li><a ><i class="material-icons" aria-hidden="true">event</i><span class="hidden-xs hidden-sm">Rendez-vous</span></a></li>-->
+    <!--<li><a ><i class="glyphicon glyphicon-home" aria-hidden="true">bookmark</i><span class="hidden-xs hidden-sm">Réservation de salles</span></a></li>-->
+  <!--</ul>-->
+<!--</div>-->
+<div></div>
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a class="simple-text">
+      <img class="responsive-img" src="/src/img/photo.png"/> CHEBIEB Abdelkrim
+    </a>
+  </div>
+  <ul class="nav" id="side-bar">
+    <li class="active">
+      <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+      <a [routerLink]="['app-enseignant-accueil']">
+        <p>Accueil</p>
+      </a>
+    </li>
+    <li>
+      <i class="material-icons" aria-hidden="true">mode_edit</i><span class="hidden-xs hidden-sm"></span>
+      <a [routerLink]="['app-enseignant-no']">
+        <p>Saisie des notes</p>
+      </a>
+    </li>
+    <li>
+      <i class="material-icons" aria-hidden="true">date_range</i>
+      <a [routerLink]="['app-enseignant-ep']">
+        <p>Emploie du temps</p>
+      </a>
+    </li>
+    <li>
+      <i class="material-icons" aria-hidden="true">spellcheck</i><span class="hidden-xs hidden-sm"></span>
+      <a [routerLink]="['app-enseignant-sa']">
+        <p>Saisie d'absence</p>
+      </a>
+    </li>
+    <li>
+      <i class="material-icons" aria-hidden="true">event</i>
+      <a [routerLink]="['app-enseignant-rdv']">
+        <p>Rendez-vous</p>
+      </a>
+    </li>
+    <li>
+      <i class="reservation"><img src="src\img\ic_action_43007.png"></i>
+      <a [routerLink]="['app-enseignant-salle']">
+        <p>Réservation de salles</p>
+      </a>
+    </li>
   </ul>
 </div>
+

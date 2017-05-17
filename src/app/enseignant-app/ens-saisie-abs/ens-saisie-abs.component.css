@@ -1,6 +1,6 @@
-#mainContainer
+/*#mainContainer
 {
-   /*background-color: rgba(154,123,176,.5);*/
+   /*background-color: rgba(154,123,176,.5);
   position: absolute;
   left: 4%;
   top: 60px;
@@ -11,7 +11,7 @@
 
 #barreFiltres
 {
-    /*background-color: rgba(154,23,2,.5);*/
+    /*background-color: rgba(154,23,2,.5);
     position: absolute;
     left: 0;
     top: 0;
@@ -32,10 +32,10 @@
 
 #tableContainer
 {
-    /*background-color: rgba(100,223,2,.5);*/
+    /*background-color: rgba(100,223,2,.5);*
     position: absolute;
     left: 0;
-    top: 180px;
+    top: 30%;
     width: 100%;
     z-index: 10;
 }
@@ -58,16 +58,14 @@ md-toolbar
       flex: 4 auto;
  }
 
-/* Tableau */
 #table-title
 {
-  background-color:rgb(48, 52, 60);
-  color:azure;
-  width: 99%;
-  margin-left: .5%;
-  top: -20px;
-  position: relative;
-  border-radius: 5px;
+     background-color:#e74c3c;
+     color:azure;
+     width: 99%;
+     margin-left: .5%;
+     top: -20px;
+     position: relative;
 }
 
 .datagrid #table-title
@@ -121,7 +119,7 @@ md-toolbar
 /*
 .datagrid table tbody tr td {
     padding-left: 10px;
-}*/
+}
 .datagrid table tbody .alt td {
     background: #FFFFFF;
     color: rgb(48, 52, 60);
@@ -174,4 +172,14 @@ md-toolbar
     background-color: #e74c3c;
     color: white;
 }
+*/
 
+#datePicker
+{
+    margin-top: -18px;
+}
+
+.mat-fab{
+  background: linear-gradient(67deg, #f15f79, #b24592);
+  color: white;
+}

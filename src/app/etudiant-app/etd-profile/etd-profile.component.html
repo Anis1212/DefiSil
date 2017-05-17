@@ -1,0 +1,111 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Mon Profile</h4>
+                        <a class="btn btn-black btn-round btn-sm" data-background-color="black" >Demande Modification</a>
+
+                    </div>
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group form-black is-empty">
+                                        <label class="control-label">Nom</label>
+                                        <input type="text" class="form-control" disabled value="{{result.nom}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-black is-empty"> 
+                                        <label class="control-label">Prénom</label>
+                                        <input type="text" class="form-control" disabled value="{{result.prenom}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black is-empty">
+                                        <label class="control-label">Adresse Email</label>
+                                        <input type="email" class="form-control" value="{{result.email}}" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Adresse</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Ville</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Pays</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Code Postal</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Année Universitaire</label>
+                                        <input type="text" class="form-control" value="{{result.annee}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Cycle</label>
+                                        <input type="text" class="form-control" value="{{result.groupe_}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Options</label>
+                                        <input type="text" class="form-control" value="{{result.specialite}}" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-black pull-right" disabled>Mettre à jours Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/me.jpg" />
+                        </a>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="category text-gray">Etudiant {{result.annee}}</h6>
+                        <h4 class="card-title">{{result.prenom}} {{result.nom}} </h4>
+                        <p class="card-content">
+                            Bonjour
+                        </p>
+                        <a href="#" class="btn btn-black btn-round btn-xs" style="color:azure">Afficher</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

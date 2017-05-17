@@ -1,60 +1,24 @@
-md-toolbar
-{
-    width: 100%;
-    margin: 0px;
-    background: #ffd740;
-    font-size: 22px;
-   color: rgb(48, 52, 60);
-}
-md-dialog-content
-{
-    padding: 0px;
-    width: 450px;
-    margin-top:-25px;
-    height: 100%;
-}
+
 table
 {
     width:90%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-top: 0px;
+    border: solid 1px black;
 }
 
-table tr{
-    padding:30px;
-    height: 40px;
-    font-size: 18px;
-}
-table button
+
+#btnModif
  {
-     float: right;
-   margin-right: 10px;
+   float: right;
    margin-top: 10px;
    margin-bottom: 7px;
  }
 
- md-list
- {
-     height: 210px;
-     overflow-x: hidden;
- }
- #edit
- {
-     margin-right: 50px;
-     float: right;
-
- }
 
 
-.spanE,.spanP
-{
-   width:150px;
-}
-#StrE
-{
-    margin-right:40px;
-}
-md-list button
+tr button
 {
     width: 35px;
     background: white;
@@ -63,19 +27,11 @@ md-list button
     height: 35px;
     padding: 0;
 }
-md-list button img
+ button img
 {
     width: 35px;
     left:0;
     top: 0;
     height: 35px;
     background: rgba(48, 52, 60,0.2);
-}
-
-.md-list-item{
-  cursor: pointer;
-}
-
-.md-list-item:hover{
-  background: #e74c3c;
 }

@@ -3,10 +3,6 @@ import {MdDialog} from '@angular/material';
 import {Response} from "@angular/http";
 
 import {EnsServiceService} from "../../services/ens-service.service";
-import { AddEvalComponent } from '../ens-gest-eval/add-eval/add-eval.component';
-import { DelEvalComponent } from '../ens-gest-eval/del-eval/del-eval.component';
-import { ModifEvalComponent } from '../ens-gest-eval/modif-eval/modif-eval.component';
-import {ModifNoteComponent} from "./modif-note/modif-note.component";
 
 @Component({
   selector: 'app-ens-saisie-notes',
@@ -35,33 +31,6 @@ export class EnsSaisieNotesComponent implements OnInit {
   private notesEtudiants = [];
 
   constructor(public dialog: MdDialog, private ens_service : EnsServiceService) {}
-
-  openAddEval() {
-    this.dialog.open(AddEvalComponent)
-  }
-  openDelEval() {
-    this.dialog.open(DelEvalComponent, {
-      data: {
-        evalList: this.evaluations
-      }
-    });
-  }
-  openModifEval() {
-    this.dialog.open(ModifEvalComponent, {
-      data: {
-        evalList: this.evaluations
-      }
-    });
-  }
-
-  openModifNote(email : string, valeur : number) {
-    this.dialog.open(ModifNoteComponent, {
-      data: {
-        email: email,
-        valeur : valeur
-      }
-    });
-  }
 
   onChangeAnnee(annee) {
     this.specialites = [];
@@ -101,46 +70,11 @@ export class EnsSaisieNotesComponent implements OnInit {
           }
         }
       );
-    //   .subscribe(queriedItems => {
-    //     console.log(queriedItems);
-    //     this.groupes=[];
-    //     for (let _i = 0; _i < queriedItems.length; _i++){
-    //       console.log("ana",queriedItems[_i]);
-    //       console.log("spec", specialite);
-    //       if(queriedItems[_i].specialite == specialite['value']){
-    //         this.groupes.push(queriedItems[_i]);
-    //         console.log("hiiglhii",this.groupes);
-    //       }
-    //     }
-    //     console.log("Group",this.groupes);
-    // });
-
-    // .subscribe(
-    //   (data : Response) => {
-    //     console.log(data.json().specialite);
-    //     if (Array.isArray(data.json().specialite)){
-    //       console.log('array');
-    //       this.specialites=this.json2array(data.json().specialite);
-    //     }else{
-    //       console.log('not array');
-    //       this.specialites=[];
-    //       this.specialites.push(data.json().specialite);
-    //     }
-    //     console.log("anis",this.specialites)
-    //   }
-    // );
   }
 
   onChangeGroupe(groupe){
     this.modules = [];
     this.evaluations = [];
-    this.ens_service.getModules(this.anneeSlct, '1', this.specialiteSlct)
-      .subscribe(
-        (data : Response) => {
-          console.log(data.json());
-          this.modules = data.json();
-        }
-      );
   }
 
   onChangeModule(moduleCode){
@@ -158,7 +92,7 @@ export class EnsSaisieNotesComponent implements OnInit {
   onChangeEvaluation(evaluation){
     this.evaluationSlct = evaluation['value'];
   }
-  
+
   getNotesEtudiants(){
     this.ens_service.getNotesEtudiants(this.anneeSlct, '1', this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
       .subscribe(

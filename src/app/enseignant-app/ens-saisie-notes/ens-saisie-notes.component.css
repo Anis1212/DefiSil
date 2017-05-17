@@ -1,230 +1,28 @@
-#mainContainer
-{
-   /*background-color: rgba(154,123,176,.5);*/
-  position: absolute;
-  left: 2%;
-  top: 55px;
-  width: 96%;
-  height: 82%;
-  text-align: center;
 
+#validerFiltre
+{
+    float: right;
+    margin-top: 5px;
 }
 
-#barreFiltres
+#filtresConteneur
 {
-    /*background-color: rgba(154,23,2,.5);*/
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 70%;
-    height: 20%;
     text-align: center;
-}
-
-#barreEvaluations
-{
-
-    position: absolute;
-    left: 70.5%;
-    top: 0;
-    width: 28%;
-    height: 20%;
-    text-align: center;
-   padding-bottom: 20px;
-}
-
-#filtreContenaire,#EvaluationContenaire
-{
-    background-color: white;
-    position: relative;
-    margin:auto;
-    width: 96%;
-    text-align: center;
-}
-
-
-#tableContainer
-{
-    /*background-color: rgba(100,223,2,.5);*/
-  position: absolute;
-  left: 0;
-  top: 180px;
-  width: 99%;
-  z-index: 10;
 }
 
 md-select
 {
- margin:auto;
+    margin-right:15px;
 }
-#EvaluationContenaire button
+
+
+#etudiantsListe
 {
-    margin:auto;
-    background: #e74c3c;
-    color: azure;
+    min-height: 700px;
 }
 
-md-toolbar
+#gestionConteneur
 {
-    padding-bottom: 4px;
-}
-.spacer
- {
-      flex: 4 auto;
- }
-
-/* Tableau */
-#table-title
-{
-  background-color:rgb(48, 52, 60);
-  color:azure;
-  width: 99%;
-  margin-left: .5%;
-  top: -20px;
-  position: relative;
-  border-radius: 5px;
-}
-#EvaluationContenaire #table-title
-{
-    background-color:#e74c3c;
-}
-
-.datagrid #table-title
-{
-
-     width: 96%;
-     margin-left: 2%;
-
-}
-#table-title span
-{
-     font-size: 22px;
-}
-
-.datagrid table {
-    border-collapse: collapse;
-    width: 96%;
-    margin: auto;
-
-}
-
-.datagrid table td,
-.datagrid table th {
-    padding: 10px 0px;
-}
-
-
-
-.datagrid table thead th {
-    background-color: #FFFFFF;
-    color: #e74c3c;
-    font-size: 18px;
-    font-weight: normal;
-
-}
-.datagrid table thead
-{
-    border-bottom: solid 1px black;
-}
-.datagrid table thead th:first-child {
-    border: none;
-}
-
-
-.datagrid table tbody td {
-    color: #30343C;
-    font-size: 18px;
-    border-bottom: 1px solid #ccc9c9;
-    font-weight: normal;
-}
-/*
-.datagrid table tbody tr td {
-    padding-left: 10px;
-}*/
-.datagrid table tbody .alt td {
-    background: #FFFFFF;
-    color: rgb(48, 52, 60);
-}
-.datagrid table tbody td:first-child {
-    border-left: none;
-}
-.datagrid table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.datagrid
-{
-
-    font: normal 22px/150% Arial, Helvetica, sans-serif;
-    background: #fff;
-    height: 100%;
-    margin:auto;
-    width: 96%;
-    padding-top: 0;
-    padding-bottom: 10px;
-
-
-}
-
-.alt:hover
-{
-  background-color: #e74c3c;
-
-}
-.datagrid div
-{
-    text-align: center;
-    padding-top: 10px;
-}
-.datagrid div a
-{
-   float: right;
-   margin-right: 11%;
-   background: #ffd740;
-;
-}
-
-.datagrid div span
-{
-    margin-left:4%;
-}
-
-.datagrid div span button
-{
-    margin-right: 15px;
-    background-color: rgb(48, 52, 60);
-    color: white;
-}
-
-input
-{
-    width:70px;
-}
-tbody button
-{
-    width: 43px;
-    background: white;
-    color: azure;
-    display: flex;
-    height: 43px;
-    padding: 0;
-}
-tbody button img
-{
-    width: 43px;
-    left:0;
-    top: 0;
-    height: 43px;
-    background: rgba(48, 52, 60,0.2);
-}
-#table-title span:first-child
-{
-    padding-top: 5px;
-    padding-right: 20px;
-}
-#table-title span:first-child md-icon
-{
-    font-size: 38px;
-
+    min-height: 490px;
 }
 

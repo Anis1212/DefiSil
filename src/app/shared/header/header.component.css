@@ -2,19 +2,21 @@
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .navbar{
-  background-color: #e74c3c;
+  /*background-color: rgba(44, 62, 80,1.0);*/
+  background-color: #767575;
   border-radius: 0;
   border: none;
   top: 0;
   height: 55px;
-  margin-bottom: 0;
+  margin-bottom: 2%;
+  padding: 0;
   /*z-index: 9999;*/
 }
 .navbar-header a{
-  color: white !important;
+  color: black !important;
 }
 .navbar-nav li a:hover{
-  color: white !important;
+  color: black !important;
 }
 .nav a{
   color: white;

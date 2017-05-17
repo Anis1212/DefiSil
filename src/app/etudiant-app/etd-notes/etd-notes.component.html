@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Mes Notes</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="card-content table-responsive">
+                         <form>
+						    <div class="form-group form-black label-floating is-empty">
+								 <md-select  placeholder="Module" name="modules" [ngModel]="module" (change)="selectModule($event)">
+                 				      <md-option *ngFor="let module of modules;let i = index" [value]="module.name" >{{module.name}}</md-option>
+            					</md-select>
+							 </div>
+					    </form>
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr style="text-align:centre" data-background-color="orange">
+                                    <th>Type d'evaluation</th>
+                                    <th>Note</th>
+                                    <th>Remarque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let res of result; let i=index" >
+                                    <td>{{res.type}}</td>
+                                    <td class="text-primary">{{res.note}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

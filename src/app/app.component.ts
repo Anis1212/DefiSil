@@ -10,10 +10,12 @@ import * as $ from 'jquery';
 export class AppComponent implements OnInit{
 
   menuState:string = 'toggled';
-
+  
   constructor() { }
 
   ngOnInit() {
+        $.getScript('../assets/js/material-dashboard.js');
+        $.getScript('../assets/js/initMenu.js');
   }
 
   //Cette méthode s'occupe de l'affichage ou non du menu lattéral
@@ -34,5 +36,14 @@ export class AppComponent implements OnInit{
     // });
            });
      }
+
+         public isMaps(path){
+        if(path == window.location.pathname){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }
 

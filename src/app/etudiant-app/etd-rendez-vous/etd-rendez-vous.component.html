@@ -1,0 +1,144 @@
+<div class="alert alert-success etd-notification " *ngIf="notif==true" style="position: absolute;">
+    <div class="container-fluid">
+	  <div class="alert-icon">
+		<i class="material-icons">check</i>
+	  </div>
+       <b>{{message}}</b>
+    </div>
+</div>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-4">
+                <a class="btn btn-black btn-lg" (click)="openAddDialog()" style="color:beige">Demander un rendez-vous</a>
+                <br/><br/><br/>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Rendez-vous Demandé</h4>
+                        <p class="category">les rendez-vous non-encore validés</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-black">
+                                <tr>
+                                    <th>Enseignant</th>
+                                    <th>Motif</th>
+                                    <th>Gérer vos Rendez-vous</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let res of rdvDemande; let i=index; trackBy:trackFn;">
+                                    <td class="col-md-4">{{rdvDemande[i].Enseignant}}</td>
+                                    <td class="col-md-4">{{rdvDemande[i].Motif}}</td>
+                                     <td class="td-actions text-right col-md-4">
+        
+                                        <button type="button" rel="tooltip" title="Edit" (click)="openEditDialog(i)" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" title="Remove" (click)="openDeleteDialog(i)" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                     </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Rendez-vous Programmé</h4>
+                        <p class="category">les rendez-vous validés</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="">
+                                <tr>
+                                    <th>Enseignat</th>
+                                    <th>Date</th>
+                                    <th>Lieu</th>
+                                    <th>Motif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr  *ngFor="let res of rdvProgramme; let i=index">
+                                    <td>{{res.Enseignant}}</td>
+                                    <td>{{res.Date}}</td>
+                                    <td>{{res.Lieu}}</td>
+                                    <td>{{res.Motif}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="reds">
+                        <h4 class="title">Rendez-vous Annuler</h4>
+                        <p class="category">les rendez-vous annulés</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="">
+                                <tr>
+                                    <th>Enseignat</th>
+                                    <th>Date</th>
+                                    <th>Lieu</th>
+                                    <th>Motif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr  *ngFor="let res of rdvAnnule; let i=index">
+                                    <td>{{res.Enseignant}}</td>
+                                    <td>{{res.Date}}</td>
+                                    <td>{{res.Lieu}}</td>
+                                    <td>{{res.Motif}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+           <!-- <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header" data-background-color="grey">
+                        <h4 class="title">Mes Rendez-vous</h4>
+                        <p class="category">tous mes rendez-vous</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                                <tr>
+                                    <th>Enseignat</th>
+                                    <th>Date</th>
+                                    <th>Lieu</th>
+                                    <th>Motif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let res of rdvAll; let i=index">
+                                    <td>{{res.Enseignant}}</td>
+                                    <td>{{res.Date}}</td>
+                                    <td>{{res.Lieu}}</td>
+                                    <td>{{res.Motif}}</td>
+                                    <td>   <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                     </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Modifier un Rendez-vous</h4>
+                    </div>
+                    <div class="card-content">
+                        <form #f ="ngForm">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black  is-empty">
+                                        <label class="control-label">Enseignant</label>
+                                        <input type="text" class="form-control" name="enseignant" [ngModel]="rdvEmited.enseignant" (ngModelChange)="rdvEmited.Enseignant = $event" required>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black is-empty">
+                                        <label class="control-label">Motif du Rendez-vous</label>
+                                        <input type="text" class="form-control" name="motif" [ngModel]="rdvEmited.motif" (ngModelChange)="rdvEmited.Motif = $event" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-black btn-sm pull-right" (click)="dialogRef.close(rdvEmited)" style="color:white">Modifier à jour</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

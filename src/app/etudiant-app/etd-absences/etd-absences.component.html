@@ -1,0 +1,63 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Modules</h4>
+                        <p class="category">Séléctioner le module </p>
+                    </div>
+                    <div class="card-content">
+                        <form>
+						    <div class="form-group form-black label-floating is-empty">
+								 <md-select  placeholder="Module" name="joures" [ngModel]="module" (change)="selectModule($event)">
+                 				      <md-option *ngFor="let module of modules;let i = index" [value]="module.name" >{{module.name}}</md-option>
+            					</md-select>
+							 </div>
+					    </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Mes Absences</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr>
+                                    <th>la date</th>
+                                    <th>seance</th>
+                                    <th>Etat</th>
+                                    <th>justification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let res of result; let i=index">
+                                    <td>{{res.date}}</td>
+                                    <td class="text-primary">{{res.seance}}</td>
+                                    <td>{{res.justifie}}</td>
+                                    <div *ngIf="result[i].justifie=='non'">
+                                    <input class="btn btn-warning btn-sm" type="file">
+                                    <button class="btn btn-warning btn-xs" (click)="validerJust()">valider</button>
+                                    </div>
+                                     <div *ngIf="result[i].justifie=='oui'">
+                                         <i class="material-icons">check</i>
+                                     </div>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
