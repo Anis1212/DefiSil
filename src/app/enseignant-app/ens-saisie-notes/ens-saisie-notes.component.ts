@@ -32,6 +32,7 @@ export class EnsSaisieNotesComponent implements OnInit {
   private evaluations = ["TP", "CI", "EMD"];
   private notesEtudiants = [];
   private listeEtudiants = [];
+  private dataChild = [];
 
   constructor(public dialog: MdDialog, private ens_service : EnsServiceService) {}
 
@@ -62,12 +63,23 @@ export class EnsSaisieNotesComponent implements OnInit {
   }
 
   onChangeModule(moduleCode){
+    this.evaluations = [];
     this.moduleSlct = moduleCode['value'];
-    this.ens_service.getGroupes(moduleCode['value'])
+    this.ens_service.getGroupes(this.moduleSlct)
       .subscribe(
         (data) => {
           this.groupes = data.json();
           console.log(data.json());
+          this.ens_service.getEvalModule(this.moduleSlct)
+            .subscribe(
+              (data : Response) => {
+                this.evaluations=data.json();
+                console.log(data.json());
+                this.ens_service.transferModuleSaisieNotes(this.moduleSlct);
+                this.ens_service.transferEvalSaisieNotes(this.evaluations);
+                //this.dataChild = this.evaluations;
+              }
+            );
         }
       );
   }
@@ -105,7 +117,8 @@ export class EnsSaisieNotesComponent implements OnInit {
   ngOnInit() {
     this.ens_service.getModules(this.ens_email).subscribe(
       (data : any) => {
-        data[0].modules.splice(0,1);
+        console.log("anis", data);
+        // data[0].modules.splice(0,1);
         this.modules = data[0].modules;
         console.log(this.modules);
       }

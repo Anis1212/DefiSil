@@ -15,10 +15,10 @@
                   </tr>
                </thead>
                <tbody class="text-black">
-                  <tr>
-                     <th>Evaluations</th>
-                     <th>Poids</th>
-                     <th><button> <img src="src\img\c-edit.png"/></button></th>
+                  <tr *ngFor="let eval of evaluations">
+                     <td>{{ eval }}</td>
+                     <td> 2 </td>
+                     <td><button> <img src="src\img\c-edit.png"/></button></td>
                   </tr>
                </tbody>
             </table>

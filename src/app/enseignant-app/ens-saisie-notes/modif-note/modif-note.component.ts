@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialogRef} from "@angular/material";
 
-import {DelEvalComponent} from "../../ens-gest-eval/del-eval/del-eval.component";
+import {DelEvalComponent} from "../ens-gest-eval/del-eval/del-eval.component";
 
 @Component({
   selector: 'app-modif-note',

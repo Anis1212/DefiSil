@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row ">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="col-md-12">
           <div class="card">
             <div class="card-header" data-background-color="bleu">
@@ -9,24 +9,28 @@
             </div>
             <br/>
             <div class="card-content table-responsive" id="filtresConteneur">
-              <md-select placeholder="Module" (change)="onChangeModule($event)">
+
+              <md-select placeholder="Module" (change)="onChangeModule($event)" class="col-md-4" >
                 <md-option *ngFor="let module of modules" [value]="module">
                   {{ module }}
                 </md-option>
               </md-select>
-              <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
+              <md-select placeholder="Groupe" (change)="onChangeGroupe($event)" class="col-md-4" >
                 <md-option *ngFor="let groupe of groupes" [value]="groupe?.specialite">
                   {{ groupe?.specialite }}
                 </md-option>
               </md-select>
-              <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
+              <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)"  class="col-md-4" >
                 <md-option *ngFor="let evaluation of evaluations" [value]="evaluation">
                   {{ evaluation }}
                 </md-option>
               </md-select>
-              <button  md-mini-fab id="validerFiltre" (click)="getListeEtudiants()">
+
+              <div class="col-md-2" id="validerFiltre">
+              <button  md-mini-fab  (click)="getListeEtudiants()">
                 <md-icon>check</md-icon>
               </button>
+              </div>
             </div>
           </div>
         </div>
@@ -36,10 +40,10 @@
               <h4 class="title">Gestion des évaluations</h4>
             </div>
             <div class="card-content table-responsive" >
-              <div class="btn-group btn-group-justified">
-                <a [routerLink]="['ens-add-eval']" class="btn btn-default">Ajouter</a>
-                <a [routerLink]="['ens-modif-eval']" class="btn btn-default">Modifier</a>
-                <a [routerLink]="['ens-delete-eval']" class="btn btn-default">Supprimer</a>
+              <div class="btn-group">
+                <a [routerLink]="['ens-add-eval']" class="btn btn-warning">Ajouter</a>
+                <a [routerLink]="['ens-modif-eval']" class="btn btn-warning">Modifier</a>
+                <a [routerLink]="['ens-delete-eval']" class="btn btn-warning">Supprimer</a>
               </div>
               <div class=" panel panel-default .vert-offset-bottom-10">
                 <div class="panel-body">
@@ -50,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="card" id="etudiantsListe">
           <div class="card-header" data-background-color="bleu">
             <h4 class="title">Liste des étudiants</h4>

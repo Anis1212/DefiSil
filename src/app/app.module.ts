@@ -21,6 +21,12 @@ import { EnsSaisieAbsComponent } from './enseignant-app/ens-saisie-abs/ens-saisi
 import { EnseignantAppModule } from './enseignant-app/enseignant-app.module';
 import { EtdNotesComponent } from './etudiant-app/etd-notes/etd-notes.component';
 import { CalendarComponent } from "angular2-fullcalendar/src/calendar/calendar";
+import {AddSectionComponent} from "./gestionnaire-app/gest-modules/GestSection/add-section/add-section.component";
+import {AddGroupeComponent} from "./gestionnaire-app/gest-modules/GestGroupe/add-groupe/add-groupe.component";
+import {ListAffectationEnsComponent} from "./gestionnaire-app/gest-contenu/list-affectation-ens/list-affectation-ens.component";
+import {GestListeEnsComponent} from "./gestionnaire-app/gest-liste-ens/gest-liste-ens.component";
+import {GestContenuComponent} from "./gestionnaire-app/gest-contenu/gest-contenu.component";
+import {GestionnaireAppModule} from "./gestionnaire-app/gest-app-module";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAjWKEYmrI06Du6ErO5tDSo6WLtzMka-IU',
@@ -42,7 +48,12 @@ export const firebaseConfig = {
     EtdNotesComponent,
     EnsResSalleComponent,
     EnsGestRdvComponent,
-    CalendarComponent
+    CalendarComponent,
+    AddSectionComponent,
+    AddGroupeComponent,
+    GestListeEnsComponent,
+    GestContenuComponent,
+    ListAffectationEnsComponent
   ],
   imports: [
     MaterialModule,
@@ -53,8 +64,10 @@ export const firebaseConfig = {
     EnseignantAppModule,
     Md2Module,
     RouterModule,
+    GestionnaireAppModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
+  entryComponents: [ AddSectionComponent,AddGroupeComponent,ListAffectationEnsComponent],
   providers: [EnsServiceService],
   bootstrap: [AppComponent]
 

@@ -12,11 +12,14 @@ import {EnsServiceService} from "../../services/ens-service.service";
 })
 export class EnsResSalleComponent implements OnInit {
   private currentDate;
+  private typesSalle = ['Amphi', 'Salle CP', 'Salle CS'];
+  private salleReservee = [];
 
   constructor(public dialog: MdDialog, private ens_service : EnsServiceService) {}
 
   ngOnInit() {
   this.currentDate = this.ens_service.getCurrentDate();
+
 }
 
   openDialog1() {

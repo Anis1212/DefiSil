@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from "@angular/http";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {Subject} from "rxjs/Subject";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class EnsServiceService {
 
   private result;
-  private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net/';
+  private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net';
   private urlBDD = 'https://prj2cssil.firebaseio.com';
+  private dataSaisieNote = new Subject<any>();
+  public module = [];
+  public evaluations = [];
+  node$ = this.dataSaisieNote.asObservable();
 
   constructor( private http : Http, private fire : AngularFire) {}
 
@@ -16,12 +22,13 @@ export class EnsServiceService {
    * @returns {string}
    */
   getCurrentDate(){
-    var d = new Date();
-    var month = d.getMonth()+1;
-    var day = d.getDate();
-    return (day<10 ? '0' : '') + day + '/' +
-      (month<10 ? '0' : '') + month + '/'
-      + d.getFullYear();
+    return Date();
+    // var d = new Date();
+    // var month = d.getMonth()+1;
+    // var day = d.getDate();
+    // return (day<10 ? '0' : '') + day + '/' +
+    //   (month<10 ? '0' : '') + month + '/'
+    //   + d.getFullYear();
   }
   /**
    * Récupère les spécialité d'une année
@@ -155,6 +162,91 @@ export class EnsServiceService {
   }
 
   /**
+   * récupère l'ensebmle des évalation
+   * @param module
+   * @returns {Observable<Response>}
+   */
+  getEvalModule(module : String){
+    return this.http.get(this.urlServeur+'/getEvaluations?module='+module);
+  }
+
+  /**
+   * Un service pour la récuperation de la liste des évaluation du module en selection
+   * @param data
+   */
+  transferEvalSaisieNotes(data: any){
+    this.evaluations = data;
+    this.dataSaisieNote.next(data);
+  }
+
+  /**
+   * Un service pour stocker le module en selection
+   * @param data
+   */
+  transferModuleSaisieNotes(data : any){
+    this.module = data;
+    console.log('khra', this.module);
+  }
+
+  /**
+   * Récupère la liste des évaluation du module en selection
+   * @returns {Array}
+   */
+  getEvalValues(){
+    return this.evaluations;
+  }
+
+  /**
+   * Récupère le module en selection
+   * @returns {Array}
+   */
+  getModuleValue(){
+    return this.module;
+  }
+
+  /**
+   * Ajoute une évaluation au module en selection
+   * @param annee
+   * @param module
+   * @param specialite
+   * @param groupe
+   * @param evalNom
+   * @param evalPoids
+   * @returns {Observable<Response>}
+   */
+  ajouterEvaluation(annee : String, module : String, specialite : String, groupe : String, evalNom : String, evalPoids : String){
+    let data = {
+      "annee" : annee,
+      "module" : module,
+      "specialité" : specialite,
+      "type" : evalNom,
+      "poids" : evalPoids,
+      "groupe" : groupe
+    };
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.urlServeur+'/gestEvaluation?action=add',data,{
+      headers : header
+    });
+  }
+
+  /**
+   * Récupère les rendez-vous d'un enseignant donné
+   * @param ens_email
+   * @returns {Observable<Response>}
+   */
+  getRendezVous(ens_email : String){
+    return this.http.get(this.urlServeur+'/getRendezVous?enseignant='+ens_email);
+  }
+
+  updateRdv(id, data){
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.urlServeur+'/gestRendezVous?action=update&id='+ id,data,{
+      headers : header
+    });
+  }
+  /**
    * Transforme un objet JSON en un tableau d'objets
    * @param json
    * @returns {Array}
@@ -167,4 +259,6 @@ export class EnsServiceService {
     });
     return result;
   }
+
+
 }

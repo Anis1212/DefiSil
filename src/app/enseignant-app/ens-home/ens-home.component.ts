@@ -11,6 +11,7 @@ export class EnsHomeComponent implements OnInit {
   private ens_email="k_chebieb@esi.dz";
   private jours = ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi"];
   private emploieJour =[];
+  private rendezVous;
 
   constructor(private ens_service : EnsServiceService) {}
 
@@ -87,5 +88,13 @@ export class EnsHomeComponent implements OnInit {
           }
         }
       ));
+
+    this.ens_service.getRendezVous(this.ens_email)
+      .subscribe(
+        (data) => {
+          console.log(data.json());
+          this.rendezVous = data.json();
+        }
+      )
   }
 }

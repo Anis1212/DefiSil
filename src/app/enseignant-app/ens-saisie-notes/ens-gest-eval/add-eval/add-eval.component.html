@@ -7,16 +7,15 @@
          <div class="col-md-12">
             <table class="table">
                <tr>
-                  <strong>Evaluation</strong> 
-                  <input mdInput type="text">
+                  <strong>Evaluation</strong>
+                  <input mdInput type="text" ng-model="evaluationNom">
                </tr>
                <tr>
                   <strong>Poids</strong>
-                  <br>
-                  <input mdInput type="number">
+                  <input mdInput type="number" ng-model="evaluationPoids">
                </tr>
                <tr>
-                  <button md-mini-fab>
+                  <button md-mini-fab (click)="ajouterEvaluation()">
                      <md-icon>add</md-icon>
                   </button>
                </tr>

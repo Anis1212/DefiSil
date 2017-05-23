@@ -3,13 +3,93 @@
     <div class="row ">
       <div class="col-md-7">
         <div class="col-md-12">
-          <div class="card" id="rdvContainer"y>
-            <div class="card-header" data-background-color="bleu">
-              <h4 class="title">Agenda</h4>
+          <div class="card" id="rdvContainer">
+            <div class="card-header" data-background-color="green">
+              <h4 class="title">Rendez-vous acceptés</h4>
             </div>
             <br/>
             <div class="card-content table-responsive" id="divTest">
-              <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+              <div class="card-content table-responsive">
+                <h3 *ngIf="rdvAccepte.length==0" style="text-align: center;">La liste est vide</h3>
+                <table class="table" *ngIf="rdvAccepte.length!=0">
+                  <thead class="text-black">
+                  <tr>
+                    <th>#</th>
+                    <th>Etudiant</th>
+                    <th>Etat</th>
+                    <th>Date</th>
+                    <th>Lieu</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let rdv of rdvAccepte; let i = index" (click)="detailsRdv(i ,rdv.Etudiant, rdv.Motif, rdv.DateSoumission)">
+                      <td>{{ i+1 }}</td>
+                      <td>{{ rdv?.Etudiant }}</td>
+                      <td>{{ rdv?.Etat }}</td>
+                      <td *ngIf="rdv?.Date!='NULL'">{{ rdv?.Date }}</td>
+                      <td *ngIf="rdv?.Lieu!='NULL'">{{ rdv?.Lieu }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card" id="rdvContainer">
+            <div class="card-header" data-background-color="black">
+              <h4 class="title">Demande de rendez-vous</h4>
+            </div>
+            <br/>
+            <div class="card-content table-responsive" id="divTest">
+              <div class="card-content table-responsive">
+                <h3 *ngIf="rendezVous.length==0" style="text-align: center;">La liste est vide</h3>
+                <table class="table" *ngIf="rendezVous.length!=0">
+                  <thead class="text-black">
+                  <tr>
+                    <th>#</th>
+                    <th>Etudiant</th>
+                    <th>Etat</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let rdv of rendezVous; let i = index" (click)="afficherDetailsRdv(i ,rdv.Etudiant, rdv.Motif, rdv.DateSoumission)">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ rdv?.Etudiant }}</td>
+                    <td>{{ rdv?.Etat }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card" id="rdvContainer">
+            <div class="card-header" data-background-color="red">
+              <h4 class="title">Rendez-vous refusés</h4>
+            </div>
+            <br/>
+            <div class="card-content table-responsive" id="divTest">
+              <div class="card-content table-responsive">
+                <h3 *ngIf="rdvRefuse.length==0" style="text-align: center;">La liste est vide</h3>
+                <table class="table" *ngIf="rdvRefuse.length!=0">
+                  <thead class="text-black">
+                  <tr>
+                    <th>#</th>
+                    <th>Etudiant</th>
+                    <th>Etat</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let rdv of rdvRefuse; let i = index" (click)="detailsRdv(i ,rdv.Etudiant, rdv.Motif, rdv.DateSoumission)">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ rdv?.Etudiant }}</td>
+                    <td>{{ rdv?.Etat }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -19,40 +99,41 @@
           <div class="card-header" data-background-color="bleu">
             <h4 class="title">Détails du rendez-vous</h4>
           </div>
-          <div class="card-content table-responsive">
+          <h3 *ngIf="etudiant_email==NULL" style="text-align: center; padding: 35% 4%;">Cliquez sur un rendez-vous pour voir plus de détails</h3>
+          <div class="card-content table-responsive" *ngIf="etudiant_email!=NULL">
             <div class="col-md-12" id="DemandeRdv" >
               <div class="media">
                 <div class="media-left">
                   <img src="src\img\fella.jpg" class="media-object" style="width:60px">
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading" id="NomEmmeteur">TATA Fella <small><i>Envoyé le 24-06-2017,08:30h</i></small></h4>
-                  <p>df_tata@esi.dz</p>
+                  <h4 class="media-heading" id="NomEmmeteur">{{ etudiant_email }} <small><i>Envoyé le {{ date_soumission }}</i></small></h4>
+                  <p>{{ etudiant_email }}</p>
                 </div>
               </div>
               <div id="MessageContainer">
-                Motif de rendez-vous
+                {{ motif }}
               </div>
             </div>
             <hr>
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="modifiable==true">
               <h1> Réponse </h1>
-              <md-radio-group>
+              <md-radio-group [(ngModel)]="rdv_accepted">
                 <md-radio-button value="1"  id="Rb" cheked="true">Accepter</md-radio-button>
                 <md-radio-button value="2">Refuser</md-radio-button>
               </md-radio-group>
               <div class="col-md-4">
-                <md2-datepicker style="min-width: 100% !important;"></md2-datepicker>
+                <md2-datepicker style="min-width: 100% !important;" [(ngModel)]="currentDate" (change)="onChangeDate($event)" *ngIf="rdv_accepted==1"></md2-datepicker>
               </div>
               <div class="col-md-2"></div>
               <div class="col-md-6">
-                <input mdInput placeholder="Lieu du rendez-vous" id="inputLieuRdv" >
+                <input mdInput *ngIf="rdv_accepted==1" placeholder="Lieu du rendez-vous" id="inputLieuRdv" [(ngModel)]="rdvLieu">
               </div>
-              <div class="form-group">
+              <div class="form-group" *ngIf="rdv_accepted==2">
                 <label for="comment">Motif:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" id="comment" [(ngModel)]="rdvMotif"></textarea>
               </div>
-              <button md-mini-fab>
+              <button md-mini-fab (click)="changerEtatRdv()">
                 <md-icon>check</md-icon>
               </button>
             </div>

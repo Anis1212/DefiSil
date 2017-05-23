@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PickListComponent } from './pick-list.component';
+import { ListAffectationEnsComponent } from './list-affectation-ens.component';
 
-describe('PickListComponent', () => {
-  let component: PickListComponent;
-  let fixture: ComponentFixture<PickListComponent>;
+describe('ListAffectationEnsComponent', () => {
+  let component: ListAffectationEnsComponent;
+  let fixture: ComponentFixture<ListAffectationEnsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PickListComponent ]
+      declarations: [ ListAffectationEnsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PickListComponent);
+    fixture = TestBed.createComponent(ListAffectationEnsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

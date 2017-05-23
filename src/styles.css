@@ -7,3 +7,17 @@ body{
   overflow: hidden;
 
 }
+
+.mat-dialog-container
+{
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: .8 !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0,0,0,.9) !important;
+}

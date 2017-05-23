@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Response} from "@angular/http";
 
 import {EnsServiceService} from "../../services/ens-service.service";
+import {current} from "codelyzer/util/syntaxKind";
 
 @Component({
   selector: 'app-ens-saisie-abs',
@@ -40,6 +41,7 @@ export class EnsSaisieAbsComponent implements OnInit {
   ngOnInit() {
     //Récuperer la date d'aujourd'hui
     this.currentDate = this.ens_service.getCurrentDate();
+    console.log('date', this.currentDate);
 
     this.ens_service.getModules(this.ens_email).subscribe(
       (data : any) => {

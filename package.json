@@ -28,6 +28,7 @@
     "@angular2-material/core": "^2.0.0-alpha.8-2",
     "angular2-fullcalendar": "^1.0.19",
     "angularfire2": "^2.0.0-beta.8",
+    "ap-angular2-fullcalendar": "^1.2.8",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "firebase": "^3.7.3",
