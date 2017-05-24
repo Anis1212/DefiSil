@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {EnsServiceService} from "../../services/ens-service.service";
-import {DOCUMENT} from "@angular/platform-browser";
 declare var $:JQueryStatic;
 
 
@@ -11,7 +10,7 @@ declare var $:JQueryStatic;
 })
 export class EnsGestRdvComponent implements OnInit {
 
-  private ens_email = "k_chebieb@esi.dz"
+  private ens_email = "ds_aktouche@esi.dz";
   private rendezVous = [];
   private done : Boolean = false;
   private modifiable : Boolean = false;
@@ -22,10 +21,13 @@ export class EnsGestRdvComponent implements OnInit {
   private date_soumission;
   private rdvId;
   private rdvDate;
-  private rdvLieu;
+  private rdvLieu ='';
   private rdvMotif;
   private rdv_accepted = '1';
+  private a = new Date();
+  private dateRef = this.a.getDate()+'-'+(this.a.getMonth()+1)+'-'+this.a.getFullYear();
 
+  private listeRdv = [];
   private rdvAccepte = [];
   private rdvRefuse = [];
 
@@ -34,82 +36,39 @@ export class EnsGestRdvComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.newEvents = [
-    //   {
-    //     id: 1,
-    //     title: 'name a',
-    //     start: '2017-05-20T09:00',
-    //     end: '2017-05-20T11:00'
-    //   },
-    //   {
-    //     id: 2,
-    //     title: 'name b',
-    //     start: '2017-05-20T12:00',
-    //     end: '2017-05-20T13:00'
-    //   },
-    //   {
-    //     id: 3,
-    //     title: 'name c',
-    //     start: '2017-05-20T14:00',
-    //     end: '2017-05-20T16:00'
-    //   }
-    // ];
     this.currentDate = this.ens_service.getCurrentDate();
     this.ens_service.getRendezVous(this.ens_email)
       .subscribe(
         (data) => {
           console.log(data.json());
-          this.rendezVous = data.json();
+          this.listeRdv = data.json();
           console.log(JSON.stringify(this.newEvents));
-          console.log("rdv", this.rendezVous);
+          console.log("rdv", this.listeRdv);
           this.done = true;
-          this.rendezVous.forEach(rdv => {
+          this.listeRdv.forEach(rdv => {
             switch (rdv.Etat){
-              case 'Accepte':
+              case 'effectue':
                 this.rdvAccepte.push(rdv);
-                this.rendezVous.splice(rdv,1);
                 break;
-              case 'Refuse':
+              case 'refuse':
                 this.rdvRefuse.push(rdv);
-                this.rendezVous.splice(rdv,1);
                 break;
               default :
+                this.rendezVous.push(rdv);
                 break;
             }
           });
           console.log('hello', this.rendezVous);
-
-
-          // $(document).ready(function () {
-          //   setTimeout(()=>{
-          //       // console.log("100ms after ngAfterViewInit ");
-          //     alert(this.newEents);
-          //     }, 100);
-          //
-          //   $('#myCalendar').fullCalendar('addEventSource', this.newEvents);
-          // });
-
-
         });
-    //this.calendarOptions.events = this.newEvents;
-    // $("#calend").fullCalendar('renderEvents', this.newEvents , true );
-    // $("#divTest").fullCalendar('renderEvents', this.newEvents , true );
-
-    // setTimeout(()=>{
-    //   console.log(this.calendarOptions);
-    //   this.calendarOptions.events = this.newEvents;
-    //   //$('#calend').fullCalendar('destroy');
-    //   // $('#calend').fullCalendar('render');
-    //   // $('#calend').fullCalendar('addEventSource', this.newEvents);
-    //
-    //   // $('#calend').fullCalendar('rerenderEvents');
-    //   // $('#calend').fullCalendar( 'refetchResources' );
-    //   // $('#calend').fullCalendar(this.calendarOptions);
-    //   console.log("he");
-    // }, 5000);
-
   }
 
+  /**
+   * Affiche les détails d'un rendez-vous donné de la liste des rendez-vous en attentes
+   * @param rdvId
+   * @param etudiant
+   * @param motif
+   * @param dateSoumission
+   */
   afficherDetailsRdv(rdvId : number, etudiant : String, motif : String, dateSoumission : String){
     this.modifiable = true;
     this.rdvLieu = '';
@@ -126,6 +85,13 @@ export class EnsGestRdvComponent implements OnInit {
     console.log('date', this.rdvDate);
   }
 
+  /**
+   * Affiche les détails d'un rendez-vous des listes des rendez-vous acceptés et refusés
+   * @param rdvId
+   * @param etudiant
+   * @param motif
+   * @param dateSoumission
+   */
   detailsRdv(rdvId : number, etudiant : String, motif : String, dateSoumission : String){
     this.modifiable = false;
     this.rdvLieu = '';
@@ -135,14 +101,25 @@ export class EnsGestRdvComponent implements OnInit {
     this.date_soumission = dateSoumission;
   }
 
+  /**
+   * Met à jour l'état d'un rendez-vous soit en le mettant dans la liste des rendez-vous acceptés ou bien dans la liste
+   * des rendez-vous refusés
+   */
   changerEtatRdv(){
     switch (this.rdv_accepted){
       case '1' :
-        this.rendezVous[this.rdvId].Etat = 'Accepté';
-        this.rendezVous[this.rdvId].Date = this.rdvDate;
-        this.rendezVous[this.rdvId].Lieu = this.rdvLieu;
-        this.rendezVous[this.rdvId].id = this.rdvId;
-        if (!this.rdvAccepte.includes(this.rendezVous[this.rdvId])){
+        // this.rendezVous[this.rdvId].id = this.rdvId;
+        console.log('date', this.dateRef.replace(/-/g , ""));
+        console.log('dateRef', this.rdvDate.replace(/-/g , ""));
+        if (this.dateRef.replace(/-/g , "") > this.rdvDate.replace(/-/g , "")){
+          console.log('kdim');
+        }else{
+          console.log('jdid');
+        }
+        if (!this.rdvAccepte.includes(this.rendezVous[this.rdvId]) && this.rdvLieu != '' && (this.dateRef.replace(/-/g , "") < this.rdvDate.replace(/-/g , ""))){
+          this.rendezVous[this.rdvId].Etat = 'effectue';
+          this.rendezVous[this.rdvId].Date = this.rdvDate;
+          this.rendezVous[this.rdvId].Lieu = this.rdvLieu;
           this.rdvAccepte.push(this.rendezVous[this.rdvId]);
           if (this.rdvRefuse.includes(this.rendezVous[this.rdvId])){
             console.log('exist', this.rdvAccepte[this.rdvAccepte.length-1]);
@@ -150,13 +127,20 @@ export class EnsGestRdvComponent implements OnInit {
           }else{
             console.log('does not exist');
           }
+          this.ens_service.updateRdv(this.rendezVous[this.rdvId].id, this.rendezVous[this.rdvId])
+            .subscribe(
+              (data) =>{
+                console.log(data);
+              }
+            );
           this.rendezVous.splice(this.rendezVous.indexOf(this.rdvAccepte[this.rdvAccepte.length-1]),1);
+          this.modifiable = false;
         }
         break;
       case '2' :
-        this.rendezVous[this.rdvId].Etat = 'Refusé';
+        this.rendezVous[this.rdvId].Etat = 'refuse';
         this.rendezVous[this.rdvId].Motif = this.rdvMotif;
-        this.rendezVous[this.rdvId].id = this.rdvId;
+        //this.rendezVous[this.rdvId].id = this.rdvId;
         if (!this.rdvRefuse.includes(this.rendezVous[this.rdvId])) {
           this.rdvRefuse.push(this.rendezVous[this.rdvId]);
           if (this.rdvAccepte.includes(this.rendezVous[this.rdvId])) {
@@ -165,7 +149,14 @@ export class EnsGestRdvComponent implements OnInit {
           } else {
             console.log('does not exist');
           }
+          this.ens_service.updateRdv(this.rendezVous[this.rdvId].id, this.rendezVous[this.rdvId])
+            .subscribe(
+              (data) =>{
+                console.log(data);
+              }
+            );
           this.rendezVous.splice(this.rendezVous.indexOf(this.rdvRefuse[this.rdvRefuse.length-1]), 1);
+          this.modifiable = false;
         }
         break;
       default:
@@ -188,6 +179,10 @@ export class EnsGestRdvComponent implements OnInit {
     console.log(this.rdvLieu);
   }
 
+  /**
+   * Récupère la date choisie dans
+   * @param date
+   */
   onChangeDate(date){
     this.rdvDate = date.value.getDate()+'-'+(date.value.getMonth()+1)+'-'+date.value.getFullYear();
   }
