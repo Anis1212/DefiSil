@@ -185,7 +185,6 @@ export class EnsServiceService {
    */
   transferModuleSaisieNotes(data : any){
     this.module = data;
-    console.log('khra', this.module);
   }
 
   /**
@@ -223,11 +222,7 @@ export class EnsServiceService {
       "poids" : evalPoids,
       "groupe" : groupe
     };
-    let header = new Headers();
-    header.append('Access-Control-Allow-Origin', '*');
-    return this.http.post(this.urlServeur+'/gestEvaluation?action=add',data,{
-      headers : header
-    });
+    return this.http.post(this.urlServeur+'/gestEvaluation?action=add',data);
   }
 
   /**

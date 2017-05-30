@@ -1,32 +1,32 @@
 #ListEnsConteneur,#ModulesConteneur
 {
-height: 700px;
+  height: 700px;
 }
 
 #tableEns thead
 
 {
-   color: red;
+  color: red;
 }
 td
 {
-    padding: 12px 8px !important;
-    vertical-align: middle !important;
+  padding: 12px 8px !important;
+  vertical-align: middle !important;
 }
 
 .table .td-actions .btn
 {
-    border: none !important;
-    margin-top: 0px !important;
-    height: 35px !important;
-    width: 35px !important;
+  border: none !important;
+  margin-top: 0px !important;
+  height: 35px !important;
+  width: 35px !important;
 
 }
 
 .btn .material-icons
 {
-    font-size: 20px !important;
-    border: none !important;
+  font-size: 20px !important;
+  border: none !important;
 }
 
 .btn.btn-primary.btn-simple
@@ -34,18 +34,19 @@ td
   color: #ff9800 !important;
 }
 #tableEns tr {
-width: 100%;
-display: inline-table;
-table-layout: fixed;
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
+  cursor: pointer;
 }
 
 #tableEns{
- height:600px;            
- display: -moz-groupbox;   
+  height:600px;
+  display: -moz-groupbox;
 }
 #tableEns tbody{
-  overflow-y: scroll;      
-  height: 89%;            
+  overflow-y: scroll;
+  height: 89%;
   width: 100%;
   position: absolute;
 }
@@ -54,10 +55,10 @@ table-layout: fixed;
 
 .alert.alert-danger
 {
-    margin-top:5px !important;
-        background: gray;
-    border-color: gray;
-    font-size: 22px !important;
-    height: 70px;
+  margin-top:5px !important;
+  background: gray;
+  border-color: gray;
+  font-size: 22px !important;
+  height: 70px;
 
 }

@@ -6,7 +6,7 @@ import {SelectButtonModule} from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {GestModulesComponent} from './gest-modules/gest-modules.component';
-import {routesGestionnaire} from './gest-app-routes';
+import { gestionnaire_routes } from './gest-app-routes';
 import {GestionnaireAppComponent} from './gestionnaire-app.component'
 import {PickListModule} from 'primeng/primeng';
 
@@ -20,11 +20,11 @@ import {PickListModule} from 'primeng/primeng';
     MaterialModule,
     Md2Module,
     FormsModule,
-   RouterModule 
+   RouterModule,
+   RouterModule.forChild(gestionnaire_routes), 
   ],
   declarations: [
-    GestModulesComponent,
-    GestionnaireAppComponent
+    GestModulesComponent
 
   ]
 })

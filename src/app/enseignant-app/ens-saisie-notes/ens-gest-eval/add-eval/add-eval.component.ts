@@ -26,12 +26,13 @@ export class AddEvalComponent implements OnInit {
       );
   }
 
-  ajouterEvaluation(){
+  ajouterEvaluation(nom, poids){
     console.log('ajout' ,this.pereData);
-    this.ens_service.ajouterEvaluation('2CS', this.pereData[0] ,'SIL', '1', this.evaluationNom, this.evaluationPoids)
+    console.log('ajout' ,nom, poids);
+    this.ens_service.ajouterEvaluation('2CS', this.pereData[0] ,'SIL', '1', nom, poids)
       .subscribe(
         (response) => {
-          //console.log(response);
+          console.log(response);
         }
       );
   }

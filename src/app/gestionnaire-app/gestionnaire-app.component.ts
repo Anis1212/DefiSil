@@ -12,4 +12,15 @@ export class GestionnaireAppComponent implements OnInit {
   ngOnInit() {
   }
 
+
+       public isMaps(path){
+        if(path == window.location.pathname){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+
 }

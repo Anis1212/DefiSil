@@ -1,11 +1,9 @@
-
-
- table td,table th {
+/*table td,table th {
 
     padding: 5px 3px;
     width: 12%;
     text-align: center;
-    /*background: (123,231,217,0.3);*/
+    background: (123,231,217,0.3);
 
  }
  table thead th {
@@ -31,7 +29,7 @@ md-card{
 table tbody tr td:nth-child(1)
 {
     color: #e74c3c;
-     /* poussé de la moitié de hauteur du référent */
+    poussé de la moitié de hauteur du référent
 
 }
 
@@ -71,5 +69,4 @@ table tbody tr td:nth-child(1)
 
  .md2-datepicker-input{
    min-width: 100% !important;
- }
-
+ }*/

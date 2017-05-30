@@ -1,0 +1,24 @@
+.mat-dialog-container {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: .8 !important;
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(0, 0, 0, .9) !important;
+}
+
+.mat-input-underline {
+    width: 0px !important;
+}
+
+.mat-ink-bar {
+    background-color: #a40e1c !important;
+}
+
+.mat-tab-label:focus {
+    background-color: rgba(164, 14, 18, .2) ! important;
+}
