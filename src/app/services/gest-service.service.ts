@@ -9,7 +9,7 @@ export class GestServiceService {
 
   constructor(private http : Http, private fire : AngularFire) { }
   private teachers :BehaviorSubject<any> = new BehaviorSubject([]);
-  private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net';
+  private urlServeur = 'https://us-central1-prj2cssil2.cloudfunctions.net';
   private urlBDD = 'https://prj2cssil.firebaseio.com';
 
 
@@ -80,6 +80,20 @@ export class GestServiceService {
   addModule(module, annee){
     return this.http.post(this.urlServeur+'/addModule?annee='+annee, module);
   }
+
+  getSection(annee){
+    return this.http.get(this.urlServeur+'/getSections?annee='+annee);
+  }
+
+  getGroupes(annee, specialite){
+    return this.http.get(this.urlServeur+'/getGroupes?annee='+annee+'&specialite='+specialite);
+  }
+
+  getEtdNonAff(annee){
+    return this.http.get(this.urlServeur+'/getEtudiantsNonAffectes?annee'+annee);
+  }
+
+
 
 
 }

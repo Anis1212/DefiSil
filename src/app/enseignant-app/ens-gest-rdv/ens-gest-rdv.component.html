@@ -129,6 +129,25 @@
               <div class="col-md-6">
                 <input mdInput *ngIf="rdv_accepted==1" placeholder="Lieu du rendez-vous" id="inputLieuRdv" [(ngModel)]="rdvLieu">
               </div>
+
+
+              <div class="row">
+
+
+                <div class="form-group label-floating is-empty col-md-2">
+                  <label class="control-label">
+                    Heure
+                    <span class="star">*</span>
+                  </label>
+                  <input class="form-control" name="prenom" required="true" >
+                  <span class="material-input"></span></div>
+
+                <div class="form-group label-floating is-empty col-md-2" style="padding-left: 0;">
+                  <label class="control-label">
+                  </label>
+                  <input class="form-control" name="prenom" required="true">
+                  <span class="material-input"></span></div>
+              </div>
               <div class="form-group" *ngIf="rdv_accepted==2">
                 <label for="comment">Motif:</label>
                 <textarea class="form-control" rows="5" id="comment" [(ngModel)]="rdvMotif"></textarea>

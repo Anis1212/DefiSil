@@ -28,7 +28,7 @@
                             </md-select>
 
                             <div class="col-md-2" id="validerFiltre">
-                                <button md-mini-fab (click)="getListeEtudiants()">
+                                <button md-mini-fab (click)="getNotesEtudiants()">
                 <md-icon>check</md-icon>
               </button>
                             </div>
@@ -72,15 +72,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let etudiant of listeEtudiants; let i = index" (click)="modifierNote(etudiant?.email)">
+                                <tr *ngFor="let etudiant of notesEtudiants; let i = index" (click)="modifierNote(i, etudiant?.email)">
                                     <td>{{ i+1 }}</td>
-                                    <td>{{ etudiant?.matricule }}</td>
+                                    <td>{{ etudiant?.email }}</td>
                                     <td>{{ listeEtudiants[i]?.nom }}</td>
                                     <td>{{ etudiant?.prenom }}</td>
-                                    <td> </td>
+                                    <td> <input [(ngModel)]="etudiant.valeur" [value]="etudiant?.valeur"></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <button md-mini-fab (click)="valider()">
+                          <md-icon>check</md-icon>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -27,14 +27,14 @@ export class RoutesComponent implements OnInit {
 
   public enseignantRoutes:SideBareElements[]=[
     {link:'/app-enseignant/accueil',name:'Accueil',icon:''},
-    {link:'/app-enseignant/saisiAbsence',name:'Saisie Absences',icon:''},
+    {link:'/app-enseignant/saisiAbsence',name:'Saisie absences',icon:''},
     {link:'/app-enseignant/enseignantNotes',name:'Saisie notes',icon:''},
     {link: '/app-enseignant/rendezVous', name:'Rendez-Vous', icon:'' },
-    {link: '/app-enseignant/resSalle', name:'Reservervation Salle',icon:'' }
+    {link: '/app-enseignant/resSalle', name:'Reserver Salle',icon:'' }
   ];
 
   public gestionnaireRoutes:SideBareElements[]=[
-    {link:'/app-gestionnaire/gest-etudiants',name:'Gestion des étudiants',icon:''},
+    {link:'/app-gestionnaire/gest-modules',name:'Gestion des etudiants',icon:''},
     {link:'/app-gestionnaire/gest-contenu',name:'Gestion du contenu',icon:''},
     {link:'/app-gestionnaire/app-list-ens',name:'Gestion des enseignants',icon:''},
     {link:'/app-gestionnaire/gest_emp-tmps',name:'Gestion des emplois du temps',icon:''}
@@ -50,14 +50,23 @@ export class RoutesComponent implements OnInit {
     {link:'/app-etudiant/rendezVous',name:'Rendez Vous',icon:''},
 
   ];
+
+  userType:String = localStorage.getItem("userType");
   constructor() {
+
 
   }
 
   public GetSideBareRoutes(type:String):SideBareElements[]{
 
-    return this.gestionnaireRoutes;
-
+    if (this.userType === "etudiant"){
+             return this.etudiantRoutes;}
+    else if (this.userType === "enseignant"){
+             return this.enseignantRoutes;
+    }
+    else {
+          return this.gestionnaireRoutes;
+    }
   }
 
   public toggled(open: boolean): void {

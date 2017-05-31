@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import { GestEmpTempsService } from './gest-emp-temps.service';
 
 @Component({
   selector: 'app-gest-emp-temps',
@@ -33,18 +34,30 @@ export class GestEmpTempsComponent implements OnInit {
     dropdownSettingsCreno = {};
 
 
-    food: any[];
-    foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+    anneesScolaire = ['1CPI','2CPI','1CS','2CS','3CS'];
+    sections = ['Section A','Section B','Section C','Section D'];
+    specialite = ['SIL','SIQ','SIT'];
+
+
+
+    annee:any;
+    day : any;
+    sectionsShow:any;
+    groupsShow = [];
+    creneauxadd = {}  ;
+    groupadd = {};
+
+    jours = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi'];
+
     
-     constructor() { 
-    this.stateCtrl = new FormControl();
-    this.filteredStates = this.stateCtrl.valueChanges
-        .startWith(null)
-        .map(name => this.filterStates(name));}
+     constructor(private gestEmpTempsService:GestEmpTempsService) { 
+
+            this.stateCtrl = new FormControl();
+            this.filteredStates = this.stateCtrl.valueChanges
+                  .startWith(null)
+                  .map(name => this.filterStates(name));
+      
+    }
         
          filterStates(val: string) {
     return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s))
@@ -53,26 +66,14 @@ export class GestEmpTempsComponent implements OnInit {
 
    ngOnInit(){
 
-        this.dropdownList = [
-                              {"id":1,"itemName":"Groupe1"},
-                              {"id":2,"itemName":"Groupe2"},
-                              {"id":3,"itemName":"Groupe3"},
-                              {"id":4,"itemName":"Groupe4"},
-                              {"id":5,"itemName":"Groupe5"},
-                              {"id":6,"itemName":"Groupe6"},
-                              {"id":7,"itemName":"Groupe7"},
-                              {"id":8,"itemName":"Groupe8"}                            
-                            ];
-
         this.dropdownListCreno = [
-                              {"id":1,"itemName":"Séance1"},
-                              {"id":2,"itemName":"Séance2"},
-                              {"id":3,"itemName":"Séance3"},
-                              {"id":4,"itemName":"Séance4"},
-                              {"id":5,"itemName":"Séance5"},
-                              {"id":6,"itemName":"Séance6"},
-                              {"id":7,"itemName":"Séance7"},
-                              {"id":8,"itemName":"Séance8"}                            
+                              {"id":"c1","itemName":"08:30-09:30"},
+                              {"id":"c2","itemName":"09:35-10:35"},
+                              {"id":"c3","itemName":"10:40-11:40"},
+                              {"id":"c4","itemName":"13:00-14:00"},
+                              {"id":"c5","itemName":"14:05-15:05"},
+                              {"id":"c6","itemName":"15:10-16:10"},
+                              {"id":"c7","itemName":"16:15-17:15"}                         
                             ];
         this.selectedItems = [
                                // {"id":2,"itemName":"Groupe3"},
@@ -99,13 +100,74 @@ export class GestEmpTempsComponent implements OnInit {
                                   // enableSearchFilter: true
                                 };                                  
     }
-    onItemSelect(item){
-        console.log('Selected Item:');
-        console.log(item);
-    }
-    OnItemDeSelect(item){
+    onCreneauSelect(item){
+        this.creneauxadd[item.id] = (item.id).substring(1,2);
         console.log('De-Selected Item:');
         console.log(item);
+        console.log(this.creneauxadd);
     }
+
+    onGroupSelect(item){
+      if(this.annee == "2CS" || this.annee == "3CS"){
+        this.groupadd["g"+item.name] = this.specialite+""+item.name;
+      }else {
+          this.groupadd["g"+item.name] = ""+item.name;
+      }
+        console.log('De-Selected Item:');
+        console.log(item);
+        console.log(this.groupadd);
+    }
+
+    OnItemDeSelect(item){
+      
+    }
+
+
+    onChangeAnneeScolaire($event){
+        this.annee = $event.value;
+        this.gestEmpTempsService.getSectionSpecialite($event.value)
+                 .subscribe(
+                  data => {this.sectionsShow  = data;});
+    }
+    
+    onChangeSection($event){
+        this.specialite = $event.value;
+         if(this.annee == "2CS" || this.annee == "3CS"){
+            this.gestEmpTempsService.getGroup2_3CS(this.annee,$event.value)
+                 .subscribe(
+                  data => {
+                    this.groupsShow  = data;
+                    console.log(this.groupsShow);});
+    }
+    else {
+           this.gestEmpTempsService.getGroupCPI(this.annee,$event.value)
+                 .subscribe(
+                  data => {
+                    this.groupsShow  = data;
+                    console.log(this.groupsShow);});
+    }
+  }
+  
+    addCreneau(){
+         let objectToPost = {
+                 annee:this.annee,
+                 creneaux: this.creneauxadd,
+                 enseignant :"ds_aktouche@esi.dz",
+                 groupes : this.groupadd,
+                 module  : "module",
+                 salle : "A1" 
+         }
+         this.gestEmpTempsService.addCreneau(this.day,objectToPost)
+          .subscribe(
+                  data => {
+
+                    console.log(data);});
+    }
+
+    changeDay($event){
+      this.day = $event.value;
+      console.log($event.value);
+    }
+    
 
 }

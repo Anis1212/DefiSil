@@ -9,7 +9,7 @@
             </div>
             <div class="card-content table-responsive">
               <div class="col-md-12" style="margin-top: -20px;">
-                <md-select placeholder="Année scolaire">
+                <md-select placeholder="Année scolaire" (change)="onChangeAnnee($event)">
                   <md-option *ngFor="let annee of annees" [value]="annee">
                     {{ annee }}
                   </md-option>
@@ -25,9 +25,9 @@
             </div>
             <div class="card-content table-responsive">
               <div class="col-md-10">
-                <md-select placeholder="Séction">
-                  <md-option *ngFor="let food of foods" [value]="food.value">
-                    {{ food.viewValue }}
+                <md-select placeholder="Séction" (change)="onChangeSpecialite($event)">
+                  <md-option *ngFor="let spec of sections" [value]="spec">
+                    {{ spec }}
                   </md-option>
                 </md-select>
               </div>
@@ -54,12 +54,6 @@
                   <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openGestGroupeDialog()"><i class="glyphicon glyphicon-pencil"></i></button>
                 </div>
               </div>
-              <!--<div class="col-md-12" style="text-align: center;">
-                <button type="button" class="btn btn-success btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-plus"></i></button>
-                <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-pencil"></i></button>
-                <button type="button" class="btn btn-danger btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-remove"></i></button>
-
-                                    </div>-->
             </div>
           </div>
         </div>
@@ -71,170 +65,23 @@
           </div>
           <div class="card-content table-responsive" id="MainC">
             <div class="col-md-5">
-              <form class="col-md-12" role="search">
-                <input type="text" class="col-md-8" placeholder="Rechercher par matricule ">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon " id="btnRech">
-                  <i class="material-icons">search</i>
-                </button>
-              </form>
-              <div class="panel panel-default col-md-12" id="TAbConteneur">
+              <div class="panel panel-default col-md-12" id="TAbConteneur" style="margin-top: 2%;">
                 <div class="panel-heading">Etudiants non affectés</div>
                 <div class="panel-body">
                   <table class="table table-hover col-md-12 table-bordered">
                     <thead class="text-warning">
                     <tr>
-                      <th>Num</th>
+                      <th>Mat</th>
                       <th>Nom</th>
                       <th>Prénom</th>
-                      <th>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </th>
+
                     </tr>
                     </thead>
                     <tbody id="listeNonAffecte">
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Sadek</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
+                    <tr *ngFor="let etd of etdNonAff">
+                      <td>{{ etd.matricule }}</td>
+                      <td>{{ etd.nom }}</td>
+                      <td>{{ etd.prenom }}</td>
                     </tr>
                     </tbody>
                   </table>
@@ -261,9 +108,7 @@
                       <th>Num</th>
                       <th>Nom</th>
                       <th>Prénom</th>
-                      <th>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </th>
+
                     </tr>
                     </thead>
                     <tbody id="listeNonAffecte">
@@ -271,145 +116,7 @@
                       <td>1</td>
                       <td>TATA</td>
                       <td>Sadek</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>TATA</td>
-                      <td>Fella</td>
-                      <td>
-                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                      </td>
+
                     </tr>
                     </tbody>
                   </table>

@@ -10,7 +10,7 @@ declare var $:JQueryStatic;
 })
 export class EnsGestRdvComponent implements OnInit {
 
-  private ens_email = "ds_aktouche@esi.dz";
+  private ens_email=localStorage.getItem("userEmail");
   private rendezVous = [];
   private done : Boolean = false;
   private modifiable : Boolean = false;

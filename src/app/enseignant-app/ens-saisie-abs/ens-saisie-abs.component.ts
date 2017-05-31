@@ -16,7 +16,7 @@ export class EnsSaisieAbsComponent implements OnInit {
   private groupeSlct;
   private jour;
   private date;
-  private ens_email = 'k_chebieb@esi.dz';
+  private ens_email=localStorage.getItem("userEmail");
 
   private jours = [
     "Dimanche",

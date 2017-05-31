@@ -8,7 +8,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export class EnsServiceService {
 
   private result;
-  private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net';
+  private urlServeur = 'https://us-central1-prj2cssil2.cloudfunctions.net';
   private urlBDD = 'https://prj2cssil.firebaseio.com';
   private dataSaisieNote = new Subject<any>();
   public module = [];
@@ -46,7 +46,7 @@ export class EnsServiceService {
    * @returns {Observable<Response>}
    */
   getGroupes(module : String){
-    return this.http.get(this.urlServeur+'/getGroupesModule?module='+module);
+    return this.http.get(this.urlServeur+'/getGroupesModule?module='+module+'&annee=2CS');
   }
 
   /**
@@ -84,8 +84,8 @@ export class EnsServiceService {
    * @param evaluation
    * @returns {Observable<Response>}
    */
-  getNotesEtudiants(annee : string, semestre : string, specialite : string ,moduleCode : string, evaluation : string){
-    return this.http.get(this.urlBDD+'/evaluation/'+annee+'/S'+semestre+'/'+specialite+'/'+moduleCode+'/'+evaluation+'/ligne_note.json');
+  getNotesEtudiants(spec, module, type){
+    return this.http.get(this.urlServeur+'/listeNotes?module='+module+'&type='+type+'&specialite='+spec);
   }
 
   /**
@@ -253,6 +253,10 @@ export class EnsServiceService {
       result.push(json[key]);
     });
     return result;
+  }
+
+  setNotes(etd, module, type, spec, groupe){
+    return this.http.post(this.urlServeur+'/updateNote?module='+module+'&type='+type+'&specialite='+spec+'&groupe=1', etd);
   }
 
 

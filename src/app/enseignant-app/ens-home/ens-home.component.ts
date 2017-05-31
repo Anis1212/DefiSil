@@ -8,7 +8,7 @@ import {EnsServiceService} from "../../services/ens-service.service";
 })
 export class EnsHomeComponent implements OnInit {
 
-  private ens_email="k_chebieb@esi.dz";
+  private ens_email=localStorage.getItem("userEmail");
   private jours = ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi"];
   private emploieJour =[];
   private rendezVous;

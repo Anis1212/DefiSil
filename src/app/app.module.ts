@@ -45,6 +45,7 @@ import { GestionnaireAppComponent } from './gestionnaire-app/gestionnaire-app.co
 import {GestEmpTempsComponent} from "./gestionnaire-app/gest-emp-temps/gest-emp-temps.component";
 import {GestServiceService} from "./services/gest-service.service";
 import {LoginService} from "./login/login.service";
+import {GestEmpTempsService} from "./gestionnaire-app/gest-emp-temps/gest-emp-temps.service";
 
 
 
@@ -97,7 +98,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [ AddSectionComponent, FormulaireEnsComponent,AddGroupeComponent,ListAffectationEnsComponent],
-  providers: [EnsServiceService, FirebaseService, GestServiceService, MdDialogConfig, LoginService],
+  providers: [EnsServiceService, FirebaseService, GestServiceService, MdDialogConfig, LoginService, GestEmpTempsService],
   bootstrap: [AppComponent]
 
 })
