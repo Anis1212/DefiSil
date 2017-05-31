@@ -1,426 +1,426 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-md-4">
-                <div class="col-md-12">
-                    <div class="card" id="SelectionC">
-                        <div class="card-header" data-background-color="bleu">
-                            <h4 class="title">Année scolaire</h4>
-                        </div>
-                        <div class="card-content table-responsive">
-                            <div class="col-md-12" style="margin-top: -20px;">
-                                <md-select placeholder="Année scolaire">
-                                    <md-option *ngFor="let food of foods" [value]="food.value">
-                                        {{ food.viewValue }}
-                                    </md-option>
-                                </md-select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card" id="SelectionConteneur">
-                        <div class="card-header" data-background-color="red">
-                            <h4 class="title">Sélectionner</h4>
-                        </div>
-                        <div class="card-content table-responsive">
-                            <div class="col-md-10">
-                                <md-select placeholder="Séction">
-                                    <md-option *ngFor="let food of foods" [value]="food.value">
-                                        {{ food.viewValue }}
-                                    </md-option>
-                                </md-select>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-default btn-circle btn-xl" (click)="openGestSectionDialog()"><i class="glyphicon glyphicon-pencil"></i></button>
-                            </div>
-                            <div class="col-md-12" style="padding: 0px;">
-                                <div class="col-md-10">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">Groupes</div>
-                                        <div class="panel-body" id="listeGroupes">
-                                            <md-list>
-                                                <md-list-item>Item 1</md-list-item>
-                                                <md-list-item>Item 2</md-list-item>
-                                                <md-list-item>Item 3</md-list-item>
-                                                <md-list-item>Item 1</md-list-item>
-                                                <md-list-item>Item 2</md-list-item>
-                                                <md-list-item>Item 3</md-list-item>
-                                            </md-list>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2" id="divEditGroupe">
-                                    <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openGestGroupeDialog()"><i class="glyphicon glyphicon-pencil"></i></button>
-                                </div>
-                            </div>
-                            <!--<div class="col-md-12" style="text-align: center;">
-                        <button type="button" class="btn btn-success btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-plus"></i></button>
-                        <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-pencil"></i></button>
-                        <button type="button" class="btn btn-danger btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-remove"></i></button>
-                        
-                                            </div>-->
-                        </div>
-                    </div>
-                </div>
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-4">
+        <div class="col-md-12">
+          <div class="card" id="SelectionC">
+            <div class="card-header" data-background-color="bleu">
+              <h4 class="title">Année scolaire</h4>
             </div>
-            <div class="col-md-8">
-                <div class="card" id="AffectationConteneur">
-                    <div class="card-header" data-background-color="red">
-                        <h4 class="title">Affectation des étudiants</h4>
-                    </div>
-                    <div class="card-content table-responsive" id="MainC">
-                        <div class="col-md-5">
-                            <form class="col-md-12" role="search">
-                                <input type="text" class="col-md-8" placeholder="Rechercher par matricule ">
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon " id="btnRech">
-                        <i class="material-icons">search</i>
-                        </button>
-                            </form>
-                            <div class="panel panel-default col-md-12" id="TAbConteneur">
-                                <div class="panel-heading">Etudiants non affectés</div>
-                                <div class="panel-body">
-                                    <table class="table table-hover col-md-12 table-bordered">
-                                        <thead class="text-warning">
-                                            <tr>
-                                                <th>Num</th>
-                                                <th>Nom</th>
-                                                <th>Prénom</th>
-                                                <th>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="listeNonAffecte">
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Sadek</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="col-md-5" class="nbSelect">Total 0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" id="MiddleC">
-                            <div class="text-primary"> Section X</div>
-                            <div class="text-muted"> Groupe X</div>
-                            <div class="text-danger"> Effectifs 11</div>
-                            <a href="" target="_blank" class="btn btn-block" id="btnAjout">Ajouter ></a>
-                            <a href="" target="_blank" class="btn btn-block">
-                                < Retirer</a>
-                        </div>
-                        <div class="col-md-5">
-                            <a href="" target="_blank" class="btn btn-block" id="btnImportation">Importer une liste</a>
-                            <div class="panel panel-default col-md-12" id="TAbConteneur">
-                                <div class="panel-heading">Etudiants affectés</div>
-                                <div class="panel-body">
-                                    <table class="table table-hover col-md-12 table-bordered">
-                                        <thead class="text-warning">
-                                            <tr>
-                                                <th>Num</th>
-                                                <th>Nom</th>
-                                                <th>Prénom</th>
-                                                <th>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="listeNonAffecte">
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Sadek</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TATA</td>
-                                                <td>Fella</td>
-                                                <td>
-                                                    <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="col-md-5" class="nbSelect">Total 0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="" target="_blank" class="btn btn-block col-md-4 bg-success text-white" id="ValiderAff">Valider</a>
-                    </div>
-                </div>
+            <div class="card-content table-responsive">
+              <div class="col-md-12" style="margin-top: -20px;">
+                <md-select placeholder="Année scolaire">
+                  <md-option *ngFor="let annee of annees" [value]="annee">
+                    {{ annee }}
+                  </md-option>
+                </md-select>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="col-md-12">
+          <div class="card" id="SelectionConteneur">
+            <div class="card-header" data-background-color="red">
+              <h4 class="title">Sélectionner</h4>
+            </div>
+            <div class="card-content table-responsive">
+              <div class="col-md-10">
+                <md-select placeholder="Séction">
+                  <md-option *ngFor="let food of foods" [value]="food.value">
+                    {{ food.viewValue }}
+                  </md-option>
+                </md-select>
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-default btn-circle btn-xl" (click)="openGestSectionDialog()"><i class="glyphicon glyphicon-pencil"></i></button>
+              </div>
+              <div class="col-md-12" style="padding: 0px;">
+                <div class="col-md-10">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Groupes</div>
+                    <div class="panel-body" id="listeGroupes">
+                      <md-list>
+                        <md-list-item>Item 1</md-list-item>
+                        <md-list-item>Item 2</md-list-item>
+                        <md-list-item>Item 3</md-list-item>
+                        <md-list-item>Item 1</md-list-item>
+                        <md-list-item>Item 2</md-list-item>
+                        <md-list-item>Item 3</md-list-item>
+                      </md-list>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2" id="divEditGroupe">
+                  <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openGestGroupeDialog()"><i class="glyphicon glyphicon-pencil"></i></button>
+                </div>
+              </div>
+              <!--<div class="col-md-12" style="text-align: center;">
+                <button type="button" class="btn btn-success btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-plus"></i></button>
+                <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-circle btn-xl" (click)="openAddDialog()" ><i class="glyphicon glyphicon-remove"></i></button>
+
+                                    </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card" id="AffectationConteneur">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Affectation des étudiants</h4>
+          </div>
+          <div class="card-content table-responsive" id="MainC">
+            <div class="col-md-5">
+              <form class="col-md-12" role="search">
+                <input type="text" class="col-md-8" placeholder="Rechercher par matricule ">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon " id="btnRech">
+                  <i class="material-icons">search</i>
+                </button>
+              </form>
+              <div class="panel panel-default col-md-12" id="TAbConteneur">
+                <div class="panel-heading">Etudiants non affectés</div>
+                <div class="panel-body">
+                  <table class="table table-hover col-md-12 table-bordered">
+                    <thead class="text-warning">
+                    <tr>
+                      <th>Num</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody id="listeNonAffecte">
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Sadek</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="col-md-5" class="nbSelect">Total 0</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2" id="MiddleC">
+              <div class="text-primary"> Section X</div>
+              <div class="text-muted"> Groupe X</div>
+              <div class="text-danger"> Effectifs 11</div>
+              <a href="" target="_blank" class="btn btn-block" id="btnAjout">Ajouter ></a>
+              <a href="" target="_blank" class="btn btn-block">
+                < Retirer</a>
+            </div>
+            <div class="col-md-5">
+              <a href="" target="_blank" class="btn btn-block" id="btnImportation">Importer une liste</a>
+              <div class="panel panel-default col-md-12" id="TAbConteneur">
+                <div class="panel-heading">Etudiants affectés</div>
+                <div class="panel-body">
+                  <table class="table table-hover col-md-12 table-bordered">
+                    <thead class="text-warning">
+                    <tr>
+                      <th>Num</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody id="listeNonAffecte">
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Sadek</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TATA</td>
+                      <td>Fella</td>
+                      <td>
+                        <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" checked=""></label></div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="col-md-5" class="nbSelect">Total 0</div>
+                </div>
+              </div>
+            </div>
+            <a href="" target="_blank" class="btn btn-block col-md-4 bg-success text-white" id="ValiderAff">Valider</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

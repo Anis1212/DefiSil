@@ -34,7 +34,7 @@ export class RoutesComponent implements OnInit {
   ];
 
   public gestionnaireRoutes:SideBareElements[]=[
-    {link:'/app-gestionnaire/gest-modules',name:'Gestion des modules',icon:''},
+    {link:'/app-gestionnaire/gest-etudiants',name:'Gestion des étudiants',icon:''},
     {link:'/app-gestionnaire/gest-contenu',name:'Gestion du contenu',icon:''},
     {link:'/app-gestionnaire/app-list-ens',name:'Gestion des enseignants',icon:''},
     {link:'/app-gestionnaire/gest_emp-tmps',name:'Gestion des emplois du temps',icon:''}

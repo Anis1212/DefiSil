@@ -1,6 +1,7 @@
-#ListEnsConteneur,#ModulesConteneur
+#ListEnsConteneur,#listeModules
+
 {
-  height: 700px;
+  height: 550px;
 }
 
 #tableEns thead
@@ -41,12 +42,12 @@ td
 }
 
 #tableEns{
-  height:600px;
+  height:400px;
   display: -moz-groupbox;
 }
 #tableEns tbody{
   overflow-y: scroll;
-  height: 89%;
+  height: 80%;
   width: 100%;
   position: absolute;
 }

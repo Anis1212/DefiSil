@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import {MaterialModule, MdDialogConfig} from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { Md2Module } from 'md2';
 import { EnsSaisieAbsComponent } from './enseignant-app/ens-saisie-abs/ens-saisie-abs.component';
@@ -44,6 +44,7 @@ import {GestionnaireAppModule} from "./gestionnaire-app/gest-app-module";
 import { GestionnaireAppComponent } from './gestionnaire-app/gestionnaire-app.component';
 import {GestEmpTempsComponent} from "./gestionnaire-app/gest-emp-temps/gest-emp-temps.component";
 import {GestServiceService} from "./services/gest-service.service";
+import {LoginService} from "./login/login.service";
 
 
 
@@ -96,7 +97,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [ AddSectionComponent, FormulaireEnsComponent,AddGroupeComponent,ListAffectationEnsComponent],
-  providers: [EnsServiceService, FirebaseService, GestServiceService],
+  providers: [EnsServiceService, FirebaseService, GestServiceService, MdDialogConfig, LoginService],
   bootstrap: [AppComponent]
 
 })

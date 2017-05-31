@@ -21,11 +21,10 @@ import {PickListModule} from 'primeng/primeng';
     Md2Module,
     FormsModule,
    RouterModule,
-   RouterModule.forChild(gestionnaire_routes), 
+   RouterModule.forChild(gestionnaire_routes),
   ],
   declarations: [
     GestModulesComponent
-
   ]
 })
 

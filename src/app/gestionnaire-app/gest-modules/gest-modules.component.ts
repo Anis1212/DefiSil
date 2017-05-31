@@ -11,8 +11,9 @@ import {AddGroupeComponent} from './GestGroupe/add-groupe/add-groupe.component'
 })
 export class GestModulesComponent  {
 
+  private annees = ["1CPI", "2CPI", "1CS", "2CS", "3CS"];
 
-    constructor(public dialog: MdDialog) {}
+  constructor(public dialog: MdDialog) {}
 
   openGestSectionDialog() {
     this.dialog.open(AddSectionComponent);
@@ -21,19 +22,13 @@ export class GestModulesComponent  {
     openGestGroupeDialog() {
     this.dialog.open(AddGroupeComponent);
   }
-  
-  
 
-    food: any[];
-    foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-    
+
+
+
 
     ngOnInit() {
-       
+
     }
 
 }

@@ -44,8 +44,7 @@
                     <tr>
                       <th>Intitulé</th>
                       <th>coefficient</th>
-                      <th>V Horraire (TD)</th>
-                      <th>V Horraire (Cours)</th>
+                      <th>spécialité</th>
                       <th></th>
                     </tr>
                     </thead>
@@ -53,13 +52,12 @@
                     <tr *ngFor="let module of listeModules; let i = index">
                       <td>{{ module?.code }}</td>
                       <td>{{ module?.coefficient }}</td>
-                      <td>45H</td>
-                      <td>15H</td>
+                      <td>{{ module?.specialite }}</td>
                       <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task">
+                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task" (click)="afficherDetail(i)">
                           <i class="material-icons">edit</i>
                         </button>
-                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Remove">
+                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Remove" (click)="supprimerModule(module?.code, module?.specialite)">
                           <i class="material-icons">close</i>
                         </button>
                       </td>
@@ -74,24 +72,30 @@
       <div class="col-md-7">
         <div class="card" id="DetailConteneur">
           <div class="card-header" data-background-color="blue">
-            <h4 class="title">Détail du module</h4>
+            <div class="row">
+            <div class="col-md-10">
+              <h4 class="title">Détail du module / Création d'un module</h4>
+            </div>
+            <div class="col-md-2">
+              <button md-mini-fab (click)="initialiserChamps()" >
+                <md-icon>add</md-icon>
+              </button>
+            </div>
+            </div>
           </div>
           <div class="card-content table-responsive" >
             <div class="col-md-12">
-              <form>
                 <div class="row">
                   <div class="col-md-8">
-                    <div class="form-group label-floating is-empty">
+                    <div class="form-group label-floating">
                       <label class="control-label">Nom complet du module</label>
-                      <input type="text" class="form-control">
-                      <span class="material-input"></span>
+                      <input type="text" class="form-control" required="true" [(ngModel)]="nomModule">
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="form-group label-floating is-empty">
+                    <div class="form-group label-floating">
                       <label class="control-label">Abréviation</label>
-                      <input type="text" class="form-control">
-                      <span class="material-input"></span>
+                      <input type="text" class="form-control" required="true" [(ngModel)]="codeModule">
                     </div>
                   </div>
                 </div>
@@ -99,7 +103,15 @@
                   <div class="col-md-4">
                     <div class="form-group label-floating is-empty">
                       <label class="control-label">Coefficient</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" required="true" [(ngModel)]="coeffModule">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4" *ngIf="annee == '2CS' || annee == '3CS' ">
+                    <div class="form-group label-floating is-empty">
+                      <md-select placeholder="Spécialité" required="false" [(ngModel)]="specialite">
+                        <md-option *ngFor="let spec of specialites" [value]="spec">{{ spec }}</md-option>
+                      </md-select>
                       <span class="material-input"></span>
                     </div>
                   </div>
@@ -108,14 +120,14 @@
                   <div class="col-md-6">
                     <div class="form-group label-floating is-empty">
                       <label class="control-label">Volume Horraire des TD's</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" [(ngModel)]="VHTD">
                       <span class="material-input"></span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group label-floating is-empty">
                       <label class="control-label">Volume Horraire des cours</label>
-                      <input type="number" class="form-control">
+                      <input type="number" class="form-control" [(ngModel)]="VHC">
                       <span class="material-input"></span>
                     </div>
                   </div>
@@ -129,7 +141,7 @@
                       <div class="card-content">
                         <div class="col-md-12">
                           <div class="col-md-10">
-                            <h4 class="card-title ">Enseignants affectés au module</h4>
+                            <h6 class="card-title "> Enseignants affectés au module</h6>
 
                           </div>
                           <div class="col-md-2">
@@ -137,54 +149,21 @@
                               <i class="material-icons">edit</i>
                             </button>
                           </div>
-
-
-
                         </div>
                         <div class="col-md-12">
-
-
-
                           <div class="table-responsive">
                             <table class="table">
                               <thead style="color: #00acc1;">
                               <tr>
-                                <th>Mat</th>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                               </tr>
                               </thead>
                               <tbody>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
-                              <tr>
-                                <td>123</td>
-                                <td>TATA</td>
-                                <td>Fella</td>
-                              </tr>
+                                <tr *ngFor="let ens of ensModule">
+                                  <td> {{ ens.nom }}</td>
+                                  <td>{{ ens.prenom }}</td>
+                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -193,11 +172,10 @@
                     </div>
                   </div>
                   <div class="col-md-4" id="CbtnSubmit" >
-                    <button type="submit" class="btn btn-default pull-right">Sauvgarder</button>
+                    <button class="btn btn-default pull-right" (click)="ajouterModule()">Sauvgarder</button>
                     <div class="clearfix"></div>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
         </div>

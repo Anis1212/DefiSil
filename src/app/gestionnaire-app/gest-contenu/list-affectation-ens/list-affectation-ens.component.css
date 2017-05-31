@@ -1,4 +1,4 @@
-/*#AffectationConteneur
+#AffectationConteneur
 {
 height:630px;
 }
@@ -21,12 +21,12 @@ table-layout: fixed;
 }
 
 table{
- height:300px;            
- display: -moz-groupbox;   
+ height:300px;
+ display: -moz-groupbox;
 }
 table tbody{
-  overflow-y: scroll;      
-  height: 72%;            
+  overflow-y: scroll;
+  height: 72%;
   width: 100%;
   position: absolute;
 }
@@ -52,10 +52,10 @@ table tbody{
   margin-top: 10%;
 }
 
-#MiddleC div 
+#MiddleC div
 {
     font-size: 16px !important;
-    
+
 }
 
 #TAbConteneur
@@ -101,7 +101,7 @@ table tbody{
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
-  
+
 }
 
 .btn.btn-success.btn-circle.btn-xl i , .btn.btn-warning.btn-circle.btn-xl i , .btn.btn-danger.btn-circle.btn-xl i
@@ -135,7 +135,7 @@ td button{
     width: 60px;
     height: 60px;
     color: white;
-   
+
 }
 
 #hlisteEns .card-content{
@@ -158,6 +158,4 @@ td button{
      background: rgba(0, 172, 193, 0.1);
          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 172, 193, 0.2);
 
- }  
-      
-*/
+ }

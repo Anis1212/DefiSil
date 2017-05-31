@@ -36,22 +36,21 @@
                     <table class="table table-hover col-md-12" id="tableEns">
                       <thead>
                       <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Téléphone</th>
-                        <th>Nbr salles</th>
-                        <th></th>
+                        <th class="col-md-2" >Nom</th>
+                        <th class="col-md-3" >Prénom</th>
+                        <th class="col-md-3" >Email</th>
+                        <th class="col-md-4" >Nbr salles</th>
+
                       </tr>
                       </thead>
                       <tbody>
                       <tr *ngFor="let ens of listeEnseignant; let i = index" (click)="afficherModuleEns(i)">
-                        <td>{{ ens?.nom }}</td>
-                        <td>{{ ens?.prenom }}</td>
-                        <td>{{ ens?.email }}</td>
-                        <td>{{ ens?.numTel }}</td>
-                        <td>{{ ens?.nbMaxSeances }}</td>
-                        <td class="td-actions text-right">
+                        <td class="col-md-2" >{{ ens?.nom }}</td>
+                        <td class="col-md-3" >{{ ens?.prenom }}</td>
+                        <td class="col-md-4" >{{ ens?.email }}</td>
+                        <td class="col-md-1" >{{ ens?.nbMaxSeances }}</td>
+
+                        <td class="td-actions text-right col-md-2">
                           <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task" (click)="updateEns(ens?.email)">
                             <i class="material-icons">edit</i>
                           </button>
@@ -69,9 +68,9 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
-          <div class="card-header card-header-text" data-background-color="red">
-            <h4>Modules enseignés</h4>
+        <div class="card" id="listeModules" >
+          <div class="card-header" data-background-color="red">
+            <h4 class="title"> Modules enseignés </h4>
           </div>
           <div class="card-content table-responsive">
             <h4 *ngIf="modulesEns==null" style="text-align: center;">La liste est vide</h4>

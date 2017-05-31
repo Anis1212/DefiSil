@@ -13,7 +13,8 @@ export const gestionnaire_routes: Routes = [
         path:'app-gestionnaire',
         component:GestionnaireAppComponent,
         children:[
-          { path: 'gest-modules', component:  GestModulesComponent},
+          { path: '', redirectTo: 'gest-etudiants', pathMatch: 'full' },
+          { path: 'gest-etudiants', component:  GestModulesComponent},
           { path: 'gest-contenu', component:  GestContenuComponent},
           { path: 'app-list-ens', component:  GestListeEnsComponent},
           { path: 'gest_emp-tmps', component:  GestEmpTempsComponent},

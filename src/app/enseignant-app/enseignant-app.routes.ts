@@ -16,6 +16,7 @@ export const enseignant_route: Routes = [
         path:'app-enseignant',
         component:EnseignantAppComponent,
         children:[
+                  { path: '', redirectTo: 'acceuil', pathMatch: 'full' },
                  { path: 'accueil', component: EnsHomeComponent },
                  { path: 'saisiAbsence', component: EnsSaisieAbsComponent },
                  { path: 'enseignantNotes',component:EnsSaisieNotesComponent,

@@ -13,6 +13,7 @@ export class GestServiceService {
   private urlBDD = 'https://prj2cssil.firebaseio.com';
 
 
+
   ajouterEns(ens){
     return this.http.post(this.urlServeur+'/addEnseignants', ens)
       .map((res: Response) =>{
@@ -42,6 +43,43 @@ export class GestServiceService {
     return this.http.get(this.urlServeur+'/listeModules?annee='+annee+'&semestre='+semestre);
   }
 
+  delModule(module, annee, specialite){
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    if(specialite == null || specialite == ''){
+      return this.http.get(this.urlServeur+'/removeModule?module='+module+'&annee='+annee, {
+        headers : header
+      });
+    }else{
+      return this.http.get(this.urlServeur+'/removeModule?module='+module+'&annee='+annee+'&specialite='+specialite, {
+        headers : header
+      });
+    }
+  }
+
+  getInfoEns(email){
+    return this.http.get(this.urlServeur+'/infosEnseignant?email='+email);
+  }
+
+  /**
+   *
+   * @param module
+   * @param annee
+   * @param specialite
+   * @param enseignants
+   * @returns {Observable<Response>}
+   */
+  affecterEnsModule(module, annee, specialite, enseignants){
+    if(specialite != null || specialite != ''){
+      return this.http.post(this.urlServeur+'/setDetailDuModule?module='+module+'&annee='+annee+'&specialite='+specialite, enseignants);
+    }else {
+      return this.http.post(this.urlServeur+'/setDetailDuModule?module='+module+'&annee='+annee, enseignants);
+    }
+  }
+
+  addModule(module, annee){
+    return this.http.post(this.urlServeur+'/addModule?annee='+annee, module);
+  }
 
 
 }
