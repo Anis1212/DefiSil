@@ -1,0 +1,192 @@
+
+
+
+#SelectionC md-select.mat-select, #SelectionConteneur md-select.mat-select{
+    width: 100% !important ;
+    margin: 30px 0px 30px 0px !important;
+}
+
+#SelectionConteneur{
+    height: 500px;
+}
+
+#listeGroupes 
+{
+    height: 200px !important;
+    overflow-x: hidden !important;
+    padding-top: 0px !important;
+}
+
+#listeGroupes md-list
+{
+    padding-top: 0px !important;
+}
+
+#listeGroupes  md-list-item
+ {
+     height: 30px !important ;
+ }
+
+ #MAJConteneur
+ {
+     height: 350px;
+     text-align: center;
+ }
+
+ #MAJConteneur md-select.mat-select:nth-child(1)
+ {
+     margin-right: 50px !important;
+     margin-top: 20px !important;
+ }
+
+#btnModif
+{
+    float: right;
+}
+
+form input
+{
+    width: 80% !important;
+    font-size: 16px;
+}
+
+#MainC
+{
+    padding: 0px !important;
+    margin-top: 20px !important;
+}
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+table{
+ height:400px;            
+ display: -moz-groupbox;   
+}
+table tbody{
+  overflow-y: scroll;      
+  height: 89%;            
+  width: 100%;
+  position: absolute;
+}
+
+
+table thead>tr>th{
+   border-right:none;
+   border-left: none;
+}
+
+table thead>tr>td
+
+{
+    padding: 4px !important;
+}
+
+
+table thead>tr>th> .checkbox label
+{
+    padding-left:10px !important;
+}
+
+
+#btnImportation
+{
+    background: green !important;
+    float: right !important;
+    width: 50% !important;
+    margin-bottom: 15px !important;
+}
+
+#btnAjout
+{
+    margin-bottom: 20px;
+}
+
+#MiddleC
+{
+  text-align: center;
+  margin-top: 20%;
+}
+
+#MiddleC div 
+{
+    margin-bottom: 20px;
+    font-size: 16px !important;
+    
+}
+
+#TAbConteneur
+{
+    padding: 0px !important;
+    margin-bottom: 0px;
+}
+
+#TAbConteneur>div
+{
+    text-align: center !important;
+}
+
+.nbSelect
+{
+    float:right;
+    margin-right: 30px;
+    font-size: 16px !important;
+    padding-top: 20px !important;
+}
+
+ #btnRech
+ {
+     width: 46px !important;
+     height: 46px !important;
+ }
+
+#ValiderAff
+{
+    width: 100px;
+    background-color: #5cb85c!important;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+
+}
+.panel.panel-default
+{
+    margin-bottom: 0px !important;
+}
+
+.btn-circle.btn-xl {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  
+}
+
+.btn.btn-success.btn-circle.btn-xl i , .btn.btn-warning.btn-circle.btn-xl i , .btn.btn-danger.btn-circle.btn-xl i
+{
+    font-size: 20px !important;
+}
+
+td button{
+
+    vertical-align: middle;
+    top: -1px;
+    border: none;
+    margin-right: 30px;
+    position: relative;
+}
+
+
+#divEditGroupe
+{
+        position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+}
+

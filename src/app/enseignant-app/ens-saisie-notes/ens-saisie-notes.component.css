@@ -1,4 +1,4 @@
-#validerFiltre
+/*#validerFiltre
 {
     float: right;
     margin-top: 5px;
@@ -7,12 +7,11 @@
 #filtresConteneur
 {
     text-align: center;
+    padding: 0px;
+    padding-right: 10px;
+    height: 90px;
 }
 
-md-select
-{
-    margin-right:15px;
-}
 
 
 #etudiantsListe
@@ -28,4 +27,8 @@ md-select
 tbody tr{
   cursor: pointer;
 }
+*/
 
+input{
+  border:none;
+}

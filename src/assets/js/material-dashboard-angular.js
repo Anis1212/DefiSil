@@ -14,8 +14,10 @@
 
  */
 
- 
+
 $(document).ready(function(){
+
+    $('.sidebar .nav li:first').addClass('active');
     $moving_tab = $('<div class="moving-tab"/>');
     $('.sidebar .nav-container').append($moving_tab);
 

@@ -1,72 +1,67 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row ">
-            <div class="col-md-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" data-background-color="bleu">
-                        <h4 class="title">Sélectionner</h4>
-                    </div>
-                    <br/>
-                    <div class="card-content table-responsive" id="filtresConteneur">
-                      <md-select placeholder="Module" (change)="onChangeModule($event)">
-                        <md-option *ngFor="let module of modules" [value]="module">
-                          {{ module }}
-                        </md-option>
-                      </md-select>
 
-                       <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
-                          <md-option *ngFor="let groupe of groupes" [value]="groupe?.specialite">
-                          {{ groupe?.specialite }}
-                          </md-option>
-                      </md-select>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="bleu">
+                            <h4 class="title">Sélectionner</h4>
+                        </div>
+                        <br/>
+                        <div class="card-content table-responsive" id="filtresConteneur">
 
-                      <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)">
-                          <md-option *ngFor="let evaluation of evaluations" [value]="evaluation">
-                          {{ evaluation }}
-                          </md-option>
-                      </md-select>
+                            <md-select placeholder="Module" (change)="onChangeModule($event)" class="col-md-4">
+                                <md-option *ngFor="let module of modules" [value]="module">
+                                    {{ module }}
+                                </md-option>
+                            </md-select>
+                            <md-select placeholder="Groupe" (change)="onChangeGroupe($event)" class="col-md-4">
+                                <md-option *ngFor="let groupe of groupes" [value]="groupe?.specialite">
+                                    {{ groupe?.specialite }}
+                                </md-option>
+                            </md-select>
+                            <md-select placeholder="Evaluation" (change)="onChangeEvaluation($event)" class="col-md-4">
+                                <md-option *ngFor="let evaluation of evaluations" [value]="evaluation">
+                                    {{ evaluation }}
+                                </md-option>
+                            </md-select>
 
-                      <button  md-mini-fab id="validerFiltre" (click)="getListeEtudiants()">
-                          <md-icon>check</md-icon>
-                      </button>
+                            <div class="col-md-2" id="validerFiltre">
+                                <button md-mini-fab (click)="getNotesEtudiants()">
+                <md-icon>check</md-icon>
+              </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-                 <div class="col-md-12">
-
-                <div class="card" id ="gestionConteneur">
-                    <div class="card-header" data-background-color="bleu">
-                        <h4 class="title">Gestion des évaluations</h4>
-                    </div>
-                    <div class="card-content table-responsive" >
-                           <div class="btn-group btn-group-justified">
-                                <a [routerLink]="['ens-add-eval']" class="btn btn-default">Ajouter</a>
-                                <a [routerLink]="['ens-modif-eval']" class="btn btn-default">Modifier</a>
-                                <a [routerLink]="['ens-delete-eval']" class="btn btn-default">Supprimer</a>
-
+                <div class="col-md-12">
+                    <div class="card" id="gestionConteneur">
+                        <div class="card-header" data-background-color="bleu">
+                            <h4 class="title">Gestion des évaluations</h4>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <div class="btn-group">
+                                <a routerLink="addEval" class="btn btn-warning">Ajouter</a>
+                                <a routerLink="editEval" class="btn btn-warning">Modifier</a>
+                                <a routerLink="delEval" class="btn btn-warning">Supprimer</a>
                             </div>
                             <div class=" panel panel-default .vert-offset-bottom-10">
-                                    <div class="panel-body">
-                                        <router-outlet></router-outlet>
-                                    </div>
+                                <div class="panel-body">
+                                    <router-outlet></router-outlet>
+                                </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-
-                </div>
-
             </div>
-
-             <div class="col-md-8">
-
+            <div class="col-md-6">
                 <div class="card" id="etudiantsListe">
                     <div class="card-header" data-background-color="bleu">
                         <h4 class="title">Liste des étudiants</h4>
                     </div>
                     <div class="card-content table-responsive">
-                         <table class="table">
+                        <table class="table">
                             <thead class="text-black">
                                 <tr>
                                     <th>Num</th>
@@ -74,23 +69,24 @@
                                     <th>Nom</th>
                                     <th>Prénom</th>
                                     <th>Note</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let etudiant of listeEtudiants; let i = index" (click)="modifierNote(etudiant?.email)">
-                                  <td>{{ i+1 }}</td>
-                                  <td>{{ etudiant?.matricule }}</td>
-                                  <td>{{ listeEtudiants[i]?.nom }}</td>
-                                  <td>{{ etudiant?.prenom }}</td>
-                                  <td> </td>
+                                <tr *ngFor="let etudiant of notesEtudiants; let i = index" (click)="modifierNote(i, etudiant?.email)">
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ etudiant?.email }}</td>
+                                    <td>{{ listeEtudiants[i]?.nom }}</td>
+                                    <td>{{ etudiant?.prenom }}</td>
+                                    <td> <input [(ngModel)]="etudiant.valeur" [value]="etudiant?.valeur"></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <button md-mini-fab (click)="valider()">
+                          <md-icon>check</md-icon>
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

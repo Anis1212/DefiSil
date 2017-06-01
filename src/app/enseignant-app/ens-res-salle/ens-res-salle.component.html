@@ -1,146 +1,74 @@
-<style>
-
-</style>
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-md-4">
-
-                 <div class="col-md-12">
-
-                <div class="card">
-                    <div class="card-header" data-background-color="bleu">
-                        <h4 class="title">Sélectionner</h4>
-                    </div>
-                    <br/>
-                    <div class="card-content table-responsive" id="filtresConteneur">
-
-                      <div class="container-fluid">
-                        <div class="row ">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-10">
+              <div class="card">
+                  <div class="card-header" data-background-color="bleu">
+                      <h4 class="title">Sélectionner</h4>
+                  </div>
+                  <br/>
+                  <div class="card-content table-responsive " id="filtresConteneur">
                       <div class="col-md-5">
-                          <md-select placeholder="Type salle" style="max-width: 10%">
-                                <md-option *ngFor="let annee of annees" [value]="annee.value">
-                                  {{ annee.viewValue }}
-                                </md-option>
-                           </md-select>
-                        </div>
-                        <div class="col-md-6" id="datePicker">
-                          <md2-datepicker style="min-width: 100% !important;"></md2-datepicker>
-
-                        </div>
-                        <div class="col-md-2" id="validerFiltre">
-                           <button  md-mini-fab  >
-                                <md-icon>check</md-icon>
-                            </button>
-                        </div>
-                        </div>
+                          <div class="col-md-12" id="datePicker">
+                              <md2-datepicker [(ngModel)]="currentDate" (change)="onChangeDate($event)"></md2-datepicker>
+                          </div>
                       </div>
-                    </div>
-                </div>
+                      <div class="col-md-5">
+                          <md-select placeholder="Type Salle" [(ngModel)]="moduleSlct" (change)="onChangeTypeSalle($event)">
+                              <md-option *ngFor="let typeSalle of typesSalles" [value]="typeSalle">
+                                  {{typeSalle}}
+                              </md-option>
+                          </md-select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
 
-                </div>
-
-                 <div class="col-md-12">
-
-                <div class="card" id ="gestionConteneur">
-                    <div class="card-header" data-background-color="bleu">
-                        <h4 class="title">Salles que j'ai réservées</h4>
-                    </div>
-                    <div class="card-content table-responsive" >
-
-                    </div>
-                </div>
-
-                </div>
-
-            </div>
-
-             <div class="col-md-8">
-
-                <div class="card" id="sallesListe">
-                    <div class="card-header" data-background-color="bleu">
-                        <h4 class="title">Liste des salles</h4>
-                    </div>
-                    <div class="card-content table-responsive">
-                         <table class="table borderless">
-                                  <thead>
-                                    <tr>
-                                        <th class="col16-md-2" ><md-icon>access_time</md-icon></th>
-                                        <th class="col16-md-2" >8:30-9:30</th>
-                                        <th class="col16-md-2" >9:30-9:30</th>
-                                        <th class="col16-md-2" >10:30-11:30</th>
-                                        <th class="col16-md-2" >13:00-14:00</th>
-                                        <th class="col16-md-2" >14:00-15:00</th>
-                                        <th class="col16-md-2" >15:00-16:00</th>
-                                        <th class="col16-md-2" >16:00-17:00</th>
-                                    </tr>
+          <div class="col-md-12">
+              <div class="card" id="TempsContainer">
+                  <div class="card-header" data-background-color="bleu">
+                      <h4 class="title">Disponibilité des Salles</h4>
+                  </div>
+                  <br/>
+                  <div class="card-content table-responsive">
+                      <md-tab-group color="reds" style="padding-top: 20px;" #tabGroup (selectChange)="selectSalle($event)">
+                          <md-tab [label]="salle.nom" *ngFor="let salle of salles;let i = index">
+                              <table class="table" style=" text-align: center">
+                                  <thead class="">
+                                      <tr style="text-align:centre" data-background-color="reds">
+                                          <th>08:30-09:30</th>
+                                          <th>09:35-10:35</th>
+                                          <th>10:40-11:40</th>
+                                          <th>13:00-14:00</th>
+                                          <th>14:05-15:05</th>
+                                          <th>15:10-16:10</th>
+                                          <th>16:15-17:15</th>
+                                      </tr>
                                   </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                      <td>CP 1</td>
-                                      <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card (click)="openDialog1()" ><md-card-content>click sur moi->exemple</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                    </tr>
-                                    <tr>
-                                      <td>CP 2 </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Amphi 1</td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Amphi 2</td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                    </tr>
-
-                                     <tr>
-                                      <td>M5</td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                                  <td><md-card><md-card-content>card</md-card-content></md-card> </td>
-                                    </tr>
-
-
+                                  <tbody>
+                                      <tr>
+                                          <td *ngFor="let item of currentCreneaux;let i=index;">
+                                              <div *ngIf="item == 'Res'">
+                                                  <p style="color:red;">Réservée</p>
+                                              </div>
+                                              <div *ngIf="item == 'NonRes'">
+                                                  <md-checkbox [(ngModel)]="checkedValues[i]"></md-checkbox>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr style="margin-left:150px ">
+                                          <button class="btn btn-black " (click)="addReservation()">valider</button>
+                                      </tr>
                                   </tbody>
+                              </table>
 
-                        </table>
-
-
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+                          </md-tab>
+                      </md-tab-group>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

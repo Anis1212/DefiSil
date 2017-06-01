@@ -11,13 +11,15 @@ import {EnsServiceService} from "../../services/ens-service.service";
 })
 export class EnsSaisieNotesComponent implements OnInit {
 
-  private ens_email ="k_chebieb@esi.dz";
+  private ens_email = localStorage.getItem("userEmail");
   private anneeSlct;
   private specialiteSlct;
   private moduleSlct;
   private evaluationSlct;
   private groupeSlct;
   private etdSlct;
+  private id;
+  private note;
 
   private annees = [
     {value: 'a1', viewValue: '1CPI'},
@@ -32,6 +34,7 @@ export class EnsSaisieNotesComponent implements OnInit {
   private evaluations = ["TP", "CI", "EMD"];
   private notesEtudiants = [];
   private listeEtudiants = [];
+  private dataChild = [];
 
   constructor(public dialog: MdDialog, private ens_service : EnsServiceService) {}
 
@@ -59,15 +62,27 @@ export class EnsSaisieNotesComponent implements OnInit {
 
   onChangeGroupe(groupe){
     this.groupeSlct = groupe['value'];
+    this.specialiteSlct = groupe['value'];
   }
 
   onChangeModule(moduleCode){
+    this.evaluations = [];
     this.moduleSlct = moduleCode['value'];
-    this.ens_service.getGroupes(moduleCode['value'])
+    this.ens_service.getGroupes(this.moduleSlct)
       .subscribe(
         (data) => {
           this.groupes = data.json();
           console.log(data.json());
+          this.ens_service.getEvalModule(this.moduleSlct)
+            .subscribe(
+              (data : Response) => {
+                this.evaluations=data.json();
+                console.log(data.json());
+                this.ens_service.transferModuleSaisieNotes(this.moduleSlct);
+                this.ens_service.transferEvalSaisieNotes(this.evaluations);
+                //this.dataChild = this.evaluations;
+              }
+            );
         }
       );
   }
@@ -88,12 +103,12 @@ export class EnsSaisieNotesComponent implements OnInit {
   }
 
   getNotesEtudiants(){
-    this.ens_service.getNotesEtudiants(this.anneeSlct, '1', this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
+    this.ens_service.getNotesEtudiants(this.specialiteSlct, this.moduleSlct, this.evaluationSlct)
       .subscribe(
         (data : Response) => {
           if (data.json() != null) {
-            console.log("success", this.ens_service.json2array(data.json()));
-            this.notesEtudiants = this.ens_service.json2array(data.json());
+            console.log("success", this.ens_service.json2array(data.json()[0]));
+            this.notesEtudiants = this.ens_service.json2array(data.json()[0]);
           } else {
             console.log("error");
             this.notesEtudiants=[];
@@ -105,16 +120,38 @@ export class EnsSaisieNotesComponent implements OnInit {
   ngOnInit() {
     this.ens_service.getModules(this.ens_email).subscribe(
       (data : any) => {
-        data[0].modules.splice(0,1);
+        console.log("anis", data);
+        // data[0].modules.splice(0,1);
         this.modules = data[0].modules;
         console.log(this.modules);
       }
     );
   }
 
-  modifierNote(email : any){
+  modifierNote(id, email : any){
+    this.id = id;
     this.etdSlct = email;
     console.log(email);
+  }
+
+  valider(note){
+    //this.notesEtudiants[this.id].valeur = note;
+    let ok = true;
+    this.notesEtudiants.forEach(etd =>{
+      if(etd.valeur > 20){
+        ok = false;
+      }
+    });
+    console.log([this.notesEtudiants[this.id]]);
+    console.log(JSON.stringify(this.notesEtudiants));
+    if(ok == true){
+      let a = [this.notesEtudiants[this.id]];
+      this.ens_service.setNotes(this.notesEtudiants, this.moduleSlct, this.evaluationSlct, this.specialiteSlct, this.groupeSlct)
+        .subscribe((data) => {
+          console.log(data);
+        });
+    }
+
   }
 
 }

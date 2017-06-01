@@ -1,0 +1,171 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row ">
+
+            <div class="col-md-8" id="selectionConteneur">
+                <div class="col-md-12" id="selectionConteneur">
+                    <div class="card card-nav-tabs">
+                        <div class="card-header" data-background-color="blue">
+                            <h4 class="title">Sélectionner</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <md-select placeholder="Année scolaire" (change)="onChangeAnneeScolaire($event)">
+                                            <md-option *ngFor="let anneeSco of anneesScolaire" [value]="anneeSco">
+                                                {{ anneeSco }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <md-select placeholder="Spécialité" (change)="onChangeSection($event)">
+                                            <md-option *ngFor="let section of sectionsShow" [value]="section">
+                                                {{ section }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <md-select placeholder="Groupe">
+                                            <md-option *ngFor="let group of groupsShow" [value]="group.itemName">
+                                                {{ group.itemName }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card card-nav-tabs" id="tabConteneur">
+                        <div class="card-header" data-background-color="blue">
+                            <h4 class="title">Emploi du temps</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="tab-content">
+                                <div class="row">
+                                    <md-tab-group style="padding-top: 20px;">
+                                        <md-tab label="Dimanche">
+                                            <div class="card col-md-12">
+                                                <div class="card-content table-responsive">
+                                                    <h5 class="col-md-1">08:30h</h5>
+                                                    <h5 class="col-md-2">10:30h</h5>
+                                                    <h6 class="col-md-3">Cours IHM</h6>
+                                                    <h5 class="col-md-2">AP1</h5>
+                                                    <h6 class="col-md-4">SIL,SIQ1,SIQ2</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card col-md-12">
+                                                <div class="card-content table-responsive">
+                                                    <h5 class="col-md-1">10:30h</h5>
+                                                    <h5 class="col-md-2">11:30h</h5>
+                                                    <h6 class="col-md-3">TD IHM</h6>
+                                                    <h5 class="col-md-2">S17</h5>
+                                                    <h6 class="col-md-4">SIL</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card col-md-12">
+                                                <div class="card-content table-responsive">
+                                                    <h5 class="col-md-1">14:00h</h5>
+                                                    <h5 class="col-md-2">15:00h</h5>
+                                                    <h6 class="col-md-3">TD IHM</h6>
+                                                    <h5 class="col-md-2">S10</h5>
+                                                    <h6 class="col-md-4">SIQ1</h6>
+                                                </div>
+                                            </div>
+
+                                        </md-tab>
+                                        <md-tab label="Lundi">
+                                            <h1>Some more tab content</h1>
+                                        </md-tab>
+                                        <md-tab label="Mardi">
+                                            <h1>Some more tab content</h1>
+                                        </md-tab>
+                                        <md-tab label="Mercredi">
+                                            <h1>Some more tab content</h1>
+                                        </md-tab>
+                                        <md-tab label="Jeudi">
+                                            <h1>Some more tab content</h1>
+                                        </md-tab>
+                                    </md-tab-group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-nav-tabs" id="FiltreConteneur">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Sélectionner</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="tab-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <md-select placeholder="Jour" (change)="changeDay($event)">
+                                        <md-option *ngFor="let jour of jours" [value]="jour">
+                                            {{ jour}}
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-12" id="selectgroupe">
+                                    <angular2-multiselect [data]="dropdownListCreno" [(ngModel)]="selectedItemsCreno" [settings]="dropdownSettingsCreno" (onSelect)="onCreneauSelect($event)" (onDeSelect)="OnItemDeSelect($event)"></angular2-multiselect>
+                                </div>
+                                <div class="col-md-8">
+                                    <md-input-container>
+                                        <input mdInput placeholder="Modules" [mdAutocomplete]="auto" #module [formControl]="stateCtrl">
+                                    </md-input-container>
+                                    <md-autocomplete #auto="mdAutocomplete">
+                                        <md-option *ngFor="let state of filteredStates | async" [value]="state">
+                                            {{ state }}
+                                        </md-option>
+                                    </md-autocomplete>
+                                </div>
+                                <div class="col-md-4" id="rdButton">
+                                    <md-radio-group>
+                                        <md-radio-button value="1" id="Rb" cheked="true">Cours</md-radio-button>
+                                        <md-radio-button value="2">TD</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                                <div class="col-md-12">
+                                    <md-input-container>
+                                        <input mdInput placeholder="Enseignants" [mdAutocomplete]="auto" #ens [formControl]="stateCtrl">
+                                    </md-input-container>
+                                    <md-autocomplete #auto="mdAutocomplete">
+                                        <md-option *ngFor="let state of filteredStates | async" [value]="state">
+                                            {{ state }}
+                                        </md-option>
+                                    </md-autocomplete>
+                                </div>
+                                <div class="col-md-12">
+                                    <md-input-container>
+                                        <input mdInput placeholder="Salles" [mdAutocomplete]="auto" #salle [formControl]="stateCtrl">
+                                    </md-input-container>
+                                    <md-autocomplete #auto="mdAutocomplete">
+                                        <md-option *ngFor="let state of filteredStates | async" [value]="state">
+                                            {{ state }}
+                                        </md-option>
+                                    </md-autocomplete>
+                                </div>
+                                <div class="col-md-12" id="selectgroupe">
+                                    <angular2-multiselect [data]="groupsShow" [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onGroupSelect($event)" (onDeSelect)="OnItemDeSelect($event)"></angular2-multiselect>
+                                </div>
+
+                                <div class="col-md-12" id="btnValiderC">
+                                    <a target="_blank" class="btn btn-block col-md-4 bg-success text-white" (click)="addCreneau()" id="ValiderAff">Valider</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

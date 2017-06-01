@@ -1,0 +1,40 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <h6>Ajouter une nouvelle évaluation</h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating is-empty">
+                <label class="control-label">Evaluation</label>
+                <input type="text" class="form-control" #nom>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating is-empty">
+                <label class="control-label">Coefficient</label>
+                <input type="number" class="form-control" #poid>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating is-empty">
+                <button md-mini-fab (click)="ajouterEvaluation(nom.value, poid.value)" >
+                  <md-icon>add</md-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

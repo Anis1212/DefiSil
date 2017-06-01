@@ -1,8 +1,23 @@
-
-#rdvContainer
-{
-    height: 700px;
+#rdvContainer tbody tr{
+  cursor: pointer;
 }
+
+#pnlRight{
+  position: fixed;
+  right: 1%;
+}
+
+#rdvContainer tbody tr:hover{
+  background-color: #bdc3c7;
+}
+
+#rdvContainer tbody tr.selected{
+  background-color: #bdc3c7;
+}
+/*#rdvContainer*/
+/*{*/
+    /*height: 700px;*/
+/*}*/
 
 #divTest{
     height: 92%;
@@ -11,10 +26,10 @@
 
 }
 
-#details
-{
-    min-height: 700px;
-}
+/*#details*/
+/*{*/
+    /*min-height: 700px;*/
+/*}*/
 
 
 .media-body p

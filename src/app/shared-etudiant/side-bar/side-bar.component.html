@@ -1,0 +1,20 @@
+<div class="logo">
+    <a href="#" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/student.ico" />
+        </div>
+        espace {{userType}}
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div class="nav-container">
+        <ul class="nav" *ngFor="let item of element;let i=index;">
+            <li>
+                <a routerLink="{{element[i].link}}">
+                    <i class="material-icons">{{element[i].icon}}</i>
+                    <p>{{element[i].name}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

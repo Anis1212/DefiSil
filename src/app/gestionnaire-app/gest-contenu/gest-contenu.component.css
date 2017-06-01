@@ -1,0 +1,113 @@
+#AnneeConteneur md-select.mat-select{
+  width: 100% !important ;
+  margin: 30px 0px 30px 0px !important;
+}
+
+
+#SelectionConteneur
+{
+  min-height: 380px;
+}
+#SelectionConteneur md-select.mat-select{
+  width: 100% !important ;
+  margin: 20px 0px 30px 0px !important;
+}
+
+.btn .material-icons
+{
+  font-size: 20px !important;
+  border: none !important;
+}
+
+.btn.btn-primary.btn-simple
+{
+  color: #ff9800 !important;
+}
+.table .td-actions .btn
+{
+  border: none !important;
+  margin-top: 0px !important;
+  height: 35px !important;
+  width: 35px !important;
+
+}
+
+#tableModules tbody tr td:nth-child(1)
+{
+  color: red;
+}
+
+#DetailConteneur
+{
+  min-height: 550px;
+}
+
+.mat-input-underline
+{
+  border-top-style: none !important;
+}
+
+
+
+#hlisteEns .card-header
+{
+  background: linear-gradient(60deg, #ec407a, #d81b60);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  width: 60px;
+  height: 60px;
+  color: white;
+
+}
+
+#hlisteEns .card-content{
+  margin-top: -40px;
+}
+
+#hlisteEns h4.card-title
+{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+  color: #3C4858;
+  text-decoration: none;
+  margin-left: 30px;
+  margin-top: -10px;
+
+}
+#hlisteEns
+{
+  background: rgba(0, 172, 193, 0.1);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 172, 193, 0.2);
+
+}
+
+form div.col-md-2 button
+{
+  margin-top: -20px;
+
+}
+
+form >div.row >div
+{
+  padding-top: 0px;
+}
+
+#CbtnSubmit
+{
+  bottom: 20px;
+  position: absolute;
+  right: 10px;
+}
+
+#CbtnSubmit button
+{
+  background: linear-gradient(60deg, #ec407a, #d81b60);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  color: white;
+}
+
+
+.card .card-content{
+
+  padding-bottom:0;
+}

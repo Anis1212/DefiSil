@@ -647,6 +647,11 @@ h2.title {
 .off-canvas-sidebar.has-image:after {
   opacity: .77;
 }
+.sidebar[data-color="bleu"] .moving-tab,
+ .off-canvas-sidebar[dara-color="bleu"] .moving-tab{
+  background: linear-gradient(248deg, #348ac7, #7474bf);
+  box-shadow: 0 12px 20px -10px rgba(85, 85, 85, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(85, 85, 85, 0.2);
+}
 .sidebar[data-color="blue"] .moving-tab,
 .off-canvas-sidebar[data-color="blue"] .moving-tab {
   background-color: #00bcd4;
@@ -700,7 +705,7 @@ h2.title {
   transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 .main-panel .main-content {
-  margin-top: 70px;
+  /*margin-top: 70px;*/
   padding: 30px 15px;
   min-height: calc(100% - 123px);
 }

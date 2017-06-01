@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header card-chart" data-background-color="red">
+                    <div class="ct-chart" id="completedTasksChart">
+                        <img src="../../assets/img/releve.png" alt="">
+                    </div>
+                </div>
+                <div class="card-content" style="text-align: center;">
+                    <h4 class="title">Ton Dernier Relevé de notes</h4>
+                    <p class="category">Consulter ton dernier relevé de notes</p>
+                    <a class="btn btn-black btn-round btn-xs" style="color:aliceblue;text-align: center;" routerLink="/app-etudiant/releve-notes">Consulter</a>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i>dernière mise à jour y'a 4 mois
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header card-chart" data-background-color="red">
+                    <div class="ct-chart" id="completedTasksChart">
+                        <img src="../../assets/img/exam.png" alt="">
+                    </div>
+                </div>
+                <div class="card-content" style="text-align: center;">
+                    <h4 class="title">Le planning des examens</h4>
+                    <p class="category">Consulter le planning des examens</p>
+                    <a class="btn btn-black btn-round btn-xs" style="color:aliceblue;text-align: center;" routerLink="/app-etudiant/exams">Consulter</a>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i>dernière mise à jour y'a 2 semaines
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header card-chart" data-background-color="red">
+                    <div class="ct-chart" id="completedTasksChart">
+                        <img src="../../assets/img/note_perso.png" alt="">
+                    </div>
+                </div>
+                <div class="card-content" style="text-align: center;">
+                    <h4 class="title">Tes notes personnelles </h4>
+                    <p class="category">se rappeler de ses devoirs</p>
+                    <a class="btn btn-black btn-round btn-xs" style="color:aliceblue;text-align: center;" routerLink="/app-etudiant/notes-perso">Ajouter</a>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> devoir le plus proche reste 1 jour
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card" id="TempsContainer">
+                <div class="card-header" data-background-color="reds">
+                    <h4 class="title">Emploi du temps </h4>
+                </div>
+                <br/>
+                <div class="card-content table-responsive">
+                    <md-tab-group color="reds" style="padding-top: 20px;" #tabGroup (selectChange)="selectJour($event)">
+                        <md-tab [label]="jour" *ngFor="let jour of jours;let i = index">
+                            <table class="table" style=" text-align: center">
+                                <thead class="">
+                                    <tr style="text-align:centre" data-background-color="reds">
+                                        <th>08:30-09:30</th>
+                                        <th>09:35-10:35</th>
+                                        <th>10:40-11:40</th>
+                                        <th>13:00-14:00</th>
+                                        <th>14:05-15:05</th>
+                                        <th>15:10-16:10</th>
+                                        <th>16:15-17:15</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td *ngFor="let emp of emplois;let i = index">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <div><b>{{emplois[i].module}}</b></div>
+                                                    <div>{{emplois[i].enseignant}}</div>
+                                                    <div>{{emplois[i].type}}</div>
+                                                    <div>{{emplois[i].salle}}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </md-tab>
+                    </md-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

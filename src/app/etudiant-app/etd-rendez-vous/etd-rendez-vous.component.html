@@ -1,0 +1,96 @@
+<div class="alert alert-success etd-notification " *ngIf="notif==true" style="position: absolute;">
+    <div class="container-fluid">
+        <div class="alert-icon">
+            <i class="material-icons">check</i>
+        </div>
+        <b>{{message}}</b>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-4">
+            <a class="btn btn-black btn-lg" (click)="openAddDialog()" style="color:beige">Demander un rendez-vous</a>
+            <br/><br/><br/>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card" id="TempsContainer">
+                <div class="card-header" data-background-color="reds">
+                    <h4 class="title">Mes Rendez-vous </h4>
+                </div>
+                <br/>
+                <div class="card-content table-responsive">
+                    <md-tab-group color="reds" style="padding-top: 20px;" #tabGroup (selectChange)="selectEtat($event)">
+                        <md-tab label="Demandé">
+                            <table class="table">
+                                <thead class="text-danger">
+                                    <tr style="text-align:centre" data-background-color="reds">
+                                        <th>Enseignant</th>
+                                        <th>Motif</th>
+                                        <th>Gérer vos Rendez-vous</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="col-md-12" *ngFor="let res of rdvDemande; let i=index; trackBy:trackFn;">
+                                <div class="table-responsive">
+                                    <h5 class="col-md-2">{{rdvDemande[i].Enseignant}}</h5>
+                                    <h5 class="col-md-offset-1 col-md-2 col-md-offset-1">{{rdvDemande[i].Motif}}</h5>
+                                    <div class="col-md-offset-2">
+                                        <button type="button" rel="tooltip" title="Edit" (click)="openEditDialog(i)" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" title="Remove" (click)="openDeleteDialog(i)" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </md-tab>
+                        <md-tab label="Accepté">
+                            <table class="table">
+                                <thead class="text-danger">
+                                    <tr style="text-align:centre" data-background-color="reds">
+                                        <th>Enseignant</th>
+                                        <th>Date</th>
+                                        <th>Lieu</th>
+                                        <th>Motif</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="col-md-12" *ngFor="let res of rdvProgramme; let i=index; trackBy:trackFn;">
+                                <div class="table-responsive">
+                                    <h5 class="col-md-12 col-md-1">{{res.Enseignant}}</h5>
+                                    <h5 class="col-md-offset-3 col-md-12 col-md-2">{{res.Date}}</h5>
+                                    <h5 class="col-md-offset-1 col-md-12 col-md-2">{{res.Lieu}}</h5>
+                                    <h5 class="col-md-12 col-md-2">{{res.Motif}}</h5>
+                                </div>
+                            </div>
+
+                        </md-tab>
+
+                        <md-tab label="Annulé">
+                            <table class="table">
+                                <thead class="text-danger">
+                                    <tr style="text-align:centre" data-background-color="reds">
+                                        <th>Enseignant</th>
+                                        <th>Motif</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="col-md-12" *ngFor="let res of rdvAnnule; let i=index; trackBy:trackFn;">
+                                <div class="table-responsive">
+                                    <h5 class="col-md-1">{{res.Enseignant}}</h5>
+                                    <h5 class="col-md-offset-6 col-md-2">{{res.Motif}}</h5>
+                                </div>
+                            </div>
+
+                        </md-tab>
+                    </md-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="col-md-12">
+                <div class="card">
+                    <form action="" id="RegisterValidation" method="">
+                        <div class="card-header card-header-icon" data-background-color="rose">
+                          <h4>  Ajouter un enseignant</h4>
+                        </div>
+                        <div class="card-content">
+                          <div class="row">
+                            <div class="form-group label-floating is-empty col-md-12">
+                                <label class="control-label">
+                                    Nom
+                                    <span class="star">*</span>
+                                </label>
+                                <input class="form-control" name="nom" required="true" type="text" [(ngModel)]="ens_nom">
+                            <span class="material-input"></span></div>
+
+                              <div class="form-group label-floating is-empty col-md-12">
+                                <label class="control-label">
+                                    Prénom
+                                    <span class="star">*</span>
+                                </label>
+                                <input class="form-control" name="prenom" required="true" type="text" [(ngModel)]="ens_prenom">
+                            <span class="material-input"></span></div>
+                          </div>
+
+                                 <div class="row">
+                            <div class="form-group label-floating is-empty col-md-12">
+                                <label class="control-label">
+                                    Téléphone
+                                    <span class="star">*</span>
+                                </label>
+                                <input class="form-control" name="tel" required="true" type="number" [(ngModel)]="ens_tel">
+                            <span class="material-input"></span></div>
+
+                              <div class="form-group label-floating is-empty col-md-12">
+                                <label class="control-label">
+                                    Email
+                                    <span class="star">*</span>
+                                </label>
+                                <input class="form-control" name="email" required="true" type="email" [(ngModel)]="ens_email">
+                            <span class="material-input"></span></div>
+                          </div>
+
+
+                                 <div class="row">
+                            <div class="form-group label-floating is-empty col-md-12">
+                                <label class="control-label">
+                                    Nombre maximal de salle à réserver en meme temps
+                                    <span class="star">*</span>
+                                </label>
+                                <input class="form-control" name="nbrSalles" required="true" type="number" [(ngModel)]="ens_nbrSalle">
+                            <span class="material-input"></span></div>
+
+
+                          </div>
+
+                            <div class="form-footer text-right">
+                                <button class="btn btn-rose btn-fill" (click)="ajouterEns()">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>

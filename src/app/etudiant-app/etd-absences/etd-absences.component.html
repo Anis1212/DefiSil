@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+
+
+            <div class="col-md-12">
+                <div class="card" id="TempsContainer">
+                    <div class="card-header" data-background-color="reds">
+                        <h4 class="title">Mes Absences </h4>
+                    </div>
+                    <br/>
+                    <div class="card-content table-responsive">
+                        <md-tab-group color="reds" style="padding-top: 20px;" #tabGroup (selectChange)="selectModule($event)">
+                            <md-tab [label]="module.name" *ngFor="let module of modules;let i = index">
+                                <table class="table">
+                                    <thead class="text-danger">
+                                        <tr style="text-align:centre" data-background-color="reds">
+                                            <th>la date</th>
+                                            <th>seance</th>
+                                            <th>Justifié</th>
+                                            <th>justification</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div style="text-align:centre" class="card col-md-12" *ngFor="let res of result; let i=index">
+                                    <div class="card-content table-responsive">
+                                        <h5 class="col-md-1">{{res.date}}</h5>
+                                        <h5 class="col-md-offset-2 col-md-2">{{res.seance}}</h5>
+                                        <h5 class="col-md-2">{{res.justifie}}</h5>
+                                    </div>
+                                </div>
+
+                            </md-tab>
+                        </md-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

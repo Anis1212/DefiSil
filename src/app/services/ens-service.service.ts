@@ -1,17 +1,35 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import { Http, Headers } from "@angular/http";
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {Subject} from "rxjs/Subject";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class EnsServiceService {
 
   private result;
-  private urlServeur = 'https://us-central1-prj2cssil.cloudfunctions.net/';
+  private urlServeur = 'https://us-central1-prj2cssil2.cloudfunctions.net';
   private urlBDD = 'https://prj2cssil.firebaseio.com';
-
+  private dataSaisieNote = new Subject<any>();
+  public module = [];
+  public evaluations = [];
+  node$ = this.dataSaisieNote.asObservable();
 
   constructor( private http : Http, private fire : AngularFire) {}
 
+  /**
+   * Renvoie la date courrante
+   * @returns {string}
+   */
+  getCurrentDate(){
+    return Date();
+    // var d = new Date();
+    // var month = d.getMonth()+1;
+    // var day = d.getDate();
+    // return (day<10 ? '0' : '') + day + '/' +
+    //   (month<10 ? '0' : '') + month + '/'
+    //   + d.getFullYear();
+  }
   /**
    * Récupère les spécialité d'une année
    * @param annee
@@ -28,7 +46,7 @@ export class EnsServiceService {
    * @returns {Observable<Response>}
    */
   getGroupes(module : String){
-    return this.http.get(this.urlServeur+'/getGroupesModule?module='+module);
+    return this.http.get(this.urlServeur+'/getGroupesModule?module='+module+'&annee=2CS');
   }
 
   /**
@@ -66,8 +84,8 @@ export class EnsServiceService {
    * @param evaluation
    * @returns {Observable<Response>}
    */
-  getNotesEtudiants(annee : string, semestre : string, specialite : string ,moduleCode : string, evaluation : string){
-    return this.http.get(this.urlBDD+'/evaluation/'+annee+'/S'+semestre+'/'+specialite+'/'+moduleCode+'/'+evaluation+'/ligne_note.json');
+  getNotesEtudiants(spec, module, type){
+    return this.http.get(this.urlServeur+'/listeNotes?module='+module+'&type='+type+'&specialite='+spec);
   }
 
   /**
@@ -116,7 +134,11 @@ export class EnsServiceService {
    * @returns {Observable<Response>}
    */
   setAbs(idSeance : String, etd_email :String, date : String, module : String){
-    return this.http.get(this.urlServeur+'/addAbsence?idSeance='+idSeance+'&etudiant='+etd_email+'&date='+date+'&module='+module);
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(this.urlServeur+'/addAbsence?idSeance='+idSeance+'&etudiant='+etd_email+'&date='+date+'&module='+module, {
+      headers : header
+    });
   }
 
   /**
@@ -140,6 +162,86 @@ export class EnsServiceService {
   }
 
   /**
+   * récupère l'ensebmle des évalation
+   * @param module
+   * @returns {Observable<Response>}
+   */
+  getEvalModule(module : String){
+    return this.http.get(this.urlServeur+'/getEvaluations?module='+module);
+  }
+
+  /**
+   * Un service pour la récuperation de la liste des évaluation du module en selection
+   * @param data
+   */
+  transferEvalSaisieNotes(data: any){
+    this.evaluations = data;
+    this.dataSaisieNote.next(data);
+  }
+
+  /**
+   * Un service pour stocker le module en selection
+   * @param data
+   */
+  transferModuleSaisieNotes(data : any){
+    this.module = data;
+  }
+
+  /**
+   * Récupère la liste des évaluation du module en selection
+   * @returns {Array}
+   */
+  getEvalValues(){
+    return this.evaluations;
+  }
+
+  /**
+   * Récupère le module en selection
+   * @returns {Array}
+   */
+  getModuleValue(){
+    return this.module;
+  }
+
+  /**
+   * Ajoute une évaluation au module en selection
+   * @param annee
+   * @param module
+   * @param specialite
+   * @param groupe
+   * @param evalNom
+   * @param evalPoids
+   * @returns {Observable<Response>}
+   */
+  ajouterEvaluation(annee : String, module : String, specialite : String, groupe : String, evalNom : String, evalPoids : String){
+    let data = {
+      "annee" : annee,
+      "module" : module,
+      "specialité" : specialite,
+      "type" : evalNom,
+      "poids" : evalPoids,
+      "groupe" : groupe
+    };
+    return this.http.post(this.urlServeur+'/gestEvaluation?action=add',data);
+  }
+
+  /**
+   * Récupère les rendez-vous d'un enseignant donné
+   * @param ens_email
+   * @returns {Observable<Response>}
+   */
+  getRendezVous(ens_email : String){
+    return this.http.get(this.urlServeur+'/getRendezVous?enseignant='+ens_email);
+  }
+
+  updateRdv(id, data){
+    let header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.urlServeur+'/gestRendezVous?action=update&id='+ id,data,{
+      headers : header
+    });
+  }
+  /**
    * Transforme un objet JSON en un tableau d'objets
    * @param json
    * @returns {Array}
@@ -152,4 +254,10 @@ export class EnsServiceService {
     });
     return result;
   }
+
+  setNotes(etd, module, type, spec, groupe){
+    return this.http.post(this.urlServeur+'/updateNote?module='+module+'&type='+type+'&specialite='+spec+'&groupe=1', etd);
+  }
+
+
 }

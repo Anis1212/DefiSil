@@ -1,0 +1,185 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-5">
+        <div class="col-md-12">
+          <div class="card" id="AnneeConteneur">
+            <div class="card-header" data-background-color="blue">
+              <h4 class="title">Année scolaire</h4>
+            </div>
+            <div class="card-content table-responsive" >
+              <div class="col-md-5" style="margin-top: -20px;">
+                <md-select placeholder="Année scolaire" required="true" (change)="onChangeAnnee($event)">
+                  <md-option [value]="1">1CPI</md-option>
+                  <md-option [value]="2">2CPI</md-option>
+                  <md-option [value]="3">1CS</md-option>
+                  <md-option [value]="4">2CS</md-option>
+                  <md-option [value]="5">3CS</md-option>
+                </md-select>
+              </div>
+              <div class="col-md-5" style="margin-top: -20px;">
+                <md-select placeholder="Semestre" required="true" [(ngModel)]="semestre">
+                  <md-option [value]="1">1</md-option>
+                  <md-option [value]="2">2</md-option>
+                </md-select>
+              </div>
+              <div class="col-md-2" id="validerFiltre">
+                <button  md-mini-fab (click)="afficherModules()">
+                  <md-icon>check</md-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card" id ="SelectionConteneur">
+            <div class="card-header" data-background-color="blue">
+              <h4 class="title">Liste des modules</h4>
+            </div>
+            <div class="card-content table-responsive" >
+              <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                  <table class="table table-hover col-md-12" id="tableModules">
+                    <thead>
+                    <tr>
+                      <th>Intitulé</th>
+                      <th>coefficient</th>
+                      <th>spécialité</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let module of listeModules; let i = index">
+                      <td>{{ module?.code }}</td>
+                      <td>{{ module?.coefficient }}</td>
+                      <td>{{ module?.specialite }}</td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task" (click)="afficherDetail(i)">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Remove" (click)="supprimerModule(module?.code, module?.specialite)">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card" id="DetailConteneur">
+          <div class="card-header" data-background-color="blue">
+            <div class="row">
+            <div class="col-md-10">
+              <h4 class="title">Détail du module / Création d'un module</h4>
+            </div>
+            <div class="col-md-2">
+              <button md-mini-fab (click)="initialiserChamps()" >
+                <md-icon>add</md-icon>
+              </button>
+            </div>
+            </div>
+          </div>
+          <div class="card-content table-responsive" >
+            <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Nom complet du module</label>
+                      <input type="text" class="form-control" required="true" [(ngModel)]="nomModule">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Abréviation</label>
+                      <input type="text" class="form-control" required="true" [(ngModel)]="codeModule">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group label-floating is-empty">
+                      <label class="control-label">Coefficient</label>
+                      <input type="number" class="form-control" required="true" [(ngModel)]="coeffModule">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4" *ngIf="annee == '2CS' || annee == '3CS' ">
+                    <div class="form-group label-floating is-empty">
+                      <md-select placeholder="Spécialité" required="false" [(ngModel)]="specialite">
+                        <md-option *ngFor="let spec of specialites" [value]="spec">{{ spec }}</md-option>
+                      </md-select>
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group label-floating is-empty">
+                      <label class="control-label">Volume Horraire des TD's</label>
+                      <input type="number" class="form-control" [(ngModel)]="VHTD">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group label-floating is-empty">
+                      <label class="control-label">Volume Horraire des cours</label>
+                      <input type="number" class="form-control" [(ngModel)]="VHC">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8" style="margin-top: -20px;">
+                    <div class="card" id="hlisteEns">
+                      <div class="card-header card-header-icon" >
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      <div class="card-content">
+                        <div class="col-md-12">
+                          <div class="col-md-10">
+                            <h6 class="card-title "> Enseignants affectés au module</h6>
+
+                          </div>
+                          <div class="col-md-2">
+                            <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" (click)="openAffEnsDialog()" data-original-title="Gestion des affectations">
+                              <i class="material-icons">edit</i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead style="color: #00acc1;">
+                              <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let ens of ensModule">
+                                  <td> {{ ens.nom }}</td>
+                                  <td>{{ ens.prenom }}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4" id="CbtnSubmit" >
+                    <button class="btn btn-default pull-right" (click)="ajouterModule()">Sauvgarder</button>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

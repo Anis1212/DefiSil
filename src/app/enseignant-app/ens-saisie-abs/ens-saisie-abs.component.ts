@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Response} from "@angular/http";
 
 import {EnsServiceService} from "../../services/ens-service.service";
+import {current} from "codelyzer/util/syntaxKind";
 
 @Component({
   selector: 'app-ens-saisie-abs',
@@ -15,7 +16,7 @@ export class EnsSaisieAbsComponent implements OnInit {
   private groupeSlct;
   private jour;
   private date;
-  private ens_email = 'k_chebieb@esi.dz';
+  private ens_email=localStorage.getItem("userEmail");
 
   private jours = [
     "Dimanche",
@@ -31,12 +32,17 @@ export class EnsSaisieAbsComponent implements OnInit {
   private modules = [];
   private listeEtudiants = [];
   private listeEtudiantsAbs = [];
+  private currentDate;
 
   constructor(private ens_service : EnsServiceService) {
 
   }
 
   ngOnInit() {
+    //Récuperer la date d'aujourd'hui
+    this.currentDate = this.ens_service.getCurrentDate();
+    console.log('date', this.currentDate);
+
     this.ens_service.getModules(this.ens_email).subscribe(
       (data : any) => {
         data[0].modules.splice(0,1);
@@ -115,6 +121,8 @@ export class EnsSaisieAbsComponent implements OnInit {
       .subscribe(
         (date : Response) => {
           console.log(date);
+          etudiant.nbrAbs = etudiant.nbrAbs + 1;
+          console.log(etudiant);
           this.getListeEtudiants();
         }
       )});

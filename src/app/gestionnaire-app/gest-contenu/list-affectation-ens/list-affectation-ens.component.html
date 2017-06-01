@@ -1,0 +1,88 @@
+<div class="card" id="AffectationConteneur">
+    <div class="card-header" data-background-color="bleu">
+        <h4 class="title">Affectation des enseignats au modue</h4>
+    </div>
+    <div class="card-content table-responsive" id="MainC">
+        <div class="col-md-12" style="margin-top: 2%;">
+            <div class="col-md-5" style="margin-top:-20px">
+                <div class="card" id="hlisteEns">
+                    <div class="card-header card-header-icon">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <h5 class="card-title ">Enseignants non affectés </h5>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead style="color: #00acc1;">
+                                        <tr>
+                                            <th>Nom </th>
+                                            <th>Prénom</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let ens of listeEns">
+                                        <td>{{ ens?.nom }}</td>
+                                        <td>{{ ens?.prenom }}</td>
+                                        <td>
+                                          <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" [(ngModel)]=ens.checked></label></div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" id="MiddleC">
+                <div class="text-primary"> {{ module }}</div>
+                <a target="_blank" class="btn btn-block" id="btnAjout" (click)="affecterEns()">Ajouter></a>
+                <a target="_blank" class="btn btn-block" (click)="retirerEns()">
+                    < Retirer</a>
+            </div>
+            <div class="col-md-5" style="margin-top: -20px;">
+                <div class="card" id="hlisteEns">
+                    <div class="card-header card-header-icon">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <div class="card-content">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <h5 class="card-title ">Enseignants affectés </h5>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead style="color: #00acc1;">
+                                        <tr>
+                                            <th>Nom </th>
+                                            <th>Prénom</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let ensAff of ensModuleAff">
+                                        <td>{{ ensAff?.nom }}</td>
+                                        <td>{{ ensAff?.prenom }}</td>
+                                        <td>
+                                          <div class="checkbox"><label><input type="checkbox" name="optionsCheckboxes" [(ngModel)]=ensAff.checked></label></div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a target="_blank" class="btn btn-block col-md-4 bg-success text-white" id="ValiderAff" (click)="valider()">Valider</a>
+    </div>
+</div>

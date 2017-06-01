@@ -1,0 +1,54 @@
+
+table 
+{
+    margin-top: 5px;
+    margin-bottom: 20px !important;
+    
+}
+
+
+ .main-content
+  {
+      width: 700px;
+      height: 600px;
+  }
+
+#btnAjoutSection
+{
+    width: 100px;
+    float: right ;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px !important;
+}
+
+input
+{
+    font-size: 16px;
+}
+
+td {
+    border-right: none !important;
+    border-left: none !important;
+    vertical-align: middle !important;
+    padding: 12px 8px !important;
+    
+}
+
+
+.btn i
+{
+    border: none !important;
+    margin-top: 0px !important;
+    height: 35px !important;
+    width: 35px !important;
+    font-size: 20px !important;
+}
+

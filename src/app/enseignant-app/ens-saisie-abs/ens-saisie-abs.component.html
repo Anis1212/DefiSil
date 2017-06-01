@@ -10,9 +10,8 @@
                     <div class="card-content table-responsive " id="filtresConteneur">
                         <div class="col-md-11">
                             <div class="col-md-4" id="datePicker">
-                                <md2-datepicker (change)="onChangeDate($event)"></md2-datepicker>
+                                <md2-datepicker [(ngModel)]="currentDate" (change)="onChangeDate($event)"></md2-datepicker>
                             </div>
-
                             <div class="col-md-8">
                                 <div class="col-md-4">
                                     <md-select placeholder="Module" [(ngModel)]="moduleSlct" (change)="onChangeModule($event)">
@@ -28,7 +27,7 @@
                                         </md-option>
                                     </md-select>
                                 </div>
-                                <div class="col-md-4" >
+                                <div class="col-md-4">
                                     <md-select placeholder="Groupe" (change)="onChangeGroupe($event)">
                                         <md-option *ngFor="let groupe of groupes" [value]="groupe">
                                             {{ groupe }}
@@ -38,9 +37,9 @@
                             </div>
                         </div>
                         <div class="col-md-1">
-                            <button md-fab (click)="getListeEtudiants()" >
-                                <md-icon>check</md-icon>
-                            </button>
+                            <button md-fab (click)="getListeEtudiants()">
+                <md-icon>check</md-icon>
+              </button>
                         </div>
                     </div>
                 </div>
@@ -51,29 +50,31 @@
                         <h4 class="title">Liste des étudiants</h4>
                     </div>
                     <div class="card-content table-responsive">
-                         <table class="table">
-                              <thead class="text-black">
-                                  <tr>
-                                      <th>#</th>
-                                      <th>Matricule</th>
-                                      <th>Nom</th>
-                                      <th>Prénom</th>
-                                      <th>Absent(e)</th>
-                                      <th>Nombre d'absences</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor="let etudiant of listeEtudiants; let i = index">
-                                      <td>{{ i+1 }}</td>
-                                      <td>{{ etudiant?.matricule }}</td>
-                                      <td>{{ listeEtudiants[i]?.nom }}</td>
-                                      <td>{{ etudiant?.prenom }}</td>
-                                      <td><md-checkbox class="example-margin" [(ngModel)]=etudiant.checked></md-checkbox></td>
-                                      <td>{{ etudiant?.nbrAbs }}</td>
-                                  </tr>
-                              </tbody>
-                         </table>
-                         <div align="right">
+                        <table class="table">
+                            <thead class="text-black">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Absent(e)</th>
+                                    <th>Nombre d'absences</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let etudiant of listeEtudiants; let i = index">
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ etudiant?.matricule }}</td>
+                                    <td>{{ listeEtudiants[i]?.nom }}</td>
+                                    <td>{{ etudiant?.prenom }}</td>
+                                    <td>
+                                        <md-checkbox class="example-margin" [(ngModel)]=etudiant.checked></md-checkbox>
+                                    </td>
+                                    <td>{{ etudiant?.nbrAbs }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right">
                             <a class="btn btn-default" style="right: 0" (click)="validerListeAbs()">Valider</a>
                         </div>
                     </div>

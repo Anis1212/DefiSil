@@ -1,0 +1,52 @@
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card">
+               <div class="card-header" data-background-color="orange">
+                  <h4 class="title">Gestion des sections</h4>
+               </div>
+               <div class="card-content">
+                  <div class="col-md-12">
+                     <div class="col-md-5" style="padding-left:0px;">
+                        <input placeholder="Nom de la séction"/>
+                     </div>
+                     <div class="col-md-1" style="padding: 0px;">
+                        <button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <table id="example" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                        <tbody>
+                           <tr *ngFor="let section of sections; let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+                           <td>{{section.nomSection}}</td>
+                           <td class="td-actions text-right">
+                              <button  type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task">
+                              <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Remove">
+                              <i class="material-icons">close</i>
+                              </button>
+                           </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="col-md-6">
+                     Selected Row : <strong>{{selectedRow}}</strong>
+                  </div>
+                  <div class="col-md-6">
+                     <div>Section selectionnée</div>
+                     <div class="col-md-10">
+                        <input name="sectionModifiée"/>
+                     </div>
+                     <div class="col-md-2">
+                        <button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

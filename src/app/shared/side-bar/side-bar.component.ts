@@ -19,12 +19,12 @@ export class SideBarComponent {
   }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('#side-bar li').click(function () {
-        $('#side-bar li').removeClass("active");
-        $(this).addClass("active");
-      })
-    });
+    // $(document).ready(function(){
+    //   $('#side-bar li').click(function () {
+    //     $('#side-bar li').removeClass("active");
+    //     $(this).addClass("active");
+    //   })
+    // });
 
 
   }

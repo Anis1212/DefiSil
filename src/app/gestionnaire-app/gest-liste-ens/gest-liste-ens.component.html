@@ -1,0 +1,89 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-md-8">
+        <div class="card" id ="ListEnsConteneur">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title"> Liste des enseignants</h4>
+          </div>
+          <div class="card-content table-responsive" >
+            <div class="col-md-12" style="margin-top: 0px;">
+              <div class="col-md-5">
+                <a  target="_blank" class="btn btn-default btn-block" (click)="openFormEns()"  >
+                  Ajouter un enseignant
+                  <div class="ripple-container"></div>
+                </a>
+              </div>
+              <div class="col-md-7">
+                <div class="col-md-6">
+                  <a target="_blank" class="btn btn-default btn-block ">
+                    Importer
+                    <div class="ripple-container"></div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                  <a target="_blank" class="btn btn-default btn-block  ">
+                    Exporter
+                    <div class="ripple-container"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12" >
+              <div class="card-content">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="profile">
+                    <table class="table table-hover col-md-12" id="tableEns">
+                      <thead>
+                      <tr>
+                        <th class="col-md-2" >Nom</th>
+                        <th class="col-md-3" >Prénom</th>
+                        <th class="col-md-3" >Email</th>
+                        <th class="col-md-4" >Nbr salles</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let ens of listeEnseignant; let i = index" (click)="afficherModuleEns(i)">
+                        <td class="col-md-2" >{{ ens?.nom }}</td>
+                        <td class="col-md-3" >{{ ens?.prenom }}</td>
+                        <td class="col-md-4" >{{ ens?.email }}</td>
+                        <td class="col-md-1" >{{ ens?.nbMaxSeances }}</td>
+
+                        <td class="td-actions text-right col-md-2">
+                          <button type="button" rel="tooltip" title="" class="btn btn-primary btn-simple btn-xs" data-original-title="Edit Task" (click)="updateEns(ens?.email)">
+                            <i class="material-icons">edit</i>
+                          </button>
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Remove" (click)="delEns(ens?.email)">
+                            <i class="material-icons">close</i>
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" id="listeModules" >
+          <div class="card-header" data-background-color="red">
+            <h4 class="title"> Modules enseignés </h4>
+          </div>
+          <div class="card-content table-responsive">
+            <h4 *ngIf="modulesEns==null" style="text-align: center;">La liste est vide</h4>
+            <table class="table">
+              <tbody>
+              <tr *ngFor="let module of modulesEns">
+                <td>{{ module }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
