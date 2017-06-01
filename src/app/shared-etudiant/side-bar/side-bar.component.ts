@@ -14,9 +14,13 @@ export class SideBarComponent implements OnInit {
   sides:RoutesComponent = new RoutesComponent();
   element:any = this.sides.GetSideBareRoutes("gestionnaire");
   espace:String = "Espace Enseignant";
+  pohtoUrl :String = localStorage.getItem("userPhoto");
+  userType :String = localStorage.getItem("userType");
 
   ngOnInit() {
+    console.log(this.pohtoUrl);
       $.getScript('../../../assets/js/material-dashboard-angular.js');
+
   }
 
 

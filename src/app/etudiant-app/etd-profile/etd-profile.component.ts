@@ -11,12 +11,14 @@ import { LoginComponent } from "../../login/login.component";
 export class EtdProfileComponent implements OnInit {
   result = {};
   userName:String;
+  userPhoto:String;
 
   constructor(public etdProfileService:EtdProfileService) { }
 
 
     ngOnInit(){
         this.userName = localStorage.getItem("userEmail");
+        this.userPhoto = localStorage.getItem("userPhoto");
         this.etdProfileService.getEtudiant(this.userName)
          .subscribe(
              data => this.result = data[0]);

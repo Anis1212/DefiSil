@@ -11,7 +11,7 @@ import { GestEmpTempsService } from './gest-emp-temps.service';
 })
 export class GestEmpTempsComponent implements OnInit {
 
- 
+
 
   stateCtrl: FormControl;
   filteredStates: any
@@ -49,16 +49,16 @@ export class GestEmpTempsComponent implements OnInit {
 
     jours = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi'];
 
-    
-     constructor(private gestEmpTempsService:GestEmpTempsService) { 
+
+     constructor(private gestEmpTempsService:GestEmpTempsService) {
 
             this.stateCtrl = new FormControl();
             this.filteredStates = this.stateCtrl.valueChanges
                   .startWith(null)
                   .map(name => this.filterStates(name));
-      
+
     }
-        
+
          filterStates(val: string) {
     return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s))
                : this.states;
@@ -73,7 +73,7 @@ export class GestEmpTempsComponent implements OnInit {
                               {"id":"c4","itemName":"13:00-14:00"},
                               {"id":"c5","itemName":"14:05-15:05"},
                               {"id":"c6","itemName":"15:10-16:10"},
-                              {"id":"c7","itemName":"16:15-17:15"}                         
+                              {"id":"c7","itemName":"16:15-17:15"}
                             ];
         this.selectedItems = [
                                // {"id":2,"itemName":"Groupe3"},
@@ -83,22 +83,22 @@ export class GestEmpTempsComponent implements OnInit {
                                // {"id":2,"itemName":"Séance8"},
                             ];
 
-        this.dropdownSettings = { 
-                                  singleSelection: false, 
+        this.dropdownSettings = {
+                                  singleSelection: false,
                                   text:"Groupes",
                                   selectAllText:'Sélectionner tous',
                                   unSelectAllText:'Déselectionner tous',
                                   // enableSearchFilter: true
-                                };  
+                                };
 
 
-        this.dropdownSettingsCreno = { 
-                                  singleSelection: false, 
+        this.dropdownSettingsCreno = {
+                                  singleSelection: false,
                                   text:"Créneaux horaires",
                                   selectAllText:'Sélectionner tous',
                                   unSelectAllText:'Déselectionner tous',
                                   // enableSearchFilter: true
-                                };                                  
+                                };
     }
     onCreneauSelect(item){
         this.creneauxadd[item.id] = (item.id).substring(1,2);
@@ -119,7 +119,7 @@ export class GestEmpTempsComponent implements OnInit {
     }
 
     OnItemDeSelect(item){
-      
+
     }
 
 
@@ -129,7 +129,7 @@ export class GestEmpTempsComponent implements OnInit {
                  .subscribe(
                   data => {this.sectionsShow  = data;});
     }
-    
+
     onChangeSection($event){
         this.specialite = $event.value;
          if(this.annee == "2CS" || this.annee == "3CS"){
@@ -147,15 +147,17 @@ export class GestEmpTempsComponent implements OnInit {
                     console.log(this.groupsShow);});
     }
   }
-  
+
     addCreneau(){
          let objectToPost = {
                  annee:this.annee,
                  creneaux: this.creneauxadd,
                  enseignant :"ds_aktouche@esi.dz",
                  groupes : this.groupadd,
-                 module  : "module",
-                 salle : "A1" 
+                 module  : "TEST",
+                 salle : "A1" ,
+                 semestre :"2",
+                 type : "cours"
          }
          this.gestEmpTempsService.addCreneau(this.day,objectToPost)
           .subscribe(
@@ -168,6 +170,6 @@ export class GestEmpTempsComponent implements OnInit {
       this.day = $event.value;
       console.log($event.value);
     }
-    
+
 
 }

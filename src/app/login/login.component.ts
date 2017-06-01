@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
                  .subscribe(res => {
                    this.user_type = res;
                    localStorage.setItem("userType",this.user_type);
-                    this.router.navigate(['app-'+this.user_type]);
+                   this.router.navigate(['app-'+this.user_type]);
                  });
               }
       });

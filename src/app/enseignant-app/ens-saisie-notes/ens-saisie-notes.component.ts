@@ -11,7 +11,7 @@ import {EnsServiceService} from "../../services/ens-service.service";
 })
 export class EnsSaisieNotesComponent implements OnInit {
 
-  private ens_email = "ds_aktouche@esi.dz";
+  private ens_email = localStorage.getItem("userEmail");
   private anneeSlct;
   private specialiteSlct;
   private moduleSlct;
